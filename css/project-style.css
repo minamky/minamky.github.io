@@ -274,12 +274,12 @@ links
 	list-style: none;
 }
 
-@media (max-width:800px) {
+/*@media (max-width:800px) {
 	.links-and-contact {
 		grid-template-columns: 50% 50%;
 		width: auto;
 	}
-}
+}*/
 
 @media (max-width:650px) {
 	.links-and-contact {
