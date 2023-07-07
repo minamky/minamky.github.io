@@ -95,7 +95,7 @@ nav .icon {
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   nav a:not(:first-child) {display: none;}
   nav a.icon {
     float: right;
@@ -104,7 +104,7 @@ nav .icon {
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   nav.responsive {position: relative;}
   nav.responsive a.icon {
     position: absolute;
@@ -128,6 +128,12 @@ nav .icon {
 	scroll-snap-type: y mandatory;
 }
 
+@media (max-width:650px) {
+	.container {
+		scroll-snap-type: y mandatory;
+	}
+}
+
 
 
 .slides{
@@ -149,6 +155,15 @@ home
 
 
 */
+@media (max-width:800px) {
+	.profile-picture {
+		display: none;
+	}
+	.mina-picture{
+		display: none;
+	}
+}
+
 
 .profile-picture {
 	border-radius: 15px;
@@ -220,7 +235,6 @@ ABOUT ME
 
 */
 
-
 .title {
 	color: #1F2881;
 	font-size: 15px;
@@ -248,13 +262,8 @@ ABOUT ME
 .about-grid {
 	display: grid;
 	grid-template-columns: auto auto auto;
-	/*box-shadow: 0 4px 6px 0 rgb(34, 60 80, 0.16);
-	transition: all ease-in-out .2s;*/
 	padding: 50px
 }
-/*.about-grid:hover {
-	box-shadow:0 8px 12px 0 rgb(34, 60, 80, 0.16);
-}*/
 
 
 .i-am, .hobbies{
@@ -278,10 +287,15 @@ ABOUT ME
 	grid-gap: 25px;
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
 	.about-grid {
 		grid-template-columns: 100%;
+		padding: 0px;
 	}
+	.i-am > h3, .hobbies > h3{
+	padding: 10px ;
+	font-size: 25px;
+}
 }
 
 /*
@@ -340,8 +354,9 @@ projects
 }
 
 @media (max-width:650px) {
-	.projects-grid {
-		grid-template-columns: 100%;
+	.projects-image {
+		width: auto;
+		height: auto;
 	}
 }
 
@@ -366,6 +381,12 @@ links
 	border:5px solid #1F2881;
 	width: 750px;
 	height: 400px;
+}
+
+@media (max-width:650px) {
+	.links-and-contact {
+		grid-template-columns: 100%;
+	}
 }
 
 
@@ -398,9 +419,16 @@ links
 	list-style: none;
 }
 
-@media (max-width:650px) {
+@media (max-width:800px) {
 	.links-and-contact {
-		grid-template-columns: 100%;
+		grid-template-columns: 50% 50%;
+		width: auto;
+	}
+}
+
+@media (max-width:680px) {
+	.links-and-contact {
+		border:none;
 	}
 }
 

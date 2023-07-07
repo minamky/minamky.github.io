@@ -91,8 +91,7 @@ nav .icon {
   display: none;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   nav a:not(:first-child) {display: none;}
   nav a.icon {
     float: right;
@@ -101,7 +100,7 @@ nav .icon {
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   nav.responsive {position: relative;}
   nav.responsive a.icon {
     position: absolute;
@@ -114,7 +113,6 @@ nav .icon {
     text-align: left;
   }
 }
-
 
 .container {
 	width: 100%;
@@ -212,6 +210,11 @@ button {
 	color: #FBFBF1;
 }
 
+@media (max-width: 700px) {
+	.project-image {
+		display: none;
+	}
+}
 
 
 /*
@@ -270,11 +273,19 @@ links
 	list-style: none;
 }
 
-@media (max-width:650px) {
+@media (max-width:800px) {
 	.links-and-contact {
-		grid-template-columns: 100%;
+		grid-template-columns: 50% 50%;
+		width: auto;
 	}
 }
+
+@media (max-width:680px) {
+	.links-and-contact {
+		border:none;
+	}
+}
+
 
 form input, textarea {
 	padding: 5px;
