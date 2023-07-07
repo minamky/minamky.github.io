@@ -215,7 +215,12 @@ button {
 	.project-image{
 		display: none;
 	}
+	.description {
+		padding: 20px;
+	}
 }
+
+
 
 
 /*
