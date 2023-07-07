@@ -353,10 +353,12 @@ projects
 	transition: all ease-in-out .2s;
 }
 
-@media (max-width:650px) {
-	.projects-image {
-		width: auto;
-		height: auto;
+@media (max-width:600px) {
+	.projects-grid {
+		grid-template-columns: auto;
+	}
+	.hide {
+		display: none;
 	}
 }
 
@@ -426,6 +428,17 @@ links
 	}
 }
 
+@media (max-width:650px) {
+	.links-and-contact {
+		grid-template-columns: 100%;
+		width: auto;
+	}
+	.part {
+		padding-top: 0px;
+		padding-bottom: 20px;
+	}
+}
+
 @media (max-width:680px) {
 	.links-and-contact {
 		border:none;
@@ -470,7 +483,7 @@ form input[type="submit"]:hover {
 }
 
 .submit-button-wrapper {
-	margin: 20px 0;
+	margin: 10px 0;
 }
 
 hr {

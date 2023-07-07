@@ -92,8 +92,10 @@ nav .icon {
 }
 
 @media screen and (max-width: 700px) {
-  nav a:not(:first-child) {display: none;}
-  nav a.icon {
+  nav ul a:not (:first-child) {
+  	display: none;
+  }
+  nav ul a .icon {
     float: right;
     display: block;
   }
@@ -210,8 +212,8 @@ button {
 	color: #FBFBF1;
 }
 
-@media (max-width: 700px) {
-	.project-image {
+@media only screen and (max-width: 700px) {
+	.project-image{
 		display: none;
 	}
 }
