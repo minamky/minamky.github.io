@@ -92,10 +92,8 @@ nav .icon {
 }
 
 @media screen and (max-width: 700px) {
-  nav ul a:not (:first-child) {
-  	display: none;
-  }
-  nav ul a .icon {
+  nav a:not(:first-child) {display: none;}
+  nav a.icon {
     float: right;
     display: block;
   }
@@ -115,6 +113,7 @@ nav .icon {
     text-align: left;
   }
 }
+
 
 .container {
 	width: 100%;
@@ -282,6 +281,17 @@ links
 	}
 }
 
+@media (max-width:650px) {
+	.links-and-contact {
+		grid-template-columns: 100%;
+		width: auto;
+	}
+	.part {
+		padding-top: 0px;
+		padding-bottom: 20px;
+	}
+}
+
 @media (max-width:680px) {
 	.links-and-contact {
 		border:none;
@@ -337,13 +347,6 @@ hr {
 	margin-bottom: 72px;
 	margin-top: 20px;
 }
-
-/*
-
-project 1
-
-
-*/
 
 
 
