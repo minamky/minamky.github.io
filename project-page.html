@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href = "css/project-style.css">
+    <script defer src="node_modules/swup/dist/swup.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class = "navigation-bar">
+        <h4 id="logo-word">Mina Ky</h4>
+        <div class="contain">
+          <nav>
+            <ul>
+              <a href="index.html" class="active">Home</a>
+              <a href="index.html#aboutme">About Me</a>
+              <a href="index.html#projects">Projects</a>
+              <a href="#contact">Contact</a>
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="slides" id="slide1">
+        <img class="project-image image1" src="images/Project 1 Photo.png"/>
+        <div class=description>
+          <h2>Machine Learning College Admission Predictor</h2>
+          <h3>Webscraping, API, Data Cleaning, Data Visualizations, ML Models</h3>
+          <p>ML regression model for potential applicants to predict the admission rate for colleges that don't report and find similar colleges</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide2').scrollIntoView()">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide2>
+        <img class="project-image image2" src="images/ResearchQ.png"/>
+        <div class=description>
+          <h2>Data Cleaning, Collecting, Exploration</h2>
+          <h3></h3>
+          <p>After collecting the data from the College Scorecard API using certain params and fields into a dataframe, I merged it with an updated testing statistics dataframe to make my final merged data set</p>
+          <p>I webscrapped a chart of flagship colleges for their name, location, population into lists and formed it into a dataframe. Lastly, I merged this new dataframe with college demographics dataframe. </p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide3').scrollIntoView()">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="slide3">
+        <img class="project-image image3" src="images/ml.png"/>
+        <div class=description>
+          <h2>Machine Learning Models</h2>
+          <h3></h3>
+          <p>After collecting the data from the College Scorecard API using certain params and fields into a dataframe, I merged it with an updated testing statistics dataframe to make my final merged data set</p>
+          <p>I webscrapped a chart of flagship colleges for their name, location, population into lists and formed it into a dataframe. Lastly, I merged this new dataframe with college demographics dataframe. </p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('contact').scrollIntoView()">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="contact">
+        <div class="contact-content">
+          <h3 class="title">Contact Me</h3>
+          <div class="links-and-contact">
+            <div class="contact">
+              <form id="contact-form" actions="#">
+                <label for="name">
+                  <h4>Name</h4>
+                  <input id="name"/>
+                </label>
+                <label for="email">
+                  <h4>Email</h4>
+                  <input id="email" />
+                </label>
+                <label for="message">
+                  <h4>Message</h4>
+                  <textarea id="message"></textarea>
+                </label>
+                <div class="submit-button-wrapper">
+                  <input id="submit-button" type="submit" value="Send Message">
+                </div>
+              </form>
+            </div>
+
+            <div class="links">
+              <div class="part">
+                <h4>Email:</h4>
+                <a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+              </div>
+              <div class="part">
+                <h4>Based in:</h4>
+                <p>Mukilteo, WA</p>
+              </div>
+              <u1 class = "links-list">
+                <li>
+                  <a href="https://www.linkedin.com/in/minaky/"> <img class="link-image" href="https://www.linkedin.com/in/minaky/" src="images/linkedinwhite.png"/></a>
+                </li>
+                <li>
+                  <a href="https://www.https://github.com/minamky"> <img class="link-image" href="https://www.https://github.com/minamky" src="images/github-white.png"/></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/mina.ky/"> <img class="link-image" href="https://www.instagram.com/mina.ky/" src="images/instagram-white.png"/></a>
+                </li>
+              </u1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 

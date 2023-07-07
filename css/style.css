@@ -1,0 +1,456 @@
+*, html{
+	scroll-behavior: smooth !important;
+}
+
+@font-face {
+    font-family: 'new_kansasregular';
+    src: url('new_kansas_regular-webfont.woff2') format('woff2'),
+         url('new_kansas_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family: new_kansasregular, sans-serif;
+	color: #1F2881;
+	background: #FBFBF1;
+}
+
+
+.contain{
+	width:100%;
+	display:flex;
+	justify-content: flex-end;
+	margin-top: -20px;
+}
+
+
+#logo-word {
+	font-size: 20px;
+	margin-left: 45px;
+	color: #1F2881;;
+	padding-top: 30px;
+}
+
+.navigation-bar{
+	background-color: #FBFBF1;
+	height: 0px;
+}
+
+nav {
+	background: transparent;
+	border-block-width: 100%;
+/*	box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);*/
+	z-index: 2;
+	position: fixed;
+	padding-right: 3%;
+}
+
+nav ul a {
+	list-style: none;
+	display:inline-block;
+	padding: 0 40px;
+	font-size: 15px;
+	color: #1F2881;
+	cursor: pointer;
+	position:relative;
+	z-index: 3;
+	transition: color 0.5s;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+nav ul a::after {
+	content: '';
+	background: #1F2881;
+	width: 100%;
+	height: 40px;
+	border-radius: 2px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	opacity:0;
+	transition: top 0.5s, opacity 0.5s;
+
+}
+
+nav ul a:hover {
+	color: #FBFBF1;
+}
+
+nav ul a:hover::after{
+	top: 50%;
+	opacity: 1;
+}
+
+
+nav .icon {
+  display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  nav a:not(:first-child) {display: none;}
+  nav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  nav.responsive {position: relative;}
+  nav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+
+.container {
+	width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+}
+
+
+
+.slides{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+	scroll-snap-align: start;
+}
+
+
+
+/*
+
+
+home
+
+
+*/
+
+.profile-picture {
+	border-radius: 15px;
+	width:280px;
+	height:330px;
+	box-shadow: 0 4px 6px 0 rgb(34, 60 80, 0.16);
+	transition: all ease-in-out .2s;
+}
+
+.profile-picture:hover {
+	box-shadow:0 8px 12px 0 rgb(34, 60, 80, 0.16);
+}
+
+
+.intro {
+	max-width: 550px;
+	text-align: center;
+}
+
+#my-name {
+	font-size: 50px;
+	font-weight: bolder;
+}
+
+#my-title {
+	font-size: 22px;
+	font-weight: bold;
+
+}
+
+#paragraph {
+	margin-top: 30px;
+	margin-bottom: 45px;
+}
+
+.intro-buttons{
+	margin-left: 10%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+body button {
+	width: 150px;
+	background-color: #363C8C;
+	border-color: #363C8C;
+	color: #FBFBF1;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 8px;
+	font-family: new_kansasregular, sans-serif;
+	border-style: double;
+	border-width: 5px;
+	transition: all ease-in-out .2s;
+}
+
+body button:hover{
+	background-color: transparent;
+	border-color: #1F2881;
+	color: #1F2881;
+}
+
+
+
+/*
+
+ABOUT ME
+
+
+
+*/
+
+
+.title {
+	color: #1F2881;
+	font-size: 15px;
+	text-align: center;
+}
+
+.about-content{
+	text-align: center;
+	max-width: 5000px;
+}
+
+.mina-picture {
+	border-radius: 50%;
+	width:265px;
+	height:330px;
+	box-shadow: 0 4px 6px 0 rgb(34, 60 80, 0.16);
+	transition: all ease-in-out .2s;
+	margin-left: 60px;
+}
+
+.mina-picture:hover {
+	box-shadow:0 8px 12px 0 rgb(34, 60, 80, 0.16);
+}
+
+.about-grid {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	/*box-shadow: 0 4px 6px 0 rgb(34, 60 80, 0.16);
+	transition: all ease-in-out .2s;*/
+	padding: 50px
+}
+/*.about-grid:hover {
+	box-shadow:0 8px 12px 0 rgb(34, 60, 80, 0.16);
+}*/
+
+
+.i-am, .hobbies{
+	color: #FBFBF1;
+	padding: 20px 20px;
+}
+
+.i-am > h3, .hobbies > h3{
+	padding: 30px ;
+	font-size: 25px;
+}
+
+.i-am > ul, .hobbies > ul{
+	font-size: 18px;
+}
+
+.about-list{
+	display:grid;
+	grid-template-rows: auto auto auto;
+	list-style: none;
+	grid-gap: 25px;
+}
+
+@media (max-width:480px) {
+	.about-grid {
+		grid-template-columns: 100%;
+	}
+}
+
+/*
+
+projects
+
+
+*/
+
+#projects{
+	scroll-margin-top: 2rem;
+}
+
+.title {
+	font-size: 30px;
+	padding-bottom: 15px;
+}
+
+.projects-grid {
+	display:grid;
+	grid-template-columns: 50% 50%;
+}
+
+.project-image-wrapper {
+	justify-self: center;
+	padding: 4%;
+	position: relative;
+}
+.project-image {
+	width: 260px;
+	height: 260px;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px 0 rgba(34, 60, 80, 0.16);
+	transition: all ease in-out .2s;
+}
+
+.project-image:hover {
+	filter: brightness(.75);
+	box-shadow: 0 8px 12px 0 rgba(34,60,80,0.16);
+}
+
+.project-image-wrapper:hover > h4 {
+	visibility: visible;
+}
+
+.project-image-wrapper > h4 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: transparent;
+	transform: translate(-50%, -50%);
+	color: white;
+	visibility: hidden;
+	z-index: 2;
+	transition: all ease-in-out .2s;
+}
+
+@media (max-width:650px) {
+	.projects-grid {
+		grid-template-columns: 100%;
+	}
+}
+
+/*
+
+links
+
+
+*/
+
+.contact-content {
+	max-width: 700px;
+	border-color: #1F2881;
+	border-width: 5px;
+}
+
+.links-and-contact {
+	display:grid;
+	grid-template-columns: auto auto;
+	grid-gap: 50px;
+	padding: 50px;
+	border:5px solid #1F2881;
+	width: 750px;
+	height: 400px;
+}
+
+
+.part {
+	padding-top: 15px;
+	padding-bottom: 50px;
+}
+
+.part > h4{
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.part > a{
+	color: #1F2881;
+	text-decoration: none;
+}
+
+.link-image {
+	width: 30px;
+	height: 30px;
+	transition: all ease in-out .2s;
+}
+
+.link-image:hover {
+	filter: brightness(.80);
+}
+
+.links-list {
+	list-style: none;
+}
+
+@media (max-width:650px) {
+	.links-and-contact {
+		grid-template-columns: 100%;
+	}
+}
+
+form input, textarea {
+	padding: 5px;
+	width: 240px;
+	background-color: transparent;
+	color: gray;
+	border: none;
+	border-bottom: 1px solid #1F2881;
+}
+
+label h4 {
+	padding-top: 10px;
+}
+
+li {
+	display: inline;
+	padding-right: 10px;
+}
+
+
+form input[type="submit"] {
+	width: 240px;
+	background: #363C8C;
+	border-style: double;
+	border-color: #363C8C;
+	color: #FBFBF1;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 8px;
+	border-width: 5px;
+}
+
+form input[type="submit"]:hover {
+	background-color: transparent;
+	border-color: #1F2881;
+	color: #1F2881;
+}
+
+.submit-button-wrapper {
+	margin: 20px 0;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #27374D, rgba(0, 0, 0, 0));
+	margin-bottom: 72px;
+	margin-top: 20px;
+}
+
+
