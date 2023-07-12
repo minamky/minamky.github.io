@@ -138,8 +138,8 @@ nav .icon {
 	width: 500px;
 }
 
-.image2 {
-	width: 400px;
+.image2, .image4 {
+	width: 300px;
 }
 
 .image3 {
@@ -186,27 +186,27 @@ button {
 	color: #1F2881;
 }
 
-#slide2 button {
+#slide2 button, #slide4 button{
 	background-color: #FBFBF1;
 	border-color: #FBFBF1;
 	color: #1F2881;
 }
 
-#slide2 button:hover{
+#slide2 button:hover, #slide4 button:hover{
 	background-color: transparent;
 	border-color: #FBFBF1;
 	color: #FBFBF1;
 }
 
 
-#slide1, #slide3 {
+#slide1, #slide3, #contact {
 	background: #FBFBF1;
 	color: #1F2881;
 }
 
 
 
-#slide2, #contact{
+#slide2, #slide4{
 	background: #363C8C;
 	color: #FBFBF1;
 }
@@ -243,7 +243,7 @@ links
 	grid-template-columns: auto auto;
 	grid-gap: 50px;
 	padding: 50px;
-	border:5px double #FBFBF1;
+	border:5px double #1F2881;
 	width: 750px;
 	height: 400px;
 }
@@ -260,7 +260,7 @@ links
 }
 
 .part > a{
-	color: #FBFBF1;
+	color: #1F2881;
 	text-decoration: none;
 	font-size: 15px;
 }
@@ -279,12 +279,6 @@ links
 	list-style: none;
 }
 
-/*@media (max-width:800px) {
-	.links-and-contact {
-		grid-template-columns: 50% 50%;
-		width: auto;
-	}
-}*/
 
 @media (max-width:650px) {
 	.links-and-contact {
@@ -310,7 +304,7 @@ form input, textarea {
 	background-color: transparent;
 	color: #D5D5C5;
 	border: none;
-	border-bottom: 1px solid #FBFBF1;
+	border-bottom: 1px solid #1F2881;
 }
 
 label h4 {
@@ -325,10 +319,10 @@ li {
 
 form input[type="submit"] {
 	width: 240px;
-	background: #FBFBF1;
+	background: #1F2881;
 	border-style: double;
-	border-color: #FBFBF1;
-	color: #363C8C;
+	border-color: #1F2881;
+	color: #FBFBF1;
 	font-size: 15px;
 	font-weight: bold;
 	padding: 8px;
@@ -337,8 +331,8 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
 	background-color: transparent;
-	border-color: #FBFBF1;
-	color: #FBFBF1;
+	border-color: #1F2881;
+	color: #1F2881;
 }
 
 .submit-button-wrapper {
