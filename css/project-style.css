@@ -30,12 +30,12 @@
 #logo-word {
 	font-size: 20px;
 	margin-left: 45px;
-	color: #1F2881;;
+	color: #FBFBF1;;
 	padding-top: 30px;
 }
 
 .navigation-bar{
-	background-color: #FBFBF1;
+	background-color: #1F2881;
 	height: 0px;
 }
 
@@ -52,7 +52,7 @@ nav ul a {
 	display:inline-block;
 	padding: 0 40px;
 	font-size: 15px;
-	color: #1F2881;
+	color: #FBFBF1;
 	cursor: pointer;
 	position:relative;
 	z-index: 3;
@@ -63,7 +63,7 @@ nav ul a {
 
 nav ul a::after {
 	content: '';
-	background: #1F2881;
+	background: #FBFBF1;
 	width: 100%;
 	height: 40px;
 	border-radius: 2px;
@@ -78,7 +78,7 @@ nav ul a::after {
 }
 
 nav ul a:hover {
-	color: #FBFBF1;
+	color: #1F2881;
 }
 
 nav ul a:hover::after{
@@ -129,8 +129,8 @@ nav .icon {
 	align-items: center;
 	justify-content: center;
 	gap: 50px;
-	color: #1F2881;;
-	background: #FBFBF1;
+	color: #FBFBF1;;
+	background: #1F2881;
 	scroll-snap-align: start;
 }
 
@@ -175,40 +175,40 @@ button {
 	transition: all ease-in-out .2s;
 }
 #slide1 button,#slide3 button {
-	background-color: #1F2881;
-	border-color: #1F2881;
-	color: #FBFBF1;
-}
-
-#slide1 button:hover, #slide3 button:hover{
-	background-color: transparent;
-	border-color: #1F2881;
-	color: #1F2881;
-}
-
-#slide2 button, #slide4 button{
 	background-color: #FBFBF1;
 	border-color: #FBFBF1;
 	color: #1F2881;
 }
 
-#slide2 button:hover, #slide4 button:hover{
+#slide1 button:hover, #slide3 button:hover{
 	background-color: transparent;
 	border-color: #FBFBF1;
 	color: #FBFBF1;
 }
 
+#slide2 button, #slide4 button{
+	background-color: #1F2881;
+	border-color: #1F2881;
+	color: #FBFBF1;
+}
+
+#slide2 button:hover, #slide4 button:hover{
+	background-color: transparent;
+	border-color: #1F2881;
+	color: #1F2881;
+}
+
 
 #slide1, #slide3, #contact {
-	background: #FBFBF1;
-	color: #1F2881;
+	background: #363C8C;
+	color: #FBFBF1;
 }
 
 
 
 #slide2, #slide4{
-	background: #363C8C;
-	color: #FBFBF1;
+	background: #FBFBF1;
+	color: #1F2881;
 }
 
 @media only screen and (max-width: 700px) {
@@ -243,7 +243,7 @@ links
 	grid-template-columns: auto auto;
 	grid-gap: 50px;
 	padding: 50px;
-	border:5px double #1F2881;
+	border:5px double #FBFBF1;
 	width: 750px;
 	height: 400px;
 }
@@ -260,7 +260,7 @@ links
 }
 
 .part > a{
-	color: #1F2881;
+	color: #FBFBF1;
 	text-decoration: none;
 	font-size: 15px;
 }
@@ -304,7 +304,7 @@ form input, textarea {
 	background-color: transparent;
 	color: #D5D5C5;
 	border: none;
-	border-bottom: 1px solid #1F2881;
+	border-bottom: 1px solid #FBFBF1;
 }
 
 label h4 {
@@ -319,10 +319,10 @@ li {
 
 form input[type="submit"] {
 	width: 240px;
-	background: #1F2881;
+	background: #FBFBF1;
 	border-style: double;
-	border-color: #1F2881;
-	color: #FBFBF1;
+	border-color: #FBFBF1;
+	color: #1F2881;
 	font-size: 15px;
 	font-weight: bold;
 	padding: 8px;
@@ -331,8 +331,8 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
 	background-color: transparent;
-	border-color: #1F2881;
-	color: #1F2881;
+	border-color: #FBFBF1;
+	color: #FBFBF1;
 }
 
 .submit-button-wrapper {

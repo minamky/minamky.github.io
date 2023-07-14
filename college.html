@@ -45,14 +45,14 @@
             <div class="part1">
               <h3>01 Params</h3>
               <p>Restricted to only include predominantly undergraduate institutions</p>
-              <h3>02 Fields</h3>
-              <p>Deciding which fields to include (State, City, Enrollment Number)</p>
+              <h3>03 Loop Through Pages</h3>
+              <p>Over 2600 institutions present and a maximum of 100 colleges were shown per page, so I looped through all 26 pages and appended each college</p>
             </div>
             <div class="part1">
-              <h3>03 Loop Through Pages</h3>
-              <p>Over 2600 institutions and max 100 colleges per page. Loop through 26 pages and append each college to list</p>
+              <h3>02 Fields</h3>
+              <p>Included State, City, Enrollment Number fields</p>
               <h3>04 Create DataFrame from List</h3>
-              <p>df_colleges = pd.json_normalize(results)</p>
+              <p>Flattened a JSON with a nested list to flat table</p>
             </div>
           </div>
           <div class="learn-buttons">
@@ -78,11 +78,11 @@
         <div class="description">
           <h2>Webscraping Flagship Colleges</h2>
               <h3>Features</h3>
-              <p>Name, Location, Population appended into lists</p>
+              <p>Flagship colleges' name, location, population appended into lists from table</p>
               <h3>DataFrame</h3>
-              <p>Created df_flagship DataFrame using 3 lists</p>
+              <p>Created new dataframe using three lists</p>
               <h3>Merging Two Dataframes</h3>
-              <p>Merged new Dataframe with College Demographics Dataframe on left to only include flagship colleges</p>
+              <p>Merged new dataframe with college demographics dataframe on left to only include flagship colleges</p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide5').scrollIntoView()">Next</button>
           </div>
@@ -95,7 +95,8 @@
         <div class=description>
           <h2>Correlation Between Admission Rate & SAT Math </h2>
           <h3>Shown Across Different Accreditors</h3>
-          <p>Based on the location of the university, the accreditor will be different. While every graph shows a negative correlation, the strength of the correlation heavily varies. The strongest correlation are found in schools that are accredited by the New England Commission on Higher Education at -0.87 while the weakest correlation is from the Southern Association of Colleges at -0.29.</p>
+          <p>University accreditors depend on campus location. While every graph shows a negative correlation, the strength of the correlation heavily varies.</p>
+          <p>The strongest correlation are found in schools that are accredited by the New England Commission on Higher Education at -0.87 while the weakest correlation is from the Southern Association of Colleges at -0.29.</p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide6').scrollIntoView()">Next</button>
           </div>
@@ -107,8 +108,8 @@
         <div class=description>
           <h2>Choropleth for Elite Colleges</h2>
           <h3></h3>
-          <p>We defined elite colleges as colleges that had a lower than 30% acceptance rate and had a higher than a 690 75th Percentile SAT score for both Math and Critical Reading. We grouped by State FIP Code and used the count function to find the number of elite colleges in each state, and merged this with the state GeoDataFrame on State Fip Code. Changed vmin to -1 so colleges with no elite colleges will still appear.</p>
-          <p> On the map, the darker blue states have relatively more elite colleges while lighter blue colleges have no elite colleges. We can see there is a huge chunk of the United States in the top left that have no elite colleges. California and New York both have over 5 elite schools. The east coast in general has most of the elite colleges with the exception of California.</p>
+          <p>Defined elite colleges as colleges that had a lower than 30% acceptance rate and had a higher than a 690 75th Percentile SAT score for both Math and Critical Reading. Grouped by State FIP Code, used the count function to find the number of elite colleges in each state, and merged this with the state GeoDataFrame on State Fip Code. Lastly, changed vmin to -1 so colleges with no elite colleges will still appear.</p>
+          <p> On the map, the darker blue states have relatively more elite colleges while lighter blue colleges have no elite colleges. There is a huge chunk of the United States in the top left that have no elite colleges.</p>
           </p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide7').scrollIntoView()">Next</button>
@@ -121,8 +122,8 @@
         <div class=description>
           <h2>Dot Plot of Flagship Colleges</h2>
           <h3></h3>
-          <p>We limited the dots to only flagship colleges so we could compare the best colleges of each state. We created a geodataframe based on the flagship dataframe, set the coordinate reference system to the same as the state geodataframe, changed parameters so the marks were easy to see.</p>
-          <p>The lighter dots which signify lower admission rates are around the coasts and in more-populated states like Berkeley.,while the flagship colleges in the middle of the country still have relatively high admission rates like University of Kansas. This shows that not all the flagship colleges are competitive to get into, and if you want to go to a well-known competitive college, you may want to travel outside your original state.</p>
+          <p>Limited dots to only flagship colleges to compare the best colleges of each state. Created a geodataframe based on the flagship dataframe, set the coordinate reference system to the same as the state geodataframe, and changed parameters so the marks were more visible.</p>
+          <p>Lighter dots signify lower admission rates more present around coasts and populated states like Berkeley. Flagship colleges in midwest region still have relatively high admission rates like University of Kansas. This shows that not all the flagship colleges are competitive to get into, and if you want to go to a well-known competitive college, you may want to travel outside your original state.</p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide8').scrollIntoView()">Next</button>
           </div>
@@ -136,14 +137,14 @@
           <div class="grid">
             <div class="part1">
               <h3>01 Select Data</h3>
-              <h3>02 Scale Variables</h3>
+              <h3>03 Pairwise Distances</h3>
             </div>
             <div class="part1">
-              <h3>03 Pairwise Distances</h3>
+              <h3>02 Scale Variables</h3>
               <h3>04 Sort by Lowest Distances</h3>
             </div>
           </div>
-          <p>There are so many higher institutions in the United States that many students feel overwhelmed when trying to find schools that they can get into. They may overlook colleges that would accept them if they just applied. By using distance metrics, we are able to find colleges with similar statistics as a college that a potential applicant has already gotten into. This will allow the student to optimize their chances of applying to schools they can get into.</p>
+          <p>There are so many higher institutions in the United States that many students feel overwhelmed when trying to find schools that they can get into. By using distance metrics, we are able to find colleges with similar statistics as a college that a potential applicant has already gotten into, allowing students to optimize their chances of getting admitted.</p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide9').scrollIntoView()">Next</button>
           </div>
@@ -157,17 +158,17 @@
           <div class="grid">
             <div class="part1">
               <h3>Feature Selection</h3>
-              <p>State, Accreditor, SAT Math 75th percentile score, Percent of freshmen submitting SAT scores, Completion Rate, and In State Tuition</p>
+              <p>State, Accreditor, SAT Math 75th percentile score, Percent of freshmen submitting SAT scores, Completion Rate, and In State Tuition were the best features</p>
             </div>
             <div class="part1">
               <h3>Hypertuning</h3>
-              <p>loss: absolute_error, max_leaf_node: 13, min_sample_leaf: 5</p>
+              <p>loss: absolute_error, max_leaf_node: 13, min_sample_leaf: 5 were the best parameters</p>
             </div>
           </div>
-          <h3>Comparing Models</h3>
+          <h3>Comparing Models to Find Lowest RSME</h3>
           <p>HistGradientBoostingRegressor: 0.140 RSME vs. RandomForestRegressor: 0.147 RSME</p>
           <h3>Applying Model to Stanford University</h3>
-          <p>We applied the model on Stanford University to see what it would predict the admission rate as. It returned as 5.5% admission rate. When compared to the actual rate that year, it was only 0.8% off!</p>
+          <p>Predicted Stanford as having a 5.5% admission rate. When compared to the actual rate that year, it was only 0.8% off!</p>
         </div>
       </div>
 
