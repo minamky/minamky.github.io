@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather App</title>
+    <link rel="stylesheet" href = "css/weather-style.css">
+    <meta name="viewport" content="width=display-width, initial-scale=1">
+  </head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <body>
+    <div class="container">
+      <div class = "navigation-bar">
+        <h4 id="logo-word">Mina Ky</h4>
+        <div class="contain">
+          <nav>
+            <ul>
+              <a href="index.html" class="active">Home</a>
+              <a href="index.html#aboutme">About Me</a>
+              <a href="projects.html">Projects</a>
+              <a href="#contact">Contact</a>
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="slides" id="slide1">
+        <img class="project-image image1" src="images/weather-app.png"/>
+        <div class=description>
+          <h2>Weather App</h2>
+          <h3>JavaScript, API, UI/UX Design</h3>
+          <p>Interactive app where users can input city name and discover temperature, weather conditions, and country</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide2').scrollIntoView()">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide2>
+         <img class="project-image image2" src="images/map.png"/>
+        <div class="description">
+          <h2>Basic HTML Structure</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>01 Search Bar</h3>
+              <p>Allows users to type and input city name and creates a location card based on input</p>
+              <h3>03 Location Card</h3>
+              <p>Each Location card includes an icon representing weather condition, the temperature in Celsius, and city, country name</p>
+            </div>
+            <div class="part1">
+              <h3>02 Notification Banner</h3>
+              <p>If user inputs invalid city name or repeated city name, error will appear below search bar</p>
+            </div>
+          </div>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide3').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide3>
+        <div class="image-grid">
+         <img class="project-image image3" src="images/colors.png"/>
+         <img class="project-image image3" src="images/icons.png"/>
+       </div>
+        <div class="description">
+          <h2>Designing UI/UX with CSS</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>01 Color Palette</h3>
+              <h3>03 Grid Structure</h3>
+            </div>
+            <div class="part1">
+              <h3>02 Icons</h3>
+              <h3>04 Responsive Layout</h3>
+            </div>
+          </div>
+          <p>To make the app cohesive, I chose a green, brown, and white color pallette as well as used a weather icon set. Using a grid structure, the location cards easily appear next to each other when added. Lastly, to make the app scalable without empty space on all screens, I changed the card information to appear vertical on larger screens and horizonal on smaller screens.<p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide4').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide4>
+         <img class="project-image image4" src="images/app.png"/>
+        <div class="description">
+          <h2>Backend Development with JavaScript</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>Weather API</h3>
+              <p>Calls on Open Weather API for real time temperature of cities</p>
+            </div>
+            <div class="part1">
+              <h3>Repeated Inputs or Errors</h3>
+              <p>Uses Arraylist to store displayed cards, prevent repeats, and trigger notification banner</p>
+            </div>
+          </div>
+          <h3>Two Input Types</h3>
+          <p>Allows user to use CITY, COUNTRY OR CITY input which is useful with city names that are identical in different countries</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide5').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="slide5">
+        <img class="project-image image5" src="images/maps/elite-choropleth.png"/>
+        <div class=description>
+          <h2>Demo Video</h2>
+        </div>
+      </div>
+
+      <div class="slides" id="contact">
+        <div class="contact-content">
+          <h3 class="title">Contact Me</h3>
+          <div class="links-and-contact">
+            <div class="contact">
+              <form id="contact-form" actions="#">
+                <label for="name">
+                  <h4>Name</h4>
+                  <input id="name"/>
+                </label>
+                <label for="email">
+                  <h4>Email</h4>
+                  <input id="email" />
+                </label>
+                <label for="message">
+                  <h4>Message</h4>
+                  <textarea id="message"></textarea>
+                </label>
+                <div class="submit-button-wrapper">
+                  <input id="submit-button" type="submit" value="Send Message">
+                </div>
+              </form>
+            </div>
+
+            <div class="links">
+              <div class="part">
+                <h4>Email:</h4>
+                <a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+              </div>
+              <div class="part">
+                <h4>Based in:</h4>
+                <p>Mukilteo, WA</p>
+              </div>
+              <u1 class = "links-list">
+                <li>
+                  <a href="https://www.linkedin.com/in/minaky/"> <img class="link-image" href="https://www.linkedin.com/in/minaky/" src="images/linkedin.png"/></a>
+                </li>
+                <li>
+                  <a href="https://github.com/minamky"> <img class="link-image" href="https://github.com/minamky" src="images/github.png"/></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/mina.ky/"> <img class="link-image" href="https://www.instagram.com/mina.ky/" src="images/instagram.png"/></a>
+                </li>
+              </u1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 
