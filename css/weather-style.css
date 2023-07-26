@@ -131,7 +131,14 @@ nav .icon {
 }
 
 @media only screen and (max-width: 900px) {
+	.top-button img{
+		width: 40px;
+		height: 40px;
+	}
 
+	.video1 {
+		height: 750px;
+	}
 	.video2, .demo-title2{
 		display: none;
 	}
@@ -282,7 +289,7 @@ button {
 		padding: 20px;
 	}
 	.part1 {
-		max-width: 200px;
+		max-width: 150px;
 	}
 }
 
