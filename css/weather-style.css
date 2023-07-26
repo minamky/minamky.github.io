@@ -42,7 +42,6 @@
 nav {
 	background: transparent;
 	border-block-width: 100%;
-/*	box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);*/
 	z-index: 2;
 	padding-right: 3%;
 }
@@ -101,16 +100,23 @@ nav .icon {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 700px) {
-  nav.responsive {position: relative;}
+  nav.responsive {position: absolute;}
   nav.responsive a.icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 17px;
+    top: -20px;
   }
-  nav.responsive a {
+
+  nav.responsive a:not(first-child) {
     float: none;
     display: block;
-    text-align: left;
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  nav.responsive ul {
+  	margin-top: 30px;
+  	text-align: right;
   }
 }
 
@@ -130,8 +136,8 @@ nav .icon {
 
 @media only screen and (max-width: 900px) {
 	.top-button img{
-		width: 40px;
-		height: 40px;
+		width: 35px;
+		height: 35px;
 	}
 
 	.video1 {

@@ -104,13 +104,20 @@ nav .icon {
   nav.responsive {position: relative;}
   nav.responsive a.icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 17px;
+    top: -20px;
   }
-  nav.responsive a {
+
+  nav.responsive a:not(first-child) {
     float: none;
     display: block;
-    text-align: left;
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  nav.responsive ul {
+  	margin-top: 30px;
+  	text-align: right;
   }
 }
 
@@ -202,6 +209,13 @@ button {
 
 .top-button img:hover{
 	filter: opacity(70%);
+}
+
+@media only screen and (max-width: 900px) {
+	.top-button img{
+		width: 35px;
+		height: 35px;
+	}
 }
 
 

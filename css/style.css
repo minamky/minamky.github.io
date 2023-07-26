@@ -44,7 +44,6 @@
 nav {
 	background: transparent;
 	border-block-width: 100%;
-/*	box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);*/
 	z-index: 2;
 	position: fixed;
 	padding-right: 3%;
@@ -91,7 +90,6 @@ nav ul a:hover::after{
 
 
 nav .icon {
-	width: 5px;
   display: none;
 }
 
@@ -121,7 +119,6 @@ nav .icon {
 
   nav.responsive ul {
   	margin-top: 30px;
-  	margin-right: -15px;
   	text-align: right;
   }
 }
@@ -233,7 +230,27 @@ body button:hover{
 	color: #1F2881;
 }
 
+.top-button {
+	padding: 0px;
+	background-color: transparent;
+	transition: all ease-in-out .2s;
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	filter: opacity(90%);
+}
 
+
+.top-button img:hover{
+	filter: opacity(70%);
+}
+
+@media only screen and (max-width: 900px) {
+	.top-button img{
+		width: 35px;
+		height: 35px;
+	}
+}
 
 /*
 
