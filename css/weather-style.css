@@ -117,8 +117,6 @@ nav .icon {
 .image-grid {
 	display: grid;
 	grid-template-columns: auto;
-	align-items: center;
-	text-align: center;
 }
 
 .video-grid {
@@ -282,13 +280,16 @@ button {
 }
 
 @media only screen and (max-width: 900px) {
+	.image-grid {
+		display: none;
+	}
 	.project-image{
 		display: none;
 	}
 	.description {
 		padding: 20px;
 	}
-	.part1 {
+	.part1 p{
 		max-width: 150px;
 	}
 }
