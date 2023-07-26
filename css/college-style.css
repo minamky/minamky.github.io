@@ -173,6 +173,9 @@ nav .icon {
 	padding-bottom: 20px;
 }
 
+.learn-buttons button{
+	margin-right: 15px;
+}
 
 button {
 	width: 150px;

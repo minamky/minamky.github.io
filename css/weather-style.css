@@ -117,6 +117,17 @@ nav .icon {
 .image-grid {
 	display: grid;
 	grid-template-columns: auto;
+	align-items: center;
+	text-align: center;
+}
+
+.video-grid {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto;
+	align-items: center;
+	text-align: center;
+	column-gap: 30px;
 }
 
 .container {
@@ -138,7 +149,7 @@ nav .icon {
 	scroll-snap-align: start;
 }
 
-.project-image {
+.project-image{
 	width: 300px;
 }
 
@@ -151,6 +162,13 @@ nav .icon {
 	width: 470px;
 	padding: 5px;
 }
+
+.video{
+	height: 380px;
+	border-radius: 5%;
+	margin-top: 25px;
+}
+
 
 .description {
 	max-width: 550px;
@@ -170,6 +188,9 @@ nav .icon {
 	padding-bottom: 20px;
 }
 
+.learn-buttons button{
+	margin-right: 15px;
+}
 
 button {
 	width: 150px;
