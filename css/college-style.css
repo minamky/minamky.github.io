@@ -196,6 +196,7 @@ button {
 	transition: all ease-in-out .2s;
 }
 
+
 .top-button {
 	padding: 0px;
 	background-color: transparent;
@@ -215,6 +216,10 @@ button {
 	.top-button img{
 		width: 35px;
 		height: 35px;
+	}
+
+	button {
+		float: right;
 	}
 }
 
