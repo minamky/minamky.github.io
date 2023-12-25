@@ -157,17 +157,31 @@ nav .icon {
 }
 
 .slides h3 {
-	font-size: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+#slide1 h3 {
 	font-weight: bold;
 	padding-bottom: 20px;
+	padding-top: 0px;
 }
 
 .slides p {
 	font-size: 15px;
+	padding-bottom: 5px;
+}
+
+#slide1 p {
+	font-size: 15px;
 	padding-bottom: 20px;
 }
 
-
+#slide2 .learn-buttons, #slide3 .learn-buttons, #slide4 .learn-buttons, #slide5 .learn-buttons {
+	padding-top: 20px;
+}
 .learn-buttons button{
 	margin-right: 15px;
 }
