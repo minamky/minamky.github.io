@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Implicit and Explicit Heap Allocator</title>
+    <link rel="stylesheet" href = "css/heap-style.css">
+    <meta name="viewport" content="width=display-width, initial-scale=1">
+  </head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <body>
+    <div class="container">
+      <div class = "navigation-bar">
+        <h4 id="logo-word">Mina Ky</h4>
+        <div class="contain">
+          <nav class="topnav" id="myTopnav">
+            <ul>
+              <a href="index.html" class="active">Home</a>
+              <a href="index.html#aboutme">About Me</a>
+              <a href="projects.html">Projects</a>
+              <a href="#contact">Contact</a>
+              <a href="javascript:void(0);" class="icon" ontouch="myFunction()" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="slides" id="slide1">
+        <img class="project-image image1" src="images/allocator.png"/>
+        <div class=description>
+          <h2>Implicit and Explicit Heap Allocator</h2>
+          <h3>C, Linux</h3>
+          <p>Optimized two free list allocators aligning with libc allocator interface for utilization and throughput by leveraging block tracking, recycling mechanisms, and validation checks for heap structure integrity</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide2').scrollIntoView()">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide2>
+        <div class="description">
+          <h2>Implicit Allocator</h2>
+            <h3>01 Header Design</h3>
+            <p>Track size and status of each block using 8-byte header with last three bits to store status</p>
+            <h3>02 Malloc</h3>
+            <p>Traverses across each block in heap using best-fit to find block with smallest size that can accomodate requested size to optimize utilization at cost of throughput</p>
+            <h3>03 Free Blocks</h3>
+            <p>Free blocks are marked at free and can be used in following malloc requests</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide3').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+       <div class="slides" id=slide3>
+        <div class="description">
+          <h2>Explicit Allocator</h2>
+            <h3>01 Explicit Free List</h3>
+            <p> - Use first 16 bytes of each free block's payload to store two pointers that point to the previous and next free block</p>
+            <p> - List is sorted by LIFO to increase throughput as it is faster to add newly freed block to front of free list</p>
+            <p> - Free will coalesce with right neighbor in list if neighbor is also free to increase utilization</p>
+            <h3>02 Malloc</h3>
+            <p> - Traverses across each block in free list using first-fit to find first block that can accomodate requested size to optimize throughput</p>
+            <p> - Previous and next blocks' pointers are rewired to each other as newly allocated block is removed from free list</p>
+            <h3>03 Realloc</h3>
+            <p> - Coalesce with free right neighbors until resizing in place is possible or neighbor is not free</p>
+        <div class="learn-buttons">
+            <button type="button" onClick="document.getElementById('slide4').scrollIntoView()">Next</button>
+        </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide4>
+        <div class="description">
+          <h2>Debugging</h2>
+                <h3>Validate Heap</h3>
+                <p>Checks for errors in heap data structures such as: More bytes used than available, Invalid block statuses and sizes in header,Incorrect number of used and free bytes and blocks in heap segment, Number of bytes allocated doesn't match segment size, Every free block appears on free list only once, Every block on free list is free, and Correct number of bytes and blocks on free list</p>
+                <h3>Dump Heap</h3>
+                <p>Prints out block contents of heap including Header Information (size and status), Pointer Information for free blocks, and Remaining size of unallocated heap</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide5').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="slide5">
+        <img class="project-image image6" src="images/gcc.png"/>
+        <div class=description>
+          <h2>GCC Optimization</h2>
+          <h3>Callgrind</h3>
+          <p>Using callgrind, I found bottlenecks in my explicit free allocator and attempted to make small changes in the code to lower the dynamic instruction count</p>
+          <h3>Compilier Optimizations</h3>
+          <p>I used the -02 transformation after I throughly tested my code in order to more aggresively optimize my code for throughput</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('contact').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="contact">
+        <div class="contact-content">
+          <h3 class="title">Contact Me</h3>
+          <div class="links-and-contact">
+            <div class="contact">
+              <form id="contact-form" actions="#">
+                <label for="name">
+                  <h4>Name</h4>
+                  <input id="name"/>
+                </label>
+                <label for="email">
+                  <h4>Email</h4>
+                  <input id="email" />
+                </label>
+                <label for="message">
+                  <h4>Message</h4>
+                  <textarea id="message"></textarea>
+                </label>
+                <div class="submit-button-wrapper">
+                  <input id="submit-button" type="submit" value="Send Message">
+                </div>
+              </form>
+            </div>
+
+            <div class="links">
+              <div class="part">
+                <h4>Email:</h4>
+                <a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+              </div>
+              <div class="part">
+                <h4>Based in:</h4>
+                <p>Mukilteo, WA</p>
+              </div>
+              <u1 class = "links-list">
+                <li>
+                  <a href="https://www.linkedin.com/in/minaky/"> <img class="link-image" href="https://www.linkedin.com/in/minaky/" src="images/linkedinwhite.png"/></a>
+                </li>
+                <li>
+                  <a href="https://github.com/minamky"> <img class="link-image" href="https://github.com/minamky" src="images/github-white.png"/></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/mina.ky/"> <img class="link-image" href="https://www.instagram.com/mina.ky/" src="images/instagram-white.png"/></a>
+                </li>
+              </u1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 

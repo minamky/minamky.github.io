@@ -30,12 +30,12 @@
 #logo-word {
 	font-size: 20px;
 	margin-left: 45px;
-	color: #FBFBF1;;
+	color: #1F2881;;
 	padding-top: 30px;
 }
 
 .navigation-bar{
-	background-color: #1F2881;
+	background-color: #FBFBF1;
 	height: 0px;
 }
 
@@ -52,7 +52,7 @@ nav ul a {
 	display:inline-block;
 	padding: 0 40px;
 	font-size: 15px;
-	color: #FBFBF1;
+	color: #1F2881;
 	cursor: pointer;
 	position:relative;
 	z-index: 3;
@@ -63,7 +63,7 @@ nav ul a {
 
 nav ul a::after {
 	content: '';
-	background: #FBFBF1;
+	background: #1F2881;
 	width: 100%;
 	height: 40px;
 	border-radius: 2px;
@@ -78,7 +78,7 @@ nav ul a::after {
 }
 
 nav ul a:hover {
-	color: #1F2881;
+	color: #FBFBF1;
 }
 
 nav ul a:hover::after{
@@ -101,12 +101,13 @@ nav .icon {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 700px) {
-  nav.responsive {position: absolute;}
+  nav.responsive {position: relative;}
   nav.responsive a.icon {
     position: absolute;
     right: 17px;
     top: -20px;
   }
+
   nav.responsive a:not(first-child) {
     float: none;
     display: block;
@@ -119,7 +120,6 @@ nav .icon {
   	text-align: right;
   }
 }
-
 
 
 .container {
@@ -136,25 +136,17 @@ nav .icon {
 	align-items: center;
 	justify-content: center;
 	gap: 50px;
-	color: #FBFBF1;;
-	background: #1F2881;
+	color: #1F2881;;
+	background: #FBFBF1;
 	scroll-snap-align: start;
 }
 
 .project-image {
-	width: 500px;
-}
-
-.image2{
 	width: 210px;
 }
 
-.image3 {
-	width: 300px;
-}
-
-.image4 {
-	width: 400px;
+.image6 {
+	width: 150px;
 }
 
 .description {
@@ -165,7 +157,7 @@ nav .icon {
 }
 
 .slides h3 {
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: bold;
 	padding-bottom: 20px;
 }
@@ -173,6 +165,11 @@ nav .icon {
 .slides p {
 	font-size: 15px;
 	padding-bottom: 20px;
+}
+
+
+.learn-buttons button{
+	margin-right: 15px;
 }
 
 button {
@@ -186,6 +183,7 @@ button {
 	border-width: 5px;
 	transition: all ease-in-out .2s;
 }
+
 
 .top-button {
 	padding: 0px;
@@ -207,44 +205,50 @@ button {
 		width: 35px;
 		height: 35px;
 	}
+
+	button {
+		float: right;
+	}
 }
 
-#slide1 button,#slide3 button {
-	background-color: #FBFBF1;
-	border-color: #FBFBF1;
-	color: #1F2881;
-}
 
-#slide1 button:hover, #slide3 button:hover{
-	background-color: transparent;
-	border-color: #FBFBF1;
-	color: #FBFBF1;
-}
-
-#slide2 button, #slide4 button{
+#slide1 button,#slide3 button, #slide5 button, #slide7 button, #slide9 button{
 	background-color: #1F2881;
 	border-color: #1F2881;
 	color: #FBFBF1;
 }
 
-#slide2 button:hover, #slide4 button:hover{
+#slide1 button:hover, #slide3 button:hover, #slide5 button:hover, #slide7 button:hover, #slide9 button:hover{
 	background-color: transparent;
 	border-color: #1F2881;
 	color: #1F2881;
 }
 
+#slide2 button, #slide4 button, #slide6 button, #slide8 button{
+	background-color: #FBFBF1;
+	border-color: #FBFBF1;
+	color: #1F2881;
+}
 
-#slide1, #slide3, #contact {
-	background: #363C8C;
+#slide2 button:hover, #slide4 button:hover, #slide6 button:hover, #slide8 button:hover{
+	background-color: transparent;
+	border-color: #FBFBF1;
 	color: #FBFBF1;
 }
 
 
-
-#slide2, #slide4{
+#slide1, #slide3, #slide5, #slide7, #slide9{
 	background: #FBFBF1;
 	color: #1F2881;
 }
+
+
+
+#slide2, #slide4, #slide6, #slide8, #contact{
+	background: #363C8C;
+	color: #FBFBF1;
+}
+
 
 @media only screen and (max-width: 700px) {
 	.project-image{
@@ -254,8 +258,6 @@ button {
 		padding: 20px;
 	}
 }
-
-
 
 
 /*
@@ -314,6 +316,12 @@ links
 	list-style: none;
 }
 
+/*@media (max-width:800px) {
+	.links-and-contact {
+		grid-template-columns: 50% 50%;
+		width: auto;
+	}
+}*/
 
 @media (max-width:650px) {
 	.links-and-contact {
@@ -357,7 +365,7 @@ form input[type="submit"] {
 	background: #FBFBF1;
 	border-style: double;
 	border-color: #FBFBF1;
-	color: #1F2881;
+	color: #363C8C;
 	font-size: 15px;
 	font-weight: bold;
 	padding: 8px;
