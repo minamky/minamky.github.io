@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href = "css/sorting.css">
+    <meta name="viewport" content="width=display-width, initial-scale=1">
+  </head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <body>
+    <div class="container">
+      <div class = "navigation-bar">
+        <h4 id="logo-word">Mina Ky</h4>
+        <div class="contain">
+          <nav class="topnav" id="myTopnav">
+            <ul>
+              <a href="index.html" class="active">Home</a>
+              <a href="index.html#aboutme">About Me</a>
+              <a href="projects.html">Projects</a>
+              <a href="#contact">Contact</a>
+              <a href="javascript:void(0);" class="icon" ontouch="myFunction()" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="slides" id="slide1">
+        <img class="project-image image1" src="images/ml.png"/>
+        <div class=description>
+          <h2>Sorting Algorithm Visualizer</h2>
+          <h3>Python</h3>
+          <p>Interactive app to observe the behavior of various sorting algorithms in real time, including Quick Sort, Bubble Sort, and Insertion Sort, implementing adjustable speed and dynamic block count</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide2').scrollIntoView()">Learn More</button>
+              <button type="button" onClick="window.location.href='https://github.com/minamky/sorting-algo-visualizer'">Github</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slides" id=slide2>
+         <img class="project-image image2" src="images/foundation.png"/>
+        <div class="description">
+          <h2>Game Foundation</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>01 Blocks Setup</h3>
+              <p>Generates random list of blocks based on chosen number of blocks and min, max block heights</p>
+              <h3>03 Generator</h3>
+              <p>Manages state of sorting algorithms and controls the animation by yielding after each step, allowing the sorting process can be visualized in real time. Each step is processed one at a time and the display updated accordingly.</p>
+            </div>
+            <div class="part1">
+              <h3>02 Control Information</h3>
+              <p>Displays current state of algorithm and possible user controls for customizations</p>
+            </div>
+          </div>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide3').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide3>
+        <div class="image-grid">
+         <img class="project-image image3" src="images/customization.png"/>
+       </div>
+        <div class="description">
+          <h2>User Customization</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>01 Dynamic Block Count</h3>
+              <h3>03 Ascending or Descending</h3>
+            </div>
+            <div class="part1">
+              <h3>02 Adjustable Speed</h3>
+              <h3>04 Type of Sort</h3>
+            </div>
+          </div>
+          <p>By pressing various control keys, the user can change the block count, speed, whether the sorting is in ascending or descending, and the type of sort. These customizations allow the user to understand and visualize each algorithm easier. The changes are displayed in real time within the top labels.<p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide4').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide4>
+         <img class="project-image image4" src="images/algo.png"/>
+        <div class="description">
+          <h2>Implementing Algorithms</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>Bubble Sort</h3>
+              <p> Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order</p>
+            </div>
+            <div class="part1">
+              <h3>Insertion Sort</h3>
+              <p>Builds final sorted array one item at a time by inserting each new element into its correct position within the sorted portion</p>
+            </div>
+          </div>
+          <h3>Quick Sort</h3>
+          <p>Recursively partitions the array into smaller sub-arrays around a pivot and then sorts the sub-arrays</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide5').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="slide5">
+        <div class= video-grid>
+          <h2 class="demo-title">Customization</h2>
+          <h2 class="demo-title demo-title2">Running Algorithms</h2>
+          <video class="video video1"  playsinline muted autoplay loop> <source src="custom-demo.mov"></video>
+          <video class="video video2"  playsinline muted autoplay loop> <source src="sort-demo.mov"></video>
+        </div>
+        <a class="top-button" href="#slide1"> <img class="link-image" href="college.html" src="images/to-top.png"/></a>
+      </div>
+
+      <div class="slides" id="contact">
+        <div class="contact-content">
+          <h3 class="title">Contact Me</h3>
+          <div class="links-and-contact">
+            <div class="contact">
+              <form id="contact-form" actions="#">
+                <label for="name">
+                  <h4>Name</h4>
+                  <input id="name"/>
+                </label>
+                <label for="email">
+                  <h4>Email</h4>
+                  <input id="email" />
+                </label>
+                <label for="message">
+                  <h4>Message</h4>
+                  <textarea id="message"></textarea>
+                </label>
+                <div class="submit-button-wrapper">
+                  <input id="submit-button" type="submit" value="Send Message">
+                </div>
+              </form>
+            </div>
+
+            <div class="links">
+              <div class="part">
+                <h4>Email:</h4>
+                <a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+              </div>
+              <div class="part">
+                <h4>Based in:</h4>
+                <p>The Greater Seattle Area</p>
+              </div>
+              <u1 class = "links-list">
+                <li>
+                  <a href="https://www.linkedin.com/in/minaky/"> <img class="link-image" href="https://www.linkedin.com/in/minaky/" src="images/linkedin.png"/></a>
+                </li>
+                <li>
+                  <a href="https://github.com/minamky"> <img class="link-image" href="https://github.com/minamky" src="images/github.png"/></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/mina.ky/"> <img class="link-image" href="https://www.instagram.com/mina.ky/" src="images/instagram.png"/></a>
+                </li>
+              </u1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 
