@@ -142,11 +142,15 @@ nav .icon {
 }
 
 .project-image {
-	width: 210px;
+	width: 400px;
 }
 
 .image6 {
 	width: 150px;
+}
+
+.video1 {
+	width: 500px;
 }
 
 .description {

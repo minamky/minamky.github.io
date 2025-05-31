@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Implicit and Explicit Heap Allocator</title>
-    <link rel="stylesheet" href = "css/heap-style.css">
+    <title>DateBase</title>
+    <link rel="stylesheet" href = "css/datebase-style.css">
     <meta name="viewport" content="width=display-width, initial-scale=1">
   </head>
 
@@ -26,11 +26,11 @@
       </div>
 
       <div class="slides" id="slide1">
-        <img class="project-image image1" src="images/allocator.png"/>
+        <img class="project-image image1" src="images/pins_icon.png"/>
         <div class=description>
-          <h2>Implicit and Explicit Heap Allocator</h2>
-          <h3>C, Linux</h3>
-          <p>Optimized two free list allocators aligning with libc allocator interface for utilization and throughput by leveraging block tracking, recycling mechanisms, and validation checks for heap structure integrity</p>
+          <h2>DateBase</h2>
+          <h3>Swift, iOS Development</h3>
+          <p>A community-driven app that helps users discover, rank, and share date spots through personalized recommendations and social feedback</p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide2').scrollIntoView()">Learn More</button>
           </div>
@@ -39,13 +39,12 @@
 
       <div class="slides" id=slide2>
         <div class="description">
-          <h2>Implicit Allocator</h2>
-            <h3>01 Header Design</h3>
-            <p>Track size and status of each block using 8-byte header with last three bits to store status</p>
-            <h3>02 Malloc</h3>
-            <p>Traverses across each block in heap using best-fit to find block with smallest size that can accomodate requested size to optimize utilization at cost of throughput</p>
-            <h3>03 Free Blocks</h3>
-            <p>Free blocks are marked at free and can be used in following malloc requests</p>
+          <h2>Discover & Search</h2>
+            <h3>01 Google Maps SDK</h3>
+            <p>Extract nearby date spots in real time like cafes, parks, galleries, and more. Users can search by name and city, ensuring they always find the perfect nearby location.
+            </p>
+            <h3>02 Advanced User Search</h3>
+            <p>Find other users by their unique username to view profiles, check favorite date spots, and connect or follow them within the app.</p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide3').scrollIntoView()">Next</button>
           </div>
@@ -54,16 +53,13 @@
 
        <div class="slides" id=slide3>
         <div class="description">
-          <h2>Explicit Allocator</h2>
-            <h3>01 Explicit Free List</h3>
-            <p> - Use first 16 bytes of each free block's payload to store two pointers that point to the previous and next free block</p>
-            <p> - List is sorted by LIFO to increase throughput as it is faster to add newly freed block to front of free list</p>
-            <p> - Free will coalesce with right neighbor in list if neighbor is also free to increase utilization</p>
-            <h3>02 Malloc</h3>
-            <p> - Traverses across each block in free list using first-fit to find first block that can accomodate requested size to optimize throughput</p>
-            <p> - Previous and next blocks' pointers are rewired to each other as newly allocated block is removed from free list</p>
-            <h3>03 Realloc</h3>
-            <p> - Coalesce with free right neighbors until resizing in place is possible or neighbor is not free</p>
+          <h2>Rank, Review & Rate Experiences</h2>
+            <h3>01 Advanced Filters & Categories</h3>
+            <p> Narrow results by activity vibe (e.g., nature, sports, music, drinks), price range, romance levels, and physicality.</p>
+            <h3>02 Comment and Likes</h3>
+            <p>Engage with the community by leaving comments on date spots and user posts. Share your experience, ask questions, or give tips! You can also heart reviews, helping highlight the best recommendations.</p>
+            <h3>03 Date Scores</h3>
+            <p>Each date spot receives a user-assigned score on a 1 to 10 on a date-worthiness scale. The app then sorts venues from highest to lowest overall score. This way, locations deemed most date-worthy consistently appear at the top of a user's Been list.</p>
         <div class="learn-buttons">
             <button type="button" onClick="document.getElementById('slide4').scrollIntoView()">Next</button>
         </div>
@@ -72,11 +68,11 @@
 
       <div class="slides" id=slide4>
         <div class="description">
-          <h2>Debugging</h2>
-                <h3>Validate Heap</h3>
-                <p>Checks for errors in heap data structures such as: More bytes used than available, Invalid block statuses and sizes in header,Incorrect number of used and free bytes and blocks in heap segment, Number of bytes allocated doesn't match segment size, Every free block appears on free list only once, Every block on free list is free, and Correct number of bytes and blocks on free list</p>
-                <h3>Dump Heap</h3>
-                <p>Prints out block contents of heap including Header Information (size and status), Pointer Information for free blocks, and Remaining size of unallocated heap</p>
+          <h2>Save, Share & Plan</h2>
+                <h3>01 Been and Want to Try Lists</h3>
+                <p>The Been list lets users keep track of date spots they have already visited with an optional short note or rating after each visit. The Want to Try list tracks date spots that users bookmark as goals for future outings. </p>
+                <h3>02 Friends Feed vs Global Feed</h3>
+                <p>The Friends Feed is a personalized stream showing only the activity, reviews, photos of people in your network. The Global Feed is the publicly visible stream of all community activity. </p>
           <div class="learn-buttons">
               <button type="button" onClick="document.getElementById('slide5').scrollIntoView()">Next</button>
           </div>
@@ -84,17 +80,11 @@
       </div>
 
       <div class="slides" id="slide5">
-        <img class="project-image image6" src="images/gcc.png"/>
-        <div class=description>
-          <h2>GCC Optimization</h2>
-          <h3>Callgrind</h3>
-          <p>Using callgrind, I found bottlenecks in my explicit free allocator and attempted to make small changes in the code to lower the dynamic instruction count</p>
-          <h3>Compilier Optimizations</h3>
-          <p>I used the -02 transformation after I throughly tested my code in order to more aggresively optimize my code for throughput</p>
-          <div class="learn-buttons">
-              <button type="button" onClick="document.getElementById('contact').scrollIntoView()">Next</button>
-          </div>
+        <div class= video-grid>
+          <h2 class="demo-title">DateBase Demo</h2>
+          <video class="video video1"  playsinline muted autoplay loop> <source src=""></video>
         </div>
+        <a class="top-button" href="#slide1"> <img class="link-image" href="college.html" src="images/to-top.png"/></a>
       </div>
 
       <div class="slides" id="contact">
