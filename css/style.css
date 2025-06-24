@@ -272,7 +272,7 @@ ABOUT ME
 }
 
 .mina-picture {
-	border-radius: 50%;
+	border-radius: 10%;
 	width:265px;
 	height:330px;
 	box-shadow: 0 4px 6px 0 rgb(34, 60 80, 0.16);
