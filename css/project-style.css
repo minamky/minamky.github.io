@@ -1,98 +1,96 @@
-*, html{
-	scroll-behavior: smooth !important;
+*,
+html {
+  scroll-behavior: smooth !important;
 }
-
 
 @font-face {
-    font-family: 'new_kansasregular';
-    src: url('new_kansas_regular-webfont.woff2') format('woff2'),
-         url('new_kansas_regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "new_kansasregular";
+  src: url("new_kansas_regular-webfont.woff2") format("woff2"),
+    url("new_kansas_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 * {
-	margin:0;
-	padding:0;
-	font-family: new_kansasregular, sans-serif;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: new_kansasregular, sans-serif;
+  box-sizing: border-box;
 }
 
-.contain{
-	width:100%;
-	display:flex;
-	justify-content: flex-end;
-	margin-top: -20px;
+.contain {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -20px;
 }
 
 #logo-word {
-	font-size: 20px;
-	margin-left: 45px;
-	color: #FBFBF1;;
-	padding-top: 30px;
+  font-size: 20px;
+  margin-left: 45px;
+  color: #fbfbf1;
+  padding-top: 30px;
 }
 
-.navigation-bar{
-	background-color: #1F2881;
-	height: 0px;
+.navigation-bar {
+  /* #background-color: #1F2881; */
+  height: 0px;
 }
 
 nav {
-	background: transparent;
-	border-block-width: 100%;
-/*	box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);*/
-	z-index: 2;
-	padding-right: 3%;
+  background: transparent;
+  border-block-width: 100%;
+  /*	box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);*/
+  z-index: 2;
+  padding-right: 3%;
 }
 
 nav ul a {
-	list-style: none;
-	display:inline-block;
-	padding: 0 40px;
-	font-size: 15px;
-	color: #FBFBF1;
-	cursor: pointer;
-	position:relative;
-	z-index: 3;
-	transition: color 0.5s;
-	font-weight: bolder;
-	text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 15px;
+  color: #1f2881;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  transition: color 0.5s;
+  font-weight: bolder;
+  text-decoration: none;
 }
 
 nav ul a::after {
-	content: '';
-	background: #FBFBF1;
-	width: 100%;
-	height: 40px;
-	border-radius: 2px;
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: -1;
-	opacity:0;
-	transition: top 0.5s, opacity 0.5s;
-
+  content: "";
+  background: #1f2881;
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s, opacity 0.5s;
 }
 
 nav ul a:hover {
-	color: #1F2881;
+  color: #fbfbf1;
 }
 
-nav ul a:hover::after{
-	top: 50%;
-	opacity: 1;
+nav ul a:hover::after {
+  top: 50%;
+  opacity: 1;
 }
-
 
 nav .icon {
   display: none;
 }
 
 @media screen and (max-width: 700px) {
-  nav a:not(:first-child) {display: none;}
+  nav a:not(:first-child) {
+    display: none;
+  }
   nav a.icon {
     float: right;
     display: block;
@@ -101,7 +99,9 @@ nav .icon {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 700px) {
-  nav.responsive {position: absolute;}
+  nav.responsive {
+    position: absolute;
+  }
   nav.responsive a.icon {
     position: absolute;
     right: 17px;
@@ -115,148 +115,146 @@ nav .icon {
   }
 
   nav.responsive ul {
-  	margin-top: 30px;
-  	text-align: right;
+    margin-top: 30px;
+    text-align: right;
   }
 }
 
-
-
 .container {
-	width: 100%;
-	height: 100vh;
-	overflow-y: scroll;
-	scroll-snap-type: y mandatory;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
-.slides{
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 50px;
-	color: #FBFBF1;;
-	background: #1F2881;
-	scroll-snap-align: start;
+.slides {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  color: #fbfbf1;
+  background: #1f2881;
+  scroll-snap-align: start;
 }
 
 .project-image {
-	width: 500px;
+  width: 500px;
 }
 
-.image2{
-	width: 400px;
+.image2 {
+  width: 400px;
 }
 
 .image3 {
-	width: 300px;
+  width: 300px;
 }
 
 .image4 {
-	width: 400px;
+  width: 400px;
 }
 
 .description {
-	max-width: 550px;
+  max-width: 550px;
 }
 .slides h2 {
-	font-size: 40px;
+  font-size: 40px;
 }
 
 .slides h3 {
-	font-size: 18px;
-	font-weight: bold;
-	padding-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 20px;
 }
 
 .slides p {
-	font-size: 15px;
-	padding-bottom: 20px;
+  font-size: 15px;
+  padding-bottom: 20px;
 }
 
 button {
-	width: 150px;
-	font-weight: bold;
-	font-size: 15px;
-	padding: 8px;
-	font-family: new_kansasregular, sans-serif;
-	border-radius: 2px;
-	border-style: double;
-	border-width: 5px;
-	transition: all ease-in-out .2s;
+  width: 150px;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 8px;
+  font-family: new_kansasregular, sans-serif;
+  border-radius: 2px;
+  border-style: double;
+  border-width: 5px;
+  transition: all ease-in-out 0.2s;
 }
 
 .top-button {
-	padding: 0px;
-	background-color: transparent;
-	transition: all ease-in-out .2s;
-	position: absolute;
-	right: 1rem;
-	bottom: 1rem;
-	filter: opacity(90%);
+  padding: 0px;
+  background-color: transparent;
+  transition: all ease-in-out 0.2s;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  filter: opacity(90%);
 }
 
-
-.top-button img:hover{
-	filter: opacity(70%);
+.top-button img:hover {
+  filter: opacity(70%);
 }
 
 @media only screen and (max-width: 900px) {
-	.top-button img{
-		width: 35px;
-		height: 35px;
-	}
+  .top-button img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
-#slide1 button,#slide3 button {
-	background-color: #FBFBF1;
-	border-color: #FBFBF1;
-	color: #1F2881;
+#slide1 button,
+#slide3 button {
+  background-color: #fbfbf1;
+  border-color: #fbfbf1;
+  color: #1f2881;
 }
 
-#slide1 button:hover, #slide3 button:hover{
-	background-color: transparent;
-	border-color: #FBFBF1;
-	color: #FBFBF1;
+#slide1 button:hover,
+#slide3 button:hover {
+  background-color: transparent;
+  border-color: #fbfbf1;
+  color: #fbfbf1;
 }
 
-#slide2 button, #slide4 button{
-	background-color: #1F2881;
-	border-color: #1F2881;
-	color: #FBFBF1;
+#slide2 button,
+#slide4 button {
+  background-color: #1f2881;
+  border-color: #1f2881;
+  color: #fbfbf1;
 }
 
-#slide2 button:hover, #slide4 button:hover{
-	background-color: transparent;
-	border-color: #1F2881;
-	color: #1F2881;
+#slide2 button:hover,
+#slide4 button:hover {
+  background-color: transparent;
+  border-color: #1f2881;
+  color: #1f2881;
 }
 
-
-#slide1, #slide3, #contact {
-	background: #363C8C;
-	color: #FBFBF1;
+#slide1,
+#slide3,
+#contact {
+  background: #363c8c;
+  color: #fbfbf1;
 }
 
-
-
-#slide2, #slide4{
-	background: #FBFBF1;
-	color: #1F2881;
+#slide2,
+#slide4 {
+  background: #fbfbf1;
+  color: #1f2881;
 }
 
 @media only screen and (max-width: 700px) {
-	.project-image{
-		display: none;
-	}
-	.description {
-		padding: 20px;
-	}
+  .project-image {
+    display: none;
+  }
+  .description {
+    padding: 20px;
+  }
 }
-
-
-
 
 /*
 
@@ -265,125 +263,121 @@ links
 
 */
 .contact-content h3 {
-	font-size: 28px;
-	text-align: center;
+  font-size: 28px;
+  text-align: center;
 }
 
 .contact-content {
-	max-width: 700px;
+  max-width: 700px;
 }
 
 .links-and-contact {
-	display:grid;
-	grid-template-columns: auto auto;
-	grid-gap: 50px;
-	padding: 50px;
-	border:5px double #FBFBF1;
-	width: 750px;
-	height: 400px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+  padding: 50px;
+  border: 5px double #fbfbf1;
+  width: 750px;
+  height: 400px;
 }
-
 
 .part {
-	padding-top: 15px;
-	padding-bottom: 50px;
+  padding-top: 15px;
+  padding-bottom: 50px;
 }
 
-.part > h4{
-	font-size: 20px;
-	font-weight: bolder;
+.part > h4 {
+  font-size: 20px;
+  font-weight: bolder;
 }
 
-.part > a{
-	color: #FBFBF1;
-	text-decoration: none;
-	font-size: 15px;
+.part > a {
+  color: #fbfbf1;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 .link-image {
-	width: 30px;
-	height: 30px;
-	transition: all ease in-out .2s;
+  width: 30px;
+  height: 30px;
+  transition: all ease in-out 0.2s;
 }
 
 .link-image:hover {
-	filter: brightness(.80);
+  filter: brightness(0.8);
 }
 
 .links-list {
-	list-style: none;
+  list-style: none;
 }
 
-
-@media (max-width:650px) {
-	.links-and-contact {
-		grid-template-columns: 100%;
-		width: auto;
-	}
-	.part {
-		padding-top: 0px;
-		padding-bottom: 20px;
-	}
+@media (max-width: 650px) {
+  .links-and-contact {
+    grid-template-columns: 100%;
+    width: auto;
+  }
+  .part {
+    padding-top: 0px;
+    padding-bottom: 20px;
+  }
 }
 
-@media (max-width:680px) {
-	.links-and-contact {
-		border:none;
-	}
+@media (max-width: 680px) {
+  .links-and-contact {
+    border: none;
+  }
 }
 
-
-form input, textarea {
-	padding: 5px;
-	width: 240px;
-	background-color: transparent;
-	color: #D5D5C5;
-	border: none;
-	border-bottom: 1px solid #FBFBF1;
+form input,
+textarea {
+  padding: 5px;
+  width: 240px;
+  background-color: transparent;
+  color: #d5d5c5;
+  border: none;
+  border-bottom: 1px solid #fbfbf1;
 }
 
 label h4 {
-	padding-top: 10px;
+  padding-top: 10px;
 }
 
 li {
-	display: inline;
-	padding-right: 10px;
+  display: inline;
+  padding-right: 10px;
 }
 
-
 form input[type="submit"] {
-	width: 240px;
-	background: #FBFBF1;
-	border-style: double;
-	border-color: #FBFBF1;
-	color: #1F2881;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 8px;
-	border-width: 5px;
+  width: 240px;
+  background: #fbfbf1;
+  border-style: double;
+  border-color: #fbfbf1;
+  color: #1f2881;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px;
+  border-width: 5px;
 }
 
 form input[type="submit"]:hover {
-	background-color: transparent;
-	border-color: #FBFBF1;
-	color: #FBFBF1;
+  background-color: transparent;
+  border-color: #fbfbf1;
+  color: #fbfbf1;
 }
 
 .submit-button-wrapper {
-	margin: 20px 0;
+  margin: 20px 0;
 }
 
 hr {
-	border: 0;
-	height: 1px;
-	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #27374D, rgba(0, 0, 0, 0));
-	margin-bottom: 72px;
-	margin-top: 20px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    #27374d,
+    rgba(0, 0, 0, 0)
+  );
+  margin-bottom: 72px;
+  margin-top: 20px;
 }
-
-
-
-
-
-
