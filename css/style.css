@@ -298,11 +298,11 @@ ABOUT ME
 
 .i-am > h3, .hobbies > h3{
 	padding: 30px ;
-	font-size: 25px;
+	font-size: 23px;
 }
 
 .i-am > ul, .hobbies > ul{
-	font-size: 18px;
+	font-size: 17px;
 }
 
 .about-list{
@@ -336,6 +336,7 @@ projects
 
 .title {
 	font-size: 30px;
+	padding-top: 60px;
 	padding-bottom: 15px;
 }
 
@@ -350,10 +351,9 @@ projects
 	position: relative;
 }
 .project-image {
-	width: 260px;
-	height: 260px;
-	border-radius: 5px;
-	box-shadow: 0 4px 6px 0 rgba(34, 60, 80, 0.16);
+	width: 200px;
+	height: 200px;
+	border-radius: 10px;
 	transition: all ease in-out .2s;
 }
 
