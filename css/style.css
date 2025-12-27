@@ -260,6 +260,7 @@ ABOUT ME
 
 */
 
+
 .title {
 	color: #1F2881;
 	font-size: 15px;
@@ -269,6 +270,7 @@ ABOUT ME
 .about-content{
 	text-align: center;
 	max-width: 5000px;
+	background-color: transparent;
 }
 
 .mina-picture {
@@ -287,22 +289,29 @@ ABOUT ME
 .about-grid {
 	display: grid;
 	grid-template-columns: auto auto auto;
-	padding: 50px
+	padding: 50px;
+	gap: 50px;
+	background-color: transparent;
 }
 
 
 .i-am, .hobbies{
 	color: #FBFBF1;
 	padding: 20px 20px;
+	border: 3px solid #1F2881;
+	border-radius: 10px;
+	background-color: transparent;
 }
 
 .i-am > h3, .hobbies > h3{
 	padding: 30px ;
 	font-size: 23px;
+	background-color: transparent;
 }
 
 .i-am > ul, .hobbies > ul{
 	font-size: 17px;
+	background-color: transparent;
 }
 
 .about-list{
@@ -310,12 +319,14 @@ ABOUT ME
 	grid-template-rows: auto auto auto;
 	list-style: none;
 	grid-gap: 25px;
+	background-color: transparent;
 }
 
 @media (max-width:600px) {
 	.about-grid {
 		grid-template-columns: 100%;
 		padding: 0px;
+		gap: 40px;
 	}
 	.i-am > h3, .hobbies > h3{
 	padding: 10px ;
@@ -336,7 +347,7 @@ projects
 
 .title {
 	font-size: 30px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .carousel-container {
@@ -433,13 +444,13 @@ projects
 }
 
 .project-image {
-	width: 300px;
+	width: 330px;
 	transition: all ease in-out .2s;
 	-webkit-user-drag: none;
 	user-select: none;
 	-webkit-user-select: none;
 	pointer-events: none;
-	margin: 40px 0;
+	margin-bottom: 40px;
 }
 
 .project-image-wrapper:not(.active) * {
