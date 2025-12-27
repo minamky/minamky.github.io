@@ -30,12 +30,12 @@
 #logo-word {
 	font-size: 20px;
 	margin-left: 45px;
-	color: #1F2881;;
+	color: #FBFBF1;
 	padding-top: 30px;
 }
 
 .navigation-bar{
-	background-color: #FBFBF1;
+	background-color: #FBFBF1;;
 	height: 0px;
 }
 
@@ -52,7 +52,7 @@ nav ul a {
 	display:inline-block;
 	padding: 0 40px;
 	font-size: 15px;
-	color: #1F2881;
+	color: #FBFBF1;
 	cursor: pointer;
 	position:relative;
 	z-index: 3;
@@ -231,40 +231,40 @@ button {
 
 
 #slide1 button,#slide3 button, #slide5 button, #slide7 button, #slide9 button{
+	background-color: #FBFBF1;
+	border-color: #FBFBF1;
+	color: #363C8C;
+}
+
+#slide1 button:hover, #slide3 button:hover, #slide5 button:hover, #slide7 button:hover, #slide9 button:hover{
+	background-color: transparent;
+	border-color: #FBFBF1;
+	color: #FBFBF1;
+}
+
+#slide2 button, #slide4 button, #slide6 button, #slide8 button{
 	background-color: #1F2881;
 	border-color: #1F2881;
 	color: #FBFBF1;
 }
 
-#slide1 button:hover, #slide3 button:hover, #slide5 button:hover, #slide7 button:hover, #slide9 button:hover{
+#slide2 button:hover, #slide4 button:hover, #slide6 button:hover, #slide8 button:hover{
 	background-color: transparent;
 	border-color: #1F2881;
 	color: #1F2881;
 }
 
-#slide2 button, #slide4 button, #slide6 button, #slide8 button{
-	background-color: #FBFBF1;
-	border-color: #FBFBF1;
-	color: #1F2881;
-}
-
-#slide2 button:hover, #slide4 button:hover, #slide6 button:hover, #slide8 button:hover{
-	background-color: transparent;
-	border-color: #FBFBF1;
-	color: #FBFBF1;
-}
-
 
 #slide1, #slide3, #slide5, #slide7, #slide9{
-	background: #FBFBF1;
-	color: #1F2881;
+	background: #363C8C;
+	color: #FBFBF1;
 }
 
 
 
 #slide2, #slide4, #slide6, #slide8, #contact{
-	background: #363C8C;
-	color: #FBFBF1;
+	background: #FBFBF1;
+	color: #1F2881;
 }
 
 
@@ -284,6 +284,7 @@ links
 
 
 */
+
 .contact-content h3 {
 	font-size: 28px;
 	text-align: center;
@@ -291,6 +292,8 @@ links
 
 .contact-content {
 	max-width: 700px;
+	border-color: #1F2881;
+	border-width: 5px;
 }
 
 .links-and-contact {
@@ -298,9 +301,15 @@ links
 	grid-template-columns: auto auto;
 	grid-gap: 50px;
 	padding: 50px;
-	border:5px double #FBFBF1;
+	border:5px solid #1F2881;
 	width: 750px;
 	height: 400px;
+}
+
+@media (max-width:650px) {
+	.links-and-contact {
+		grid-template-columns: 100%;
+	}
 }
 
 
@@ -315,9 +324,8 @@ links
 }
 
 .part > a{
-	color: #FBFBF1;
+	color: #1F2881;
 	text-decoration: none;
-	font-size: 15px;
 }
 
 .link-image {
@@ -334,12 +342,12 @@ links
 	list-style: none;
 }
 
-/*@media (max-width:800px) {
+@media (max-width:800px) {
 	.links-and-contact {
 		grid-template-columns: 50% 50%;
 		width: auto;
 	}
-}*/
+}
 
 @media (max-width:650px) {
 	.links-and-contact {
@@ -358,14 +366,13 @@ links
 	}
 }
 
-
 form input, textarea {
 	padding: 5px;
 	width: 240px;
 	background-color: transparent;
-	color: #D5D5C5;
+	color: gray;
 	border: none;
-	border-bottom: 1px solid #FBFBF1;
+	border-bottom: 1px solid #1F2881;
 }
 
 label h4 {
@@ -380,10 +387,10 @@ li {
 
 form input[type="submit"] {
 	width: 240px;
-	background: #FBFBF1;
+	background: #363C8C;
 	border-style: double;
-	border-color: #FBFBF1;
-	color: #363C8C;
+	border-color: #363C8C;
+	color: #FBFBF1;
 	font-size: 15px;
 	font-weight: bold;
 	padding: 8px;
@@ -392,12 +399,12 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
 	background-color: transparent;
-	border-color: #FBFBF1;
-	color: #FBFBF1;
+	border-color: #1F2881;
+	color: #1F2881;
 }
 
 .submit-button-wrapper {
-	margin: 20px 0;
+	margin: 10px 0;
 }
 
 hr {
@@ -407,9 +414,5 @@ hr {
 	margin-bottom: 72px;
 	margin-top: 20px;
 }
-
-
-
-
 
 

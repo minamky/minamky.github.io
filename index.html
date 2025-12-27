@@ -87,26 +87,30 @@
 
 			<hr>
 
-			<div class = slides id="projects">
-				<div class = "project-content">
-					<h1 class="title" href="projects.html">My Projects</h1>
-					<div class = "projects-grid" >
+		<div class = slides id="projects">
+			<div class = "project-content">
+				<h1 class="title" href="projects.html">My Projects</h1>
+				<div class="carousel-container">
+					<button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+					<div class = "projects-carousel" >
 						<div class= "project-image-wrapper">
-							<a href="datebase.html"> <img class="project-image hide" href="datebase.html" src="images/apps/datebaselogo.png"/></a>
-							<h4>DateBase</h4>
+							<a href="pulse.html"> <img class="project-image" href="weather.html" src="images/pulse/SignUp.png"/></a>
+							<a href="pulse.html" class="project-title-btn">Pulse</a>
 						</div>
 						<div class= "project-image-wrapper">
-							<a href="pulse.html"> <img class="project-image" href="weather.html" src="images/apps/pulselogo.png"/></a>
-							<h4>Pulse</h4>
+							<a href="datebase.html"> <img class="project-image" href="datebase.html" src="images/datebase/SignUp.png"/></a>
+							<a href="datebase.html" class="project-title-btn">DateBase</a>
 						</div>
 						<div class= "project-image-wrapper">
-							<a href="sorting.html"> <img class="project-image hide" href="sorting.html" src="images/apps/algo.png"/></a>
-							<h4>Algorithm Visualization</h4>
+							<a href="nomi.html"> <img class="project-image" src="images/nomi/SignUp.png"/></a>
+							<a href="nomi.html" class="project-title-btn">Nomi</a>
 						</div>
 					</div>
-					<a class="top-button" href="#home"> <img class="link-image" href="#slide1" src="images/to-top.png"/></a>
+					<button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
 				</div>
+				<a class="top-button" href="#home"> <img class="link-image" href="#slide1" src="images/to-top.png"/></a>
 			</div>
+		</div>
 
 			<hr>
 
