@@ -142,15 +142,39 @@ nav .icon {
 }
 
 .project-image {
-	width: 210px;
+	width: 220px;
 }
 .image0 {
 	width: 360px;
 }
 
+.image4 {
+	width: 430px;
+}
+
+
+.video{
+	height: 520px;
+	border-radius: 5%;
+	margin-top: 25px;
+}
 
 .video1 {
-	width: 255px;
+	width: auto;
+}
+
+.demo-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+}
+
+.demo-container h2 {
+	font-size: 40px;
+	background-color: transparent;
+	margin: 0;
 }
 
 .description {

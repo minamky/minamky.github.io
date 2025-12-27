@@ -170,25 +170,51 @@ nav .icon {
 	scroll-snap-align: start;
 }
 
-.image1 {
-	width: 400px;
+.project-image{
+	width: 360px;
 }
 
-.image2, .image3, .image4{
-	width: 300px;
-	border-radius: 5px;
+.image2{
+	width: 450px;
+}
+
+.image4{
+	width: 520px;
 }
 
 
 .video{
-	height: 380px;
+	height: 520px;
 	border-radius: 5%;
 	margin-top: 25px;
+}
+
+.video1 {
+	width: auto;
+}
+
+.demo-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+}
+
+.demo-container h2 {
+	font-size: 40px;
+	background-color: transparent;
+	margin: 0;
 }
 
 
 .description {
 	max-width: 550px;
+}
+
+.description .project-image {
+	display: block;
+	margin: 15px auto 30px auto;
 }
 .slides h2 {
 	font-size: 40px;
@@ -281,6 +307,10 @@ button {
 	max-width: 250px;
 }
 
+.part1 h3:not(:first-child) {
+	margin-top: 30px;
+}
+
 @media only screen and (max-width: 900px) {
 	.image-grid {
 		display: none;
@@ -301,6 +331,12 @@ button {
 	padding-top: 40px;
 	display: grid;
 	grid-template-columns: 50% 50%;
+	gap: 30px;
+}
+
+.grid-stacked {
+	grid-template-columns: 1fr;
+	gap: 20px;
 }
 
 
