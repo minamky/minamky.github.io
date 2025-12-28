@@ -11,29 +11,37 @@
 
 	<body>
 		<div class="container">
-			<div class = "navigation-bar">
-				<h4 id="logo-word">Mina Ky</h4>
-				<div class="contain">
-					<nav class="topnav" id="myTopnav">
-						<ul>
-							<a href="index.html" class="active">Home</a>
-							<a href="#aboutme">Coursework</a>
-							<a href="projects.html">Projects</a>
-							<a href="#contact">Contact</a>
-							<a href="javascript:void(0);" class="icon" ontouch="myFunction()" onClick="myFunction()"><i class="fa fa-bars"></i></a>
-						</ul>
-					</nav>
-				</div>
+		<div class = "navigation-bar">
+			<h4 id="logo-word">Mina Ky</h4>
+			<div class="contain">
+				<nav class="topnav" id="myTopnav">
+					<ul>
+						<a href="index.html" class="active">Home</a>
+						<a href="#aboutme">Coursework</a>
+						<a href="projects.html">Projects</a>
+						<a href="#contact">Contact</a>
+					<button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+						<svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="4" stroke="#1F2881" stroke-width="2" fill="#1F2881"/>
+							<path d="M12 2V4M12 20V22M22 12H20M4 12H2M19.07 4.93L17.66 6.34M6.34 17.66L4.93 19.07M19.07 19.07L17.66 17.66M6.34 6.34L4.93 4.93" stroke="#1F2881" stroke-width="2" stroke-linecap="round"/>
+						</svg>
+						<svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#1F2881" stroke-width="2" fill="#1F2881"/>
+						</svg>
+					</button>
+						<a href="javascript:void(0);" class="icon" ontouch="myFunction()" onClick="myFunction()"><i class="fa fa-bars"></i></a>
+					</ul>
+				</nav>
 			</div>
+		</div>
 
 			<div class = slides id="home">
 				<img class="profile-picture" src="images/headshot.jpg"/>
 				<div class="intro">
 					<h1 id="my-name">Mina Ky<h1>
-					<h3 id="my-title">Computer Science at Stanford University</h3>
+					<h3 id="my-title">CS (AI + HCI) at Stanford </h3>
 					<p id="paragraph">
-						I am a Masters student at Stanford University, studying Computer Science and specializing in Artificial Intelligence and Human-Computer Interaction.
-						At Microsoft, I interned as a Technical Program Manager (TPM) on Azure's SaaS Data Analytics platform, Fabric. 
+						At Microsoft, I interned as a Technical Program Manager on Azure's SaaS Data Analytics platform, Fabric. 
 						Previously, I helped build a tool at the Department of Homeland Security to help federal agencies assess the cybersecurity of their open-source software. 
 					</p>
 					<div class="intro-buttons">
@@ -122,11 +130,11 @@
 							<form id="contact-form" actions="#">
 								<label for="name">
 									<h4>Name</h4>
-									<input id="name"/>
+									<input type="text" id="name"/>
 								</label>
 								<label for="email">
 									<h4>Email</h4>
-									<input id="email" />
+									<input type="email" id="email" />
 								</label>
 								<label for="message">
 									<h4>Message</h4>
@@ -148,17 +156,17 @@
 								<h4>Based in:</h4>
 								<p>The Greater Seattle Area</p>
 							</div>
-							<u1 class = "links-list">
-								<li>
-									<a href="https://www.linkedin.com/in/minaky/"> <img class="link-image" href="https://www.linkedin.com/in/minaky/" src="images/linkedin.png"/></a>
-								</li>
-								<li>
-									<a href="https://github.com/minamky"> <img class="link-image" href="https://github.com/minamky" src="images/github.png"/></a>
-								</li>
-								<li>
-									<a href="https://www.instagram.com/mina.ky/"> <img class="link-image" href="https://www.instagram.com/mina.ky/" src="images/instagram.png"/></a>
-								</li>
-							</u1>
+						<u1 class = "links-list">
+							<li>
+								<a href="https://www.linkedin.com/in/minaky/"><img class="link-image light-mode-icon" href="https://www.linkedin.com/in/minaky/" src="images/linkedin.png"/><img class="link-image dark-mode-icon" href="https://www.linkedin.com/in/minaky/" src="images/linkedinwhite.png"/></a>
+							</li>
+							<li>
+								<a href="https://github.com/minamky"><img class="link-image light-mode-icon" href="https://github.com/minamky" src="images/github.png"/><img class="link-image dark-mode-icon" href="https://github.com/minamky" src="images/github-white.png"/></a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/mina.ky/"><img class="link-image light-mode-icon" href="https://www.instagram.com/mina.ky/" src="images/instagram.png"/><img class="link-image dark-mode-icon" href="https://www.instagram.com/mina.ky/" src="images/instagram-white.png"/></a>
+							</li>
+						</u1>
 						</div>
 
 					</div>

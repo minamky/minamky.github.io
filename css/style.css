@@ -200,14 +200,14 @@ home
 }
 
 #paragraph {
-	margin-top: 30px;
-	margin-bottom: 45px;
+	margin-top: 15px;
+	margin-bottom: 20px;
 }
 
 .intro-buttons{
-	margin-left: 10%;
-	display: grid;
-	grid-template-columns: 50% 50%;
+	display: flex;
+	gap: 15px;
+	justify-content: center;
 }
 
 body button {
@@ -307,6 +307,9 @@ ABOUT ME
 	padding: 30px ;
 	font-size: 23px;
 	background-color: transparent;
+	border-bottom: 1.5px solid #1F2881;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .i-am > ul, .hobbies > ul{
@@ -356,10 +359,10 @@ projects
 	justify-content: space-between;
 	position: relative;
 	width: 100%;
-	max-width: 1500px;
+	max-width: 1600px;
 	margin: 0 auto;
-	padding: 0 20px;
-	gap: 120px;
+	padding: 0 40px;
+	gap: 160px;
 }
 
 .projects-carousel {
@@ -380,7 +383,7 @@ projects
 .carousel-btn {
 	background-color: transparent;
 	color: #363C8C;
-	font-size: 35px;
+	font-size: 42px;
 	padding: 10px 18px;
 	cursor: pointer;
 	transition: all ease-in-out .2s;
@@ -571,6 +574,14 @@ links
 	list-style: none;
 }
 
+.links-list a {
+	text-decoration: none;
+}
+
+.links-list li {
+	display: inline-block;
+}
+
 @media (max-width:800px) {
 	.links-and-contact {
 		grid-template-columns: 50% 50%;
@@ -642,6 +653,223 @@ hr {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #27374D, rgba(0, 0, 0, 0));
 	margin-bottom: 72px;
 	margin-top: 20px;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-btn {
+	background: transparent;
+	border: 2px solid #1F2881;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	margin: 0 20px;
+	padding: 0;
+	position: relative;
+	top: 10px;
+}
+
+.dark-mode-btn:hover {
+	transform: scale(1.1);
+}
+
+.dark-mode-btn .sun-icon,
+.dark-mode-btn .moon-icon {
+	position: absolute;
+	transition: opacity 0.3s ease;
+	background: transparent;
+}
+
+.dark-mode-btn .sun-icon path,
+.dark-mode-btn .sun-icon circle,
+.dark-mode-btn .moon-icon path {
+	background: transparent;
+}
+
+.dark-mode-btn .sun-icon {
+	opacity: 0;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon {
+	opacity: 1;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon {
+	opacity: 0;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon path,
+body.dark-mode .dark-mode-btn .sun-icon circle {
+	stroke: #E8E4D0;
+	fill: #E8E4D0;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon path {
+	stroke: #E8E4D0;
+	fill: #E8E4D0;
+}
+
+/* Dark Mode Styles */
+body.dark-mode * {
+	background: #1F2881;
+	color: #E8E4D0;
+}
+
+body.dark-mode .navigation-bar {
+	background-color: #1F2881;
+}
+
+body.dark-mode #logo-word {
+	color: #E8E4D0;
+}
+
+body.dark-mode nav ul a {
+	color: #E8E4D0;
+}
+
+body.dark-mode nav ul a::after {
+	background: #E8E4D0;
+}
+
+body.dark-mode nav ul a:hover {
+	color: #1F2881;
+}
+
+body.dark-mode .dark-mode-btn {
+	border-color: #E8E4D0;
+	background: transparent;
+}
+
+body.dark-mode .dark-mode-btn:hover {
+	transform: scale(1.1);
+}
+
+body.dark-mode button {
+	background: #FBFBF1;
+	border-color: #FBFBF1;
+	color: #1F2881;
+}
+
+body.dark-mode button:hover {
+	background-color: transparent;
+	border-color: #FBFBF1;
+	color: #E8E4D0;
+}
+
+body.dark-mode .i-am,
+body.dark-mode .hobbies {
+	background-color: transparent;
+	border-color: #E8E4D0;
+	color: #E8E4D0;
+}
+
+body.dark-mode .i-am h3,
+body.dark-mode .i-am ul,
+body.dark-mode .i-am li,
+body.dark-mode .hobbies h3,
+body.dark-mode .hobbies ul,
+body.dark-mode .hobbies li {
+	background-color: transparent;
+	color: #E8E4D0;
+}
+
+body.dark-mode .i-am > h3,
+body.dark-mode .hobbies > h3 {
+	border-bottom-color: #E8E4D0;
+}
+
+body.dark-mode .project-title-btn {
+	background: #FBFBF1;
+	border-color: #FBFBF1;
+	color: #1F2881;
+}
+
+body.dark-mode .project-title-btn:hover {
+	background-color: transparent;
+	border-color: #FBFBF1;
+	color: #E8E4D0;
+}
+
+body.dark-mode form input[type="text"],
+body.dark-mode form input[type="email"],
+body.dark-mode form textarea {
+	background-color: transparent;
+	color: #E8E4D0;
+	border-bottom-color: #E8E4D0;
+}
+
+body.dark-mode form input[type="text"]::placeholder,
+body.dark-mode form input[type="email"]::placeholder,
+body.dark-mode form textarea::placeholder {
+	color: #E8E4D0;
+	opacity: 0.7;
+}
+
+body.dark-mode form input[type="submit"] {
+	background: #FBFBF1;
+	border-color: #FBFBF1;
+	color: #1F2881;
+}
+
+body.dark-mode form input[type="submit"]:hover {
+	background-color: transparent;
+	border-color: #FBFBF1;
+	color: #E8E4D0;
+}
+
+body.dark-mode hr {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #E8E4D0, rgba(0, 0, 0, 0));
+}
+
+body.dark-mode .carousel-btn {
+	background: transparent;
+	color: #E8E4D0;
+}
+
+body.dark-mode .carousel-btn:hover {
+	background: transparent;
+	color: #E8E4D0;
+}
+
+body.dark-mode .project-image-wrapper {
+	background: transparent !important;
+}
+
+body.dark-mode .project-image {
+	background: transparent !important;
+}
+
+body.dark-mode .project-image-wrapper *:not(.project-title-btn) {
+	background: transparent !important;
+}
+
+body.dark-mode .links-and-contact {
+	border: 5px solid #E8E4D0 !important;
+}
+
+body.dark-mode #contact .links-and-contact {
+	border: 5px solid #E8E4D0 !important;
+}
+
+/* Social media icon switching */
+.dark-mode-icon {
+	display: none !important;
+}
+
+.light-mode-icon {
+	display: inline-block;
+}
+
+body.dark-mode .light-mode-icon {
+	display: none !important;
+}
+
+body.dark-mode .dark-mode-icon {
+	display: inline-block !important;
 }
 
 

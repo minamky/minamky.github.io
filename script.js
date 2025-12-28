@@ -137,4 +137,26 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Set initial cursor
 		carousel.style.cursor = 'grab';
 	}
+	
+	// Dark mode functionality
+	const darkModeToggle = document.getElementById('dark-mode-toggle');
+	
+	// Check for saved dark mode preference
+	if (localStorage.getItem('darkMode') === 'enabled') {
+		document.body.classList.add('dark-mode');
+	}
+	
+	// Toggle dark mode
+	if (darkModeToggle) {
+		darkModeToggle.addEventListener('click', function() {
+			document.body.classList.toggle('dark-mode');
+			
+			// Save preference to localStorage
+			if (document.body.classList.contains('dark-mode')) {
+				localStorage.setItem('darkMode', 'enabled');
+			} else {
+				localStorage.setItem('darkMode', 'disabled');
+			}
+		});
+	}
 });
