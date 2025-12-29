@@ -277,7 +277,7 @@ button {
 #slide2 button, #slide4 button, #slide6 button, #slide8 button{
 	background-color: #FBFBF1;
 	border-color: #FBFBF1;
-	color: #363C8C;
+	color: #1F2881;
 }
 
 #slide2 button:hover, #slide4 button:hover, #slide6 button:hover, #slide8 button:hover{
@@ -295,7 +295,7 @@ button {
 
 
 #slide2, #slide4, #slide6, #slide8{
-	background: #363C8C;
+	background: #1F2881;
 	color: #FBFBF1;
 }
 
