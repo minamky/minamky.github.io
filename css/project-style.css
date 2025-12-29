@@ -85,17 +85,18 @@ nav .icon {
   display: none;
 }
 
-@media screen and (max-width: 700px) {
-  nav a:not(:first-child) {
-    display: none;
-  }
-  #logo-word {
-    display: none;
-  }
+@media screen and (max-width: 790px) {
+  nav a:not(:first-child) {display: none;}
   nav a.icon {
     float: right;
     display: block;
   }
+}
+
+@media screen and (max-width: 450px) {
+	#logo-word {
+	  font-size: 15px;
+	}
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */

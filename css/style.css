@@ -93,19 +93,22 @@ nav .icon {
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 815px) {
   nav a:not(:first-child) {display: none;}
-  #logo-word {
-    display: none;
-  }
   nav a.icon {
     float: right;
     display: block;
   }
 }
 
+@media screen and (max-width: 450px) {
+	#logo-word {
+	  font-size: 15px;
+	}
+}
+
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   nav.responsive {position: absolute;}
   nav.responsive a.icon {
     position: absolute;
@@ -135,9 +138,9 @@ nav .icon {
 	scroll-snap-type: y mandatory;
 }
 
-@media (max-width:650px) {
+@media (max-width:900px) {
 	.container {
-		scroll-snap-type: y mandatory;
+		scroll-snap-type: none;
 	}
 }
 
@@ -327,7 +330,7 @@ ABOUT ME
 	background-color: transparent;
 }
 
-@media (max-width:600px) {
+@media (max-width:900px) {
 	.about-grid {
 		grid-template-columns: 100%;
 		padding: 0px;
@@ -449,7 +452,7 @@ projects
 }
 
 .project-image {
-	width: 330px;
+	width: 310px;
 	transition: all ease in-out .2s;
 	-webkit-user-drag: none;
 	user-select: none;
@@ -487,33 +490,29 @@ projects
 	color: #1C2471;
 }
 
-@media (max-width:600px) {
+@media (max-width:1100px) {
 	.carousel-container {
-		padding: 0 20px;
-		max-width: 100%;
+		padding: 0 0px;
 	}
 	.carousel-btn {
-		font-size: 24px;
-		padding: 5px 10px;
+		padding: 0px 0px;
 		align-self: center;
 	}
+	.project-image-wrapper.prev {
+		display: none;
+	}
+	.project-image-wrapper.next {
+		display: none;
+	}
 	.projects-carousel {
-		width: 280px;
-		height: 400px;
+		width: 0;
 	}
 	.project-image {
-		width: 200px;
+		width: 300px;
 	}
 	.project-image-wrapper.active {
 		transform: translate(-50%, -50%) scale(1);
-	}
-	.project-image-wrapper.prev {
-		transform: translate(-130%, -50%) scale(0.5);
-		opacity: 0.3;
-	}
-	.project-image-wrapper.next {
-		transform: translate(30%, -50%) scale(0.5);
-		opacity: 0.3;
+		padding: 0px 0px;
 	}
 }
 
