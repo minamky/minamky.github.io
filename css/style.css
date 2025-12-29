@@ -193,6 +193,30 @@ home
 	font-weight: bolder;
 }
 
+.typing-caret {
+	min-height: 1.1em;
+}
+
+.typing-caret::after {
+	content: '';
+	display: inline-block;
+	width: 2px;
+	height: 1.1em;
+	background: #1F2881;
+	margin-left: 6px;
+	animation: blink-caret 0.8s steps(1) infinite;
+	vertical-align: bottom;
+}
+
+@keyframes blink-caret {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
 #my-title {
 	font-size: 22px;
 	font-weight: bold;
@@ -271,6 +295,7 @@ ABOUT ME
 	text-align: center;
 	max-width: 5000px;
 	background-color: transparent;
+	margin-top: 80px;
 }
 
 .mina-picture {
@@ -427,7 +452,6 @@ projects
 	filter: grayscale(100%);
 	transform: translate(-150%, -50%) scale(0.60);
 	z-index: 1;
-	pointer-events: none;
 }
 
 .project-image-wrapper.prev .project-title-btn {
@@ -439,7 +463,6 @@ projects
 	filter: grayscale(100%) blur(20%);
 	transform: translate(50%, -50%) scale(0.60);
 	z-index: 1;
-	pointer-events: none;
 }
 
 .project-image-wrapper.next .project-title-btn {
@@ -456,7 +479,13 @@ projects
 	margin-bottom: 40px;
 }
 
-.project-image-wrapper:not(.active) * {
+.project-image-wrapper.prev,
+.project-image-wrapper.next {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.project-image-wrapper:not(.active):not(.prev):not(.next) * {
 	pointer-events: none;
 }
 

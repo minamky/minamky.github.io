@@ -35,9 +35,6 @@ function myFunction() {
 
 // Carousel functionality
 let currentIndex = 0;
-let touchStartX = 0;
-let touchEndX = 0;
-let isDragging = false;
 
 function updateActiveItem() {
 	const items = document.querySelectorAll('.project-image-wrapper');
@@ -69,73 +66,94 @@ function moveCarousel(direction) {
 	updateActiveItem();
 }
 
-function handleSwipe() {
-	const swipeThreshold = 50; // Minimum distance for a swipe
-	const difference = touchStartX - touchEndX;
-	
-	if (Math.abs(difference) > swipeThreshold) {
-		if (difference > 0) {
-			// Swiped left - go to next
-			moveCarousel(1);
-		} else {
-			// Swiped right - go to previous
-			moveCarousel(-1);
-		}
+function handlePreviewClick(event) {
+	const wrapper = event.target.closest('.project-image-wrapper');
+	if (!wrapper) return;
+
+	if (wrapper.classList.contains('prev')) {
+		event.preventDefault();
+		event.stopPropagation();
+		moveCarousel(-1);
+	} else if (wrapper.classList.contains('next')) {
+		event.preventDefault();
+		event.stopPropagation();
+		moveCarousel(1);
 	}
+}
+
+function initHeroTyping() {
+	const nameElement = document.getElementById('my-name');
+	const titleElement = document.getElementById('my-title');
+
+	const nameText = (nameElement?.dataset?.fullName || nameElement?.textContent || '').trim();
+	const titleText = (titleElement?.dataset?.fullTitle || titleElement?.textContent || '').trim();
+
+	const storageKey = 'heroTypingComplete';
+	let hasTyped = false;
+	try {
+		hasTyped = sessionStorage.getItem(storageKey) === '1';
+	} catch (error) {
+		hasTyped = false;
+	}
+
+	if (hasTyped) {
+		if (nameElement) {
+			nameElement.textContent = nameText;
+			nameElement.classList.remove('typing-caret');
+		}
+		if (titleElement) {
+			titleElement.textContent = titleText;
+			titleElement.classList.remove('typing-caret');
+		}
+		return;
+	}
+
+	const typeText = (element, text, done, speed = 130) => {
+		if (!element || !text) {
+			done();
+			return;
+		}
+
+		element.textContent = '';
+		element.classList.add('typing-caret');
+
+		let index = 0;
+		const typingInterval = setInterval(() => {
+			element.textContent += text[index++];
+
+			if (index >= text.length) {
+				clearInterval(typingInterval);
+				element.classList.remove('typing-caret');
+				done();
+			}
+		}, speed);
+	};
+
+	typeText(nameElement, nameText, () => {
+		typeText(
+			titleElement,
+			titleText,
+			() => {
+				try {
+					sessionStorage.setItem(storageKey, '1');
+				} catch (error) {
+					// ignore
+				}
+			},
+			90
+		);
+	}, 130);
 }
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+	initHeroTyping();
 	updateActiveItem();
 	
 	const carousel = document.querySelector('.projects-carousel');
 	
 	if (carousel) {
-		// Touch events for mobile
-		carousel.addEventListener('touchstart', function(e) {
-			touchStartX = e.changedTouches[0].screenX;
-			isDragging = true;
-		}, { passive: true });
-		
-		carousel.addEventListener('touchend', function(e) {
-			touchEndX = e.changedTouches[0].screenX;
-			if (isDragging) {
-				handleSwipe();
-				isDragging = false;
-			}
-		}, { passive: true });
-		
-		// Mouse events for desktop
-		carousel.addEventListener('mousedown', function(e) {
-			touchStartX = e.screenX;
-			isDragging = true;
-			carousel.style.cursor = 'grabbing';
-		});
-		
-		carousel.addEventListener('mousemove', function(e) {
-			if (isDragging) {
-				e.preventDefault();
-			}
-		});
-		
-		carousel.addEventListener('mouseup', function(e) {
-			if (isDragging) {
-				touchEndX = e.screenX;
-				handleSwipe();
-				isDragging = false;
-				carousel.style.cursor = 'grab';
-			}
-		});
-		
-		carousel.addEventListener('mouseleave', function() {
-			if (isDragging) {
-				isDragging = false;
-				carousel.style.cursor = 'grab';
-			}
-		});
-		
-		// Set initial cursor
-		carousel.style.cursor = 'grab';
+		carousel.addEventListener('click', handlePreviewClick);
 	}
 	
 	// Dark mode functionality
