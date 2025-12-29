@@ -104,8 +104,14 @@ function initHeroTyping() {
 		if (titleElement) {
 			titleElement.textContent = titleText;
 			titleElement.classList.remove('typing-caret');
+			titleElement.style.visibility = 'visible';
 		}
 		return;
+	}
+
+	// Hide the title element initially
+	if (titleElement) {
+		titleElement.style.visibility = 'hidden';
 	}
 
 	const typeText = (element, text, done, speed = 130) => {
@@ -116,6 +122,11 @@ function initHeroTyping() {
 
 		element.textContent = '';
 		element.classList.add('typing-caret');
+		
+		// Show the element when we start typing
+		if (element.style.visibility === 'hidden') {
+			element.style.visibility = 'visible';
+		}
 
 		let index = 0;
 		const typingInterval = setInterval(() => {
