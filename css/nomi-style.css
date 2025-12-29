@@ -100,7 +100,7 @@ nav .icon {
   
   @media screen and (max-width: 450px) {
 	  #logo-word {
-		font-size: 15px;
+		color: transparent;
 	  }
   }
 
