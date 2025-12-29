@@ -329,19 +329,19 @@ ABOUT ME
 	background-color: transparent;
 }
 
-@media (max-width:900px) {
+@media (max-width:1000px) {
 	.about-grid .hobbies:nth-child(n + 3) {
 		display: none;
 	}
 	.about-grid {
 		grid-template-columns: 100%;
 		padding: 0px;
-		gap: 40px;
+		gap: 20px;
 	}
-	.i-am > h3, .hobbies > h3{
-	padding: 10px ;
-	font-size: 25px;
-}
+	.hobbies > h3{
+		padding: 10px ;
+		font-size: 25px;
+	}
 }
 
 /*
