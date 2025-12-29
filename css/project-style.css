@@ -89,6 +89,9 @@ nav .icon {
   nav a:not(:first-child) {
     display: none;
   }
+  #logo-word {
+    display: none;
+  }
   nav a.icon {
     float: right;
     display: block;

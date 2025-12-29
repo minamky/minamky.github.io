@@ -95,7 +95,7 @@ nav .icon {
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 700px) {
   nav a:not(:first-child) {display: none;}
-  logo-word {
+  #logo-word {
     display: none;
   }
   nav a.icon {
@@ -519,7 +519,7 @@ projects
 
 /*
 
-links
+contact me
 
 
 */
@@ -544,6 +544,7 @@ links
 	.links-and-contact {
 		grid-template-columns: 100%;
 	}
+
 }
 
 
@@ -588,6 +589,7 @@ links
 	.links-and-contact {
 		grid-template-columns: 50% 50%;
 		width: auto;
+		border:none;
 	}
 }
 
@@ -595,6 +597,7 @@ links
 	.links-and-contact {
 		grid-template-columns: 100%;
 		width: auto;
+		border:none;
 	}
 	.part {
 		padding-top: 0px;
