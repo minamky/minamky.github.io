@@ -33,7 +33,7 @@
 	font-size: 20px;
 	margin-left: 45px;
 	color: #1C2471;;
-	padding-top: 30px;
+	padding-top: 50px;
 }
 
 .navigation-bar{
@@ -45,7 +45,6 @@ nav {
 	background: transparent;
 	border-block-width: 100%;
 	z-index: 2;
-	position: fixed;
 	padding-right: 3%;
 }
 
@@ -670,7 +669,8 @@ hr {
 	margin: 0 20px;
 	padding: 0;
 	position: relative;
-	top: 10px;
+	top: 0px;
+	vertical-align: middle;
 }
 
 .dark-mode-btn:hover {
