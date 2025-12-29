@@ -252,8 +252,7 @@ body button:hover{
 
 @media only screen and (max-width: 900px) {
 	.top-button img{
-		width: 35px;
-		height: 35px;
+		display: none;
 	}
 }
 
@@ -516,6 +515,32 @@ projects
 	}
 }
 
+@media (max-width:400px) {
+	.carousel-container {
+		padding: 0 0px;
+	}
+	.carousel-btn {
+		padding: 0px 0px;
+		align-self: center;
+	}
+	.project-image-wrapper.prev {
+		display: none;
+	}
+	.project-image-wrapper.next {
+		display: none;
+	}
+	.projects-carousel {
+		width: 0;
+	}
+	.project-image {
+		width: 250px;
+	}
+	.project-image-wrapper.active {
+		transform: translate(-50%, -50%) scale(1);
+		padding: 0px 0px;
+	}
+}
+
 /*
 
 contact me
@@ -588,7 +613,7 @@ contact me
 	.links-and-contact {
 		grid-template-columns: 50% 50%;
 		width: auto;
-		border:none;
+		border: transparent;
 	}
 }
 
@@ -596,8 +621,9 @@ contact me
 	.links-and-contact {
 		grid-template-columns: 100%;
 		width: auto;
-		border:none;
+		border: transparent;
 	}
+
 	.part {
 		padding-top: 0px;
 		padding-bottom: 20px;
@@ -606,7 +632,7 @@ contact me
 
 @media (max-width:680px) {
 	.links-and-contact {
-		border:none;
+		border: transparent;
 	}
 }
 
@@ -615,7 +641,7 @@ form input, textarea {
 	width: 240px;
 	background-color: transparent;
 	color: gray;
-	border: none;
+	border: transparent;
 	border-bottom: 1px solid #1C2471;
 }
 
@@ -852,12 +878,10 @@ body.dark-mode .project-image-wrapper *:not(.project-title-btn) {
 	background: transparent !important;
 }
 
-body.dark-mode .links-and-contact {
-	border: 5px solid #E8E4D0 !important;
-}
-
-body.dark-mode #contact .links-and-contact {
-	border: 5px solid #E8E4D0 !important;
+@media (min-width:700px) {
+	body.dark-mode .links-and-contact {
+		border: 5px solid #E8E4D0 !important;
+	}
 }
 
 /* Social media icon switching */
