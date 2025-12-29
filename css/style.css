@@ -118,11 +118,11 @@ nav .icon {
     right: 17px;
     top: -20px;
   }
-  nav.responsive a:not(first-child) {
-    float: none;
-    display: block;
-    text-align: right;
-    margin-top: 20px;
+  nav.responsive a:not(:first-child):not(:last-child) {
+	float: none;
+	display: block;
+	text-align: right;
+	margin-top: 20px;
   }
 
   nav.responsive ul {
