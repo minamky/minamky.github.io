@@ -101,15 +101,6 @@ nav .icon {
   }
 }
 
-@media screen and (max-width: 450px) {
-	#logo-word {
-	  color: transparent;
-	}
-	body.dark-mode #logo-word {
-		color: transparent;
-	}
-}
-
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 800px) {
   nav.responsive {position: absolute;}
@@ -118,7 +109,7 @@ nav .icon {
     right: 17px;
     top: -20px;
   }
-  nav.responsive a:not(:first-child):not(:last-child) {
+  nav.responsive a:not(:first-child) {
 	float: none;
 	display: block;
 	text-align: right;
@@ -907,4 +898,11 @@ body.dark-mode .dark-mode-icon {
 	display: inline-block !important;
 }
 
-
+@media screen and (max-width: 450px) {
+	#logo-word {
+	  color: transparent;
+	}
+	body.dark-mode #logo-word {
+		color: transparent;
+	}
+}
