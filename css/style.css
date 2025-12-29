@@ -16,7 +16,7 @@
 	padding:0;
 	box-sizing: border-box;
 	font-family: new_kansasregular, sans-serif;
-	color: #1F2881;
+	color: #1C2471;
 	background: #FBFBF1;
 }
 
@@ -32,7 +32,7 @@
 #logo-word {
 	font-size: 20px;
 	margin-left: 45px;
-	color: #1F2881;;
+	color: #1C2471;;
 	padding-top: 30px;
 }
 
@@ -54,7 +54,7 @@ nav ul a {
 	display:inline-block;
 	padding: 0 40px;
 	font-size: 15px;
-	color: #1F2881;
+	color: #1C2471;
 	cursor: pointer;
 	position:relative;
 	z-index: 3;
@@ -65,7 +65,7 @@ nav ul a {
 
 nav ul a::after {
 	content: '';
-	background: #1F2881;
+	background: #1C2471;
 	width: 100%;
 	height: 40px;
 	border-radius: 2px;
@@ -193,30 +193,6 @@ home
 	font-weight: bolder;
 }
 
-.typing-caret {
-	min-height: 1.1em;
-}
-
-.typing-caret::after {
-	content: '';
-	display: inline-block;
-	width: 2px;
-	height: 1.1em;
-	background: #1F2881;
-	margin-left: 6px;
-	animation: blink-caret 0.8s steps(1) infinite;
-	vertical-align: bottom;
-}
-
-@keyframes blink-caret {
-	0%, 100% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0;
-	}
-}
-
 #my-title {
 	font-size: 22px;
 	font-weight: bold;
@@ -250,8 +226,8 @@ body button {
 
 body button:hover{
 	background-color: transparent;
-	border-color: #1F2881;
-	color: #1F2881;
+	border-color: #1C2471;
+	color: #1C2471;
 }
 
 .top-button {
@@ -286,7 +262,7 @@ ABOUT ME
 
 
 .title {
-	color: #1F2881;
+	color: #1C2471;
 	font-size: 15px;
 	text-align: center;
 }
@@ -295,7 +271,6 @@ ABOUT ME
 	text-align: center;
 	max-width: 5000px;
 	background-color: transparent;
-	margin-top: 80px;
 }
 
 .mina-picture {
@@ -323,7 +298,7 @@ ABOUT ME
 .i-am, .hobbies{
 	color: #FBFBF1;
 	padding: 20px 20px;
-	border: 3px solid #1F2881;
+	border: 3px solid #1C2471;
 	border-radius: 10px;
 	background-color: transparent;
 }
@@ -332,7 +307,7 @@ ABOUT ME
 	padding: 30px ;
 	font-size: 23px;
 	background-color: transparent;
-	border-bottom: 1.5px solid #1F2881;
+	border-bottom: 1.5px solid #1C2471;
 	padding-bottom: 15px;
 	margin-bottom: 15px;
 }
@@ -452,6 +427,7 @@ projects
 	filter: grayscale(100%);
 	transform: translate(-150%, -50%) scale(0.60);
 	z-index: 1;
+	pointer-events: none;
 }
 
 .project-image-wrapper.prev .project-title-btn {
@@ -463,6 +439,7 @@ projects
 	filter: grayscale(100%) blur(20%);
 	transform: translate(50%, -50%) scale(0.60);
 	z-index: 1;
+	pointer-events: none;
 }
 
 .project-image-wrapper.next .project-title-btn {
@@ -479,13 +456,7 @@ projects
 	margin-bottom: 40px;
 }
 
-.project-image-wrapper.prev,
-.project-image-wrapper.next {
-	cursor: pointer;
-	pointer-events: auto;
-}
-
-.project-image-wrapper:not(.active):not(.prev):not(.next) * {
+.project-image-wrapper:not(.active) * {
 	pointer-events: none;
 }
 
@@ -510,8 +481,8 @@ projects
 
 .project-title-btn:hover {
 	background-color: transparent;
-	border-color: #1F2881;
-	color: #1F2881;
+	border-color: #1C2471;
+	color: #1C2471;
 }
 
 @media (max-width:600px) {
@@ -553,7 +524,7 @@ links
 
 .contact-content {
 	max-width: 700px;
-	border-color: #1F2881;
+	border-color: #1C2471;
 	border-width: 5px;
 }
 
@@ -562,7 +533,7 @@ links
 	grid-template-columns: auto auto;
 	grid-gap: 50px;
 	padding: 50px;
-	border:5px solid #1F2881;
+	border:5px solid #1C2471;
 	width: 750px;
 	height: 400px;
 }
@@ -585,7 +556,7 @@ links
 }
 
 .part > a{
-	color: #1F2881;
+	color: #1C2471;
 	text-decoration: none;
 }
 
@@ -641,7 +612,7 @@ form input, textarea {
 	background-color: transparent;
 	color: gray;
 	border: none;
-	border-bottom: 1px solid #1F2881;
+	border-bottom: 1px solid #1C2471;
 }
 
 label h4 {
@@ -668,8 +639,8 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
 	background-color: transparent;
-	border-color: #1F2881;
-	color: #1F2881;
+	border-color: #1C2471;
+	color: #1C2471;
 }
 
 .submit-button-wrapper {
@@ -687,7 +658,7 @@ hr {
 /* Dark Mode Toggle Button */
 .dark-mode-btn {
 	background: transparent;
-	border: 2px solid #1F2881;
+	border: 2px solid #1C2471;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
@@ -744,12 +715,12 @@ body.dark-mode .dark-mode-btn .moon-icon path {
 
 /* Dark Mode Styles */
 body.dark-mode * {
-	background: #1F2881;
+	background: #1C2471;
 	color: #E8E4D0;
 }
 
 body.dark-mode .navigation-bar {
-	background-color: #1F2881;
+	background-color: #1C2471;
 }
 
 body.dark-mode #logo-word {
@@ -765,7 +736,7 @@ body.dark-mode nav ul a::after {
 }
 
 body.dark-mode nav ul a:hover {
-	color: #1F2881;
+	color: #1C2471;
 }
 
 body.dark-mode .dark-mode-btn {
@@ -780,7 +751,7 @@ body.dark-mode .dark-mode-btn:hover {
 body.dark-mode button {
 	background: #FBFBF1;
 	border-color: #FBFBF1;
-	color: #1F2881;
+	color: #1C2471;
 }
 
 body.dark-mode button:hover {
@@ -814,7 +785,7 @@ body.dark-mode .hobbies > h3 {
 body.dark-mode .project-title-btn {
 	background: #FBFBF1;
 	border-color: #FBFBF1;
-	color: #1F2881;
+	color: #1C2471;
 }
 
 body.dark-mode .project-title-btn:hover {
@@ -841,7 +812,7 @@ body.dark-mode form textarea::placeholder {
 body.dark-mode form input[type="submit"] {
 	background: #FBFBF1;
 	border-color: #FBFBF1;
-	color: #1F2881;
+	color: #1C2471;
 }
 
 body.dark-mode form input[type="submit"]:hover {

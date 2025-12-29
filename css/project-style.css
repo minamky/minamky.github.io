@@ -33,14 +33,13 @@ html {
 }
 
 .navigation-bar {
-  /* #background-color: #1F2881; */
+  /* #background-color: #1C2471; */
   height: 0px;
 }
 
 nav {
   background: transparent;
   border-block-width: 100%;
-  /*	box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);*/
   z-index: 2;
   padding-right: 3%;
 }
@@ -50,7 +49,7 @@ nav ul a {
   display: inline-block;
   padding: 0 40px;
   font-size: 15px;
-  color: #1F2881;
+  color: #1C2471;
   cursor: pointer;
   position: relative;
   z-index: 3;
@@ -61,7 +60,7 @@ nav ul a {
 
 nav ul a::after {
   content: "";
-  background: #1F2881;
+  background: #1C2471;
   width: 100%;
   height: 40px;
   border-radius: 2px;
@@ -135,7 +134,7 @@ nav .icon {
   justify-content: center;
   gap: 50px;
   color: #FBFBF1;
-  background: #1F2881;
+  background: #1C2471;
   scroll-snap-align: start;
 }
 
@@ -198,7 +197,7 @@ button {
 #slide3 button {
   background-color: #FBFBF1;
   border-color: #FBFBF1;
-  color: #1F2881;
+  color: #1C2471;
 }
 
 #slide1 button:hover,
@@ -210,29 +209,29 @@ button {
 
 #slide2 button,
 #slide4 button {
-  background-color: #1F2881;
-  border-color: #1F2881;
+  background-color: #1C2471;
+  border-color: #1C2471;
   color: #FBFBF1;
 }
 
 #slide2 button:hover,
 #slide4 button:hover {
   background-color: transparent;
-  border-color: #1F2881;
-  color: #1F2881;
+  border-color: #1C2471;
+  color: #1C2471;
 }
 
 #slide1,
 #slide3,
 #contact {
-  background: #1F2881;
+  background: #1C2471;
   color: #FBFBF1;
 }
 
 #slide2,
 #slide4 {
   background: #FBFBF1;
-  color: #1F2881;
+  color: #1C2471;
 }
 
 @media only screen and (max-width: 700px) {
@@ -340,7 +339,7 @@ form input[type="submit"] {
   background: #FBFBF1;
   border-style: double;
   border-color: #FBFBF1;
-  color: #1F2881;
+  color: #1C2471;
   font-size: 15px;
   font-weight: bold;
   padding: 8px;
