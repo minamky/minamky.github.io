@@ -906,3 +906,158 @@ body.dark-mode .dark-mode-icon {
 		color: transparent;
 	}
 }
+
+/* Soft gray + light pink theme override */
+body,
+.navigation-bar,
+.slides,
+.container,
+.about-content,
+.project-content,
+.links-and-contact {
+	background-color: #f4f1f4 !important;
+	color: #5f5966 !important;
+}
+
+#logo-word,
+nav ul a,
+.title,
+.part > a,
+form input,
+textarea,
+label h4 {
+	color: #5f5966 !important;
+}
+
+nav ul a::after,
+button,
+.project-title-btn,
+form input[type="submit"] {
+	background-color: #e7c4d2 !important;
+	border-color: #e7c4d2 !important;
+	color: #5f5966 !important;
+}
+
+button:hover,
+.project-title-btn:hover,
+form input[type="submit"]:hover {
+	background-color: transparent !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}
+
+.i-am,
+.hobbies,
+.links-and-contact,
+form input,
+textarea,
+.dark-mode-btn {
+	border-color: #c69aae !important;
+}
+
+form input::placeholder,
+textarea::placeholder {
+	color: #9d93a3 !important;
+}
+
+hr {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #d7b3c4, rgba(0, 0, 0, 0)) !important;
+}
+
+/* Keep dark mode aligned with the same palette family */
+body.dark-mode * {
+	background: #4f4a56;
+	color: #f8eaf0;
+}
+
+body.dark-mode nav ul a::after,
+body.dark-mode button,
+body.dark-mode .project-title-btn,
+body.dark-mode form input[type="submit"] {
+	background: #c69aae;
+	border-color: #c69aae;
+	color: #f8eaf0;
+}
+
+/* Keep hero intro transparent in light mode */
+#home .intro,
+#home .intro * {
+	background-color: transparent !important;
+	color: #5f5966 !important;
+}
+
+/* Keep coursework section on the same light-mode background */
+body:not(.dark-mode) #aboutme {
+	background-color: #f4f1f4 !important;
+}
+
+body:not(.dark-mode) #aboutme * {
+	background-color: transparent !important;
+	color: #5f5966 !important;
+}
+
+/* Keep projects and contact sections aligned in light mode */
+body:not(.dark-mode) #projects,
+body:not(.dark-mode) #contact {
+	background-color: #f4f1f4 !important;
+}
+
+body:not(.dark-mode) #projects *,
+body:not(.dark-mode) #contact * {
+	background-color: transparent !important;
+	color: #5f5966 !important;
+}
+
+/* Keep navigation bar consistent in light mode */
+body:not(.dark-mode) .navigation-bar,
+body:not(.dark-mode) .contain,
+body:not(.dark-mode) nav,
+body:not(.dark-mode) nav ul {
+	background-color: #f4f1f4 !important;
+}
+
+body:not(.dark-mode) .navigation-bar * {
+	background-color: transparent !important;
+}
+
+/* Home page buttons: pink by default, transparent on hover */
+body:not(.dark-mode) #home button,
+body:not(.dark-mode) #aboutme button,
+body:not(.dark-mode) #projects button,
+body:not(.dark-mode) #contact button,
+body:not(.dark-mode) #projects .project-title-btn,
+body:not(.dark-mode) #contact form input[type="submit"] {
+	background-color: #e7c4d2 !important;
+	border-color: #e7c4d2 !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #home button:hover,
+body:not(.dark-mode) #aboutme button:hover,
+body:not(.dark-mode) #projects button:hover,
+body:not(.dark-mode) #contact button:hover,
+body:not(.dark-mode) #projects .project-title-btn:hover,
+body:not(.dark-mode) #contact form input[type="submit"]:hover {
+	background-color: transparent !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}
+
+/* Carousel controls should not use pink fill */
+body:not(.dark-mode) #projects .carousel-btn {
+	background-color: transparent !important;
+}
+
+body:not(.dark-mode) #projects .project-title-btn {
+	background-color: #e7c4d2 !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #projects .carousel-btn:hover {
+	color: #c69aae !important;
+}
+body:not(.dark-mode) #projects .project-title-btn:hover {
+	background-color: transparent !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}

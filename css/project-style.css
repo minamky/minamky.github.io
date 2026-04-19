@@ -371,3 +371,66 @@ hr {
   margin-bottom: 72px;
   margin-top: 20px;
 }
+
+/* Soft gray + light pink theme override */
+body,
+.navigation-bar,
+.slides,
+.container,
+.contact-content,
+.links-and-contact {
+  background-color: #f4f1f4 !important;
+  color: #5f5966 !important;
+}
+
+#logo-word,
+nav ul a,
+.part > a,
+form input,
+textarea,
+label h4 {
+  color: #5f5966 !important;
+}
+
+nav ul a::after,
+button,
+form input[type="submit"] {
+  background-color: #e7c4d2 !important;
+  border-color: #e7c4d2 !important;
+  color: #5f5966 !important;
+}
+
+button:hover,
+form input[type="submit"]:hover {
+  background-color: transparent !important;
+  border-color: #c69aae !important;
+  color: #5f5966 !important;
+}
+
+.links-and-contact,
+form input,
+textarea {
+  border-color: #c69aae !important;
+}
+
+form input::placeholder,
+textarea::placeholder {
+  color: #9d93a3 !important;
+}
+
+hr {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #d7b3c4, rgba(0, 0, 0, 0)) !important;
+}
+
+/* Light mode button fill should be soft gray */
+body:not(.dark-mode) button,
+body:not(.dark-mode) form input[type="submit"] {
+  background-color: grsa !important;
+  border-color: #e7c4d2 !important;
+}
+
+body:not(.dark-mode) button:hover,
+body:not(.dark-mode) form input[type="submit"]:hover {
+  background-color: transparent !important;
+  border-color: #c69aae !important;
+}

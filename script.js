@@ -167,15 +167,18 @@ document.addEventListener('DOMContentLoaded', function() {
 		carousel.addEventListener('click', handlePreviewClick);
 	}
 	
-	// Dark mode functionality
+	// Theme mode functionality (normal → dark → fun)
 	const darkModeToggle = document.getElementById('dark-mode-toggle');
 	
-	// Check for saved dark mode preference
-	if (localStorage.getItem('darkMode') === 'enabled') {
+	// Check for saved theme preference
+	const savedTheme = localStorage.getItem('themeMode') || 'normal';
+	if (savedTheme === 'dark') {
 		document.body.classList.add('dark-mode');
+	} else if (savedTheme === 'fun') {
+		document.body.classList.add('fun-mode');
 	}
 	
-	// Toggle dark mode
+	// Cycle through themes: normal → dark → fun → normal
 	if (darkModeToggle) {
 		darkModeToggle.addEventListener('click', function() {
 			document.body.classList.toggle('dark-mode');
