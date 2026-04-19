@@ -453,6 +453,10 @@ projects
 	margin-bottom: 40px;
 }
 
+.project-image.second-thought-image {
+	width: 420px;
+}
+
 .project-image-wrapper:not(.active) * {
 	pointer-events: none;
 }

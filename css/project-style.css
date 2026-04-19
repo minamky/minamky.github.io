@@ -145,6 +145,10 @@ nav .icon {
   width: 360px;
 }
 
+.image5{
+	width: 550px;
+}
+
 .description {
   max-width: 550px;
 }
@@ -173,6 +177,21 @@ button {
   border-style: double;
   border-width: 5px;
   transition: all ease-in-out 0.2s;
+}
+
+.project-link-btn {
+  width: 150px;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 8px;
+  font-family: new_kansasregular, sans-serif;
+  border-radius: 2px;
+  border-style: double;
+  border-width: 5px;
+  transition: all ease-in-out 0.2s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }
 
 .top-button {
@@ -217,8 +236,20 @@ button {
   color: #FBFBF1;
 }
 
+#slide5 .project-link-btn {
+  background-color: #1C2471;
+  border-color: #1C2471;
+  color: #FBFBF1;
+}
+
 #slide2 button:hover,
 #slide4 button:hover {
+  background-color: transparent;
+  border-color: #1C2471;
+  color: #1C2471;
+}
+
+#slide5 .project-link-btn:hover {
   background-color: transparent;
   border-color: #1C2471;
   color: #1C2471;
@@ -394,6 +425,7 @@ label h4 {
 
 nav ul a::after,
 button,
+.project-link-btn,
 form input[type="submit"] {
   background-color: #e7c4d2 !important;
   border-color: #e7c4d2 !important;
@@ -401,6 +433,7 @@ form input[type="submit"] {
 }
 
 button:hover,
+.project-link-btn:hover,
 form input[type="submit"]:hover {
   background-color: transparent !important;
   border-color: #c69aae !important;
