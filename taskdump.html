@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TaskDump</title>
+    <link rel="stylesheet" href = "css/taskdump-style.css">
+    <meta name="viewport" content="width=display-width, initial-scale=1">
+  </head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <body>
+    <div class="container">
+      <div class = "navigation-bar">
+        <h4 id="logo-word">Mina Ky</h4>
+        <div class="contain">
+          <nav class="topnav" id="myTopnav">
+            <ul>
+              <a href="index.html" class="active">Home</a>
+              <a href="index.html#aboutme">Coursework</a>
+              <a href="projects.html">Projects</a>
+              <a href="#contact">Contact</a>
+              <a href="javascript:void(0);" class="icon" ontouch="myFunction()" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="slides" id="slide1">
+        <img class="project-image" src="images/taskdump/main.png"/>
+        <div class=description>
+          <h2>TaskDump</h2>
+          <h3>Accessibility, TypeScript, Voice Input</h3>
+          <p>TaskDump supports users with ADHD by transforming scattered thoughts into a structured to dos.
+            Through a voice-powered AI braindump mode, the app helps users externalize their thinking and breakdown their tasks into manageable, 
+            actionable subtasks.</p>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide2').scrollIntoView()">Learn More</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slides" id=slide2>
+        <img class="project-image image1" src="images/taskdump/listening.png"/>
+        <div class="description">
+          <h2>User Need + Solution</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>User Need</h3>
+              <p>People with ADHD often struggle with task initiation and motivation. When tasks feel large and vague, the effort required to figure out where to start can become a barrier to action. Because of this, individuals with ADHD can benefit from tools that help externalize their unstructured thoughts and translate large tasks into smaller, clear, low-friction starting points. </p>
+            </div>
+            <div class="part1">
+              <h3>Capture unstructured thoughts instantly</h3>
+              <p>Speak naturally about everything you need to do, quickly externalizing tasks without the friction of organizing or typing.</p>
+              <h3>Organize into a task list</h3>
+              <p>Brain-dumped information is structured into tasks, with AI-powered features to help break down tasks into manageable subtasks.</p>
+            
+            </div>
+            
+          </div>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide3').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id=slide3>
+        <div class="grid">
+          <div class="part1">
+            <img class="project-image image2" src="images/taskdump/start-here.png"/>
+            <img class="project-image image3" src="images/taskdump/helper.png"/>
+          </div>
+          <div class="part1">
+            <img class="project-image image4" src="images/taskdump/suggestions.png"/>
+          </div>
+        </div>
+        <div class="description">
+          <h2>From Our User Study</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>Priority Guidance</h3>
+              <p>Visualize clear deadlines through highlighted priorities to overcome the “what should I do first?” barrier.</p>
+              <h3>Conversational Task Clarification</h3>
+              <p>Converse with an AI agent to refine tasks, add details, or further break down steps when something still feels overwhelming.</p>
+            </div>
+            <div class="part1">
+              <h3>Smart Task Breakdown</h3>
+              <p>Break down large or vague tasks into smaller, actionable steps with AI-generated suggestions.</p>
+            </div>
+          </div>
+          <div class="learn-buttons">
+              <button type="button" onClick="document.getElementById('slide4').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="slides" id="slide4">
+        <video class="video video1"  playsinline controls autoplay> <source src="demos/task-dump-ai.mov"></video>
+        <div class="description">
+          <h2>Responsive AI Design</h2>
+          <div class="grid">
+            <div class="part1">
+              <h3>Harmful Task Generation</h3>
+              <p>AI can sometimes reinforce unsafe ideas, and breaking goals into 
+                subtasks may unintentionally make harmful actions easier to execute. 
+              </p>
+            </div>
+            <div class="part1">
+              <h3>Solution</h3>
+              <p>Guardrails that detect harmful intent during braindump and trigger task blocked messge with </p>
+            </div>
+          </div>
+          <div class="learn-buttons">
+            <button type="button" onClick="document.getElementById('slide5').scrollIntoView()">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slides" id="slide5">
+        <div class="demo-container">
+          <h2>Demo</h2>
+          <video class="video video1"  playsinline controls autoplay> <source src="demos/task-dump.mov"></video>
+        </div>
+        <a class="top-button" href="#slide1"> <img class="link-image" src="images/to-top.png"/></a>
+      </div>
+
+      <div class="slides" id="contact">
+        <div class="contact-content">
+          <h3 class="title">Contact Me</h3>
+          <div class="links-and-contact">
+            <div class="contact">
+              <form id="contact-form" actions="#">
+                <label for="name">
+                  <h4>Name</h4>
+                  <input id="name"/>
+                </label>
+                <label for="email">
+                  <h4>Email</h4>
+                  <input id="email" />
+                </label>
+                <label for="message">
+                  <h4>Message</h4>
+                  <textarea id="message"></textarea>
+                </label>
+                <div class="submit-button-wrapper">
+                  <input id="submit-button" type="submit" value="Send Message">
+                </div>
+              </form>
+            </div>
+
+            <div class="links">
+              <div class="part">
+                <h4>Email:</h4>
+                <a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+              </div>
+              <div class="part">
+                <h4>Based in:</h4>
+                <p>The Greater Seattle Area</p>
+              </div>
+              <u1 class = "links-list">
+                <li>
+                  <a href="https://www.linkedin.com/in/minaky/"> <img class="link-image" href="https://www.linkedin.com/in/minaky/" src="images/linkedin.png"/></a>
+                </li>
+                <li>
+                  <a href="https://github.com/minamky"> <img class="link-image" href="https://github.com/minamky" src="images/github.png"/></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/mina.ky/"> <img class="link-image" href="https://www.instagram.com/mina.ky/" src="images/instagram.png"/></a>
+                </li>
+              </u1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 
