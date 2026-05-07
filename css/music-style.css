@@ -210,10 +210,9 @@ home
 }
 
 
-.profile-picture {
+.ipod {
 	border-radius: 15px;
-	width:265px;
-	height:330px;
+	width:220px;
 	box-shadow: 0 4px 6px 0 rgb(34, 60 80, 0.16);
 	transition: all ease-in-out .2s;
 }
@@ -386,7 +385,7 @@ projects
 
 */
 
-#projects{
+#songs{
 	scroll-margin-top: 2rem;
 }
 
@@ -488,14 +487,36 @@ projects
 	display: none;
 }
 
-.project-image {
-	width: 310px;
+.project-image-wrapper.prev .set-title,
+.project-image-wrapper.next .set-title {
+	display: none;
+}
+
+.ipod-image {
+	width: 210px;
 	transition: all ease in-out .2s;
 	-webkit-user-drag: none;
 	user-select: none;
 	-webkit-user-select: none;
 	pointer-events: none;
 	margin-bottom: 40px;
+}
+
+.set-image {
+	width: 380px;
+	transition: all ease in-out .2s;
+	-webkit-user-drag: none;
+	user-select: none;
+	-webkit-user-select: none;
+	pointer-events: none;
+	margin-bottom: 12px;
+}
+
+.set-title {
+	font-size: 17px;
+	font-weight: bold;
+	text-align: center;
+	background: transparent !important;
 }
 
 .project-image.second-thought-image {
@@ -1235,4 +1256,49 @@ body.dark-mode #home .intro-buttons button:hover {
 	background-color: transparent !important;
 	border-color: #f8eaf0 !important;
 	color: #f8eaf0 !important;
+}
+
+/* Music page section backgrounds */
+body:not(.dark-mode) #songs,
+body:not(.dark-mode) #sets,
+body:not(.dark-mode) #songs .project-content,
+body:not(.dark-mode) #sets .project-content {
+	background-color: #f4f1f4 !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #songs,
+body:not(.dark-mode) #songs * {
+	background-color: #f4f1f4 !important;
+}
+
+body:not(.dark-mode) #songs img {
+	background-color: transparent !important;
+}
+
+body:not(.dark-mode) #sets,
+body:not(.dark-mode) #sets * {
+	background-color: #f4f1f4 !important;
+}
+
+body:not(.dark-mode) #sets img {
+	background-color: transparent !important;
+}
+
+body.dark-mode #songs,
+body.dark-mode #sets,
+body.dark-mode #songs .project-content,
+body.dark-mode #sets .project-content {
+	background-color: #4f4a56 !important;
+	color: #f8eaf0 !important;
+}
+
+/* Keep carousel arrows icon-only (no boxes) */
+#songs .carousel-btn,
+#songs .carousel-btn:hover,
+#sets .carousel-btn,
+#sets .carousel-btn:hover {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
 }
