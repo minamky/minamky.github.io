@@ -97,6 +97,7 @@ nav .icon {
   display: none;
   position: absolute;
   min-width: 160px;
+  margin-top: 11px;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
