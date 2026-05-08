@@ -35,6 +35,7 @@ function myFunction() {
 
 // Carousel functionality (independent state for each section)
 const carouselState = {
+	projects: 0,
 	sets: 0,
 	songs: 0
 };
@@ -66,13 +67,18 @@ function updateActiveItem(sectionId) {
 }
 
 function moveCarousel(direction, sectionId) {
-	const items = getCarouselItems(sectionId);
+	const resolvedSectionId = sectionId || 'projects';
+	if (carouselState[resolvedSectionId] === undefined) {
+		carouselState[resolvedSectionId] = 0;
+	}
+
+	const items = getCarouselItems(resolvedSectionId);
 	const totalItems = items.length;
 	if (!totalItems) return;
 
 	// Wrap both directions: first <- left and last -> right
-	carouselState[sectionId] = (carouselState[sectionId] + direction + totalItems) % totalItems;
-	updateActiveItem(sectionId);
+	carouselState[resolvedSectionId] = (carouselState[resolvedSectionId] + direction + totalItems) % totalItems;
+	updateActiveItem(resolvedSectionId);
 }
 
 function handlePreviewClick(event, sectionId) {
@@ -170,11 +176,19 @@ document.addEventListener('DOMContentLoaded', function() {
 	initHeroTyping();
 
 	// Initialize each carousel independently
+	updateActiveItem('projects');
 	updateActiveItem('sets');
 	updateActiveItem('songs');
 
+	const projectsCarousel = document.querySelector('#projects .projects-carousel');
 	const setsCarousel = document.querySelector('#sets .projects-carousel');
 	const songsCarousel = document.querySelector('#songs .projects-carousel');
+
+	if (projectsCarousel) {
+		projectsCarousel.addEventListener('click', function(event) {
+			handlePreviewClick(event, 'projects');
+		});
+	}
 
 	if (setsCarousel) {
 		setsCarousel.addEventListener('click', function(event) {

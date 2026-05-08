@@ -572,6 +572,26 @@ body:not(.dark-mode) form input[type="submit"]:hover {
   border-color: #c69aae !important;
 }
 
+body:not(.dark-mode) .dark-mode-btn {
+  background-color: #f4f1f4 !important;
+  border-color: #5f5966 !important;
+}
+
+body:not(.dark-mode) .dark-mode-btn .moon-icon path {
+  stroke: #5f5966 !important;
+  fill: #5f5966 !important;
+}
+
+body:not(.dark-mode) .dark-mode-btn:hover {
+  color: #c69aae !important;
+  border-color: #c69aae !important;
+}
+
+body:not(.dark-mode) .dark-mode-btn:hover .moon-icon path {
+  stroke: #c69aae !important;
+  fill: #c69aae !important;
+}
+
 /* Match home page dark mode: dark gray backgrounds + light pink text */
 body.dark-mode,
 body.dark-mode .container,

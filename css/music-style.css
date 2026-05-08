@@ -217,6 +217,19 @@ home
 	transition: all ease-in-out .2s;
 }
 
+.ipod:hover {
+	animation: ipod-shake 0.45s ease-in-out;
+}
+
+@keyframes ipod-shake {
+	0% { transform: translateX(0) rotate(0deg); }
+	20% { transform: translateX(-2px) rotate(-1deg); }
+	40% { transform: translateX(2px) rotate(1deg); }
+	60% { transform: translateX(-2px) rotate(-1deg); }
+	80% { transform: translateX(2px) rotate(1deg); }
+	100% { transform: translateX(0) rotate(0deg); }
+}
+
 .profile-picture:hover {
 	box-shadow:0 8px 12px 0 rgb(34, 60, 80, 0.16);
 }
@@ -230,6 +243,7 @@ home
 #my-name {
 	font-size: 50px;
 	font-weight: bolder;
+	margin-bottom: 30px;
 }
 
 #my-title {
@@ -474,6 +488,21 @@ projects
 
 .carousel-btn:hover {
 	transform: scale(1.15);
+}
+
+/* Keep set arrows aligned near the section title */
+#sets .prev-btn,
+#sets .next-btn {
+	position: absolute;
+	top: -30px;
+}
+
+#sets .prev-btn {
+	left: -200px;
+}
+
+#sets .next-btn {
+	right: -200px;
 }
 
 .project-image-wrapper {
