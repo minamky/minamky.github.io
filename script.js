@@ -33,18 +33,28 @@ function myFunction() {
   }
 }
 
-// Carousel functionality
-let currentIndex = 0;
+// Carousel functionality (independent state for each section)
+const carouselState = {
+	sets: 0,
+	songs: 0
+};
 
-function updateActiveItem() {
-	const items = document.querySelectorAll('.project-image-wrapper');
+function getCarouselItems(sectionId) {
+	const section = document.getElementById(sectionId);
+	if (!section) return [];
+	return section.querySelectorAll('.project-image-wrapper');
+}
+
+function updateActiveItem(sectionId) {
+	const items = getCarouselItems(sectionId);
 	const totalItems = items.length;
-	
+	if (!totalItems) return;
+
+	const currentIndex = carouselState[sectionId] || 0;
+
 	items.forEach((item, index) => {
-		// Remove all state classes
 		item.classList.remove('active', 'prev', 'next');
-		
-		// Add appropriate class based on position
+
 		if (index === currentIndex) {
 			item.classList.add('active');
 		} else if (index === (currentIndex - 1 + totalItems) % totalItems) {
@@ -55,29 +65,28 @@ function updateActiveItem() {
 	});
 }
 
-function moveCarousel(direction) {
-	const items = document.querySelectorAll('.project-image-wrapper');
+function moveCarousel(direction, sectionId) {
+	const items = getCarouselItems(sectionId);
 	const totalItems = items.length;
-	
-	// Update index using modulo for wrapping
-	currentIndex = (currentIndex + direction + totalItems) % totalItems;
-	
-	// Update active class
-	updateActiveItem();
+	if (!totalItems) return;
+
+	// Wrap both directions: first <- left and last -> right
+	carouselState[sectionId] = (carouselState[sectionId] + direction + totalItems) % totalItems;
+	updateActiveItem(sectionId);
 }
 
-function handlePreviewClick(event) {
+function handlePreviewClick(event, sectionId) {
 	const wrapper = event.target.closest('.project-image-wrapper');
 	if (!wrapper) return;
 
 	if (wrapper.classList.contains('prev')) {
 		event.preventDefault();
 		event.stopPropagation();
-		moveCarousel(-1);
+		moveCarousel(-1, sectionId);
 	} else if (wrapper.classList.contains('next')) {
 		event.preventDefault();
 		event.stopPropagation();
-		moveCarousel(1);
+		moveCarousel(1, sectionId);
 	}
 }
 
@@ -159,12 +168,24 @@ function initHeroTyping() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
 	initHeroTyping();
-	updateActiveItem();
-	
-	const carousel = document.querySelector('.projects-carousel');
-	
-	if (carousel) {
-		carousel.addEventListener('click', handlePreviewClick);
+
+	// Initialize each carousel independently
+	updateActiveItem('sets');
+	updateActiveItem('songs');
+
+	const setsCarousel = document.querySelector('#sets .projects-carousel');
+	const songsCarousel = document.querySelector('#songs .projects-carousel');
+
+	if (setsCarousel) {
+		setsCarousel.addEventListener('click', function(event) {
+			handlePreviewClick(event, 'sets');
+		});
+	}
+
+	if (songsCarousel) {
+		songsCarousel.addEventListener('click', function(event) {
+			handlePreviewClick(event, 'songs');
+		});
 	}
 	
 	// Theme mode functionality (normal → dark → fun)
