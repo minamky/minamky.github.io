@@ -1163,6 +1163,15 @@ body.dark-mode li {
 	color: #f8eaf0 !important;
 }
 
+/* Match Projects nav hover in dark mode */
+body.dark-mode nav ul a::after {
+	background: #f8eaf0 !important;
+}
+
+body.dark-mode nav ul a:hover {
+	color: #4f4a56 !important;
+}
+
 body.dark-mode button:hover,
 body.dark-mode .project-title-btn:hover,
 body.dark-mode form input[type="submit"]:hover {

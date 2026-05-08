@@ -389,6 +389,43 @@ projects
 	scroll-margin-top: 2rem;
 }
 
+.song-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 18px;
+	width: min(900px, 92%);
+	margin: 0 auto 30px;
+}
+
+.song-grid-item {
+	display: block;
+	transition: transform 0.2s ease-in-out;
+}
+
+.song-grid-item:hover {
+	transform: translateY(-2px);
+}
+
+.song-cover {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	display: block;
+}
+
+@media (max-width:800px) {
+	.song-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width:650px) {
+	.song-grid {
+		grid-template-columns: 1fr;
+		width: min(420px, 92%);
+	}
+}
+
 .title {
 	font-size: 30px;
 	margin-bottom: 40px;
@@ -510,6 +547,7 @@ projects
 	-webkit-user-select: none;
 	pointer-events: none;
 	margin-bottom: 12px;
+	display: block;
 }
 
 .set-image-zedd {
@@ -557,6 +595,7 @@ projects
 	border-color: #1C2471;
 	color: #1C2471;
 }
+
 
 @media (max-width:1100px) {
 	.carousel-container {
@@ -1189,6 +1228,19 @@ body.dark-mode h4,
 body.dark-mode p,
 body.dark-mode li {
 	color: #f8eaf0 !important;
+}
+
+/* Match Projects nav hover in dark mode */
+body.dark-mode nav ul a::after {
+	background: #f8eaf0 !important;
+}
+
+body.dark-mode nav ul a:hover {
+	color: #4f4a56 !important;
+}
+
+body.dark-mode .dropdown-content {
+	border-color: #f8eaf0 !important;
 }
 
 body.dark-mode button:hover,

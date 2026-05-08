@@ -17,7 +17,7 @@
 				<nav class="topnav" id="myTopnav">
 					<ul>
 						<a href="index.html" class="active">Home</a>
-						<a href="#aboutme">Coursework</a>
+						<a href="index.html#aboutme">Coursework</a>
 						<a href="projects.html">Projects</a>
 						<div class="dropdown">
 							<a href="music.html" class="dropbtn">Fun</a>
@@ -61,31 +61,31 @@
             <button class="carousel-btn prev-btn" onclick="moveCarousel(-1, 'sets')">&#10094;</button>
             <div class = "projects-carousel" >
               <div class= "project-image-wrapper">
-                <a href="https://youtu.be/aloPGSlq31Y?si=qFGIo4PYny2ZRorB" target="_blank" rel="noopener noreferrer">
+                <a class="set-video-link" href="https://youtu.be/aloPGSlq31Y?si=qFGIo4PYny2ZRorB" data-video-id="aloPGSlq31Y" target="_blank" rel="noopener noreferrer">
                   <img class="set-image" src="https://img.youtube.com/vi/aloPGSlq31Y/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/aloPGSlq31Y/hqdefault.jpg';" alt="Set video thumbnail"/>
                 </a>
                 <p class="set-title">JOHN SUMMIT LIVE @ ULTRA MIAMI MAIN STAGE 2026</p>
               </div>
               <div class= "project-image-wrapper">
-                <a href="https://youtu.be/vBvZaydcCzc?si=NKQQ2nck5UxjuEKZ" target="_blank" rel="noopener noreferrer">
+                <a class="set-video-link" href="https://youtu.be/vBvZaydcCzc?si=NKQQ2nck5UxjuEKZ" data-video-id="vBvZaydcCzc" target="_blank" rel="noopener noreferrer">
                   <img class="set-image" src="https://img.youtube.com/vi/vBvZaydcCzc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/vBvZaydcCzc/hqdefault.jpg';" alt="Set video thumbnail"/>
                 </a>
                 <p class="set-title">MARTIN GARRIX B2B ALESSO ULTRA MIAMI 2026</p>
               </div>
               <div class= "project-image-wrapper">
-                <a href="https://youtu.be/JdCmzkt5xdo?si=Q_7-PiEvEBaFGmle" target="_blank" rel="noopener noreferrer">
+                <a class="set-video-link" href="https://youtu.be/JdCmzkt5xdo?si=Q_7-PiEvEBaFGmle" data-video-id="JdCmzkt5xdo" target="_blank" rel="noopener noreferrer">
                   <img class="set-image" src="https://img.youtube.com/vi/JdCmzkt5xdo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/JdCmzkt5xdo/hqdefault.jpg';" alt="Set video thumbnail"/>
                 </a>
                 <p class="set-title">ISOKNOCK - 4EVR FINALE AT EDC LAS VEGAS 2025</p>
               </div>
               <div class= "project-image-wrapper">
-                <a href="https://youtu.be/9ZqJPIbTme4?si=_MQViJ2hRGvtnIjF" target="_blank" rel="noopener noreferrer">
+                <a class="set-video-link" href="https://youtu.be/9ZqJPIbTme4?si=_MQViJ2hRGvtnIjF" data-video-id="9ZqJPIbTme4" target="_blank" rel="noopener noreferrer">
                   <img class="set-image" src="https://img.youtube.com/vi/9ZqJPIbTme4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/9ZqJPIbTme4/hqdefault.jpg';" alt="Set video thumbnail"/>
                 </a>
                 <p class="set-title">EVERYTHING ALWAYS (Dom Dolla & John Summit) @ ULTRA MIAMI 2025</p>
               </div>
 			  <div class= "project-image-wrapper">
-                <a href="https://youtu.be/1EaNEtjWw6s?si=QHqUFkdYcSMMcql2" target="_blank" rel="noopener noreferrer">
+                <a class="set-video-link" href="https://youtu.be/1EaNEtjWw6s?si=QHqUFkdYcSMMcql2" data-video-id="1EaNEtjWw6s" target="_blank" rel="noopener noreferrer">
                   <img class="set-image set-image-zedd" src="https://img.youtube.com/vi/1EaNEtjWw6s/hqdefault.jpg" alt="Set video thumbnail"/>
                 </a>
                 <p class="set-title">ZEDD B2B KNOCK2 @ NITEHARTS 2025</p>
@@ -102,27 +102,15 @@
       <div class = slides id="songs">
         <div class = "project-content">
           <h1 class="title" href="projects.html">Songs</h1>
-          <div class="carousel-container">
-            <button class="carousel-btn prev-btn" onclick="moveCarousel(-1, 'songs')">&#10094;</button>
-            <div class = "projects-carousel" >
-              <div class= "project-image-wrapper">
-                <a href="pulse.html"> <img class="ipod-image" src="images/music/White.png"/></a>
-              </div>
-              <div class= "project-image-wrapper">
-                <a href="datebase.html"> <img class="ipod-image" src="images/music/White.png"/></a>
-              </div>
-              <div class= "project-image-wrapper">
-                <a href="datebase.html"> <img class="ipod-image" src="images/music/White.png"/></a>
-              </div>
-              <div class= "project-image-wrapper">
-                <a href="datebase.html"> <img class="ipod-image" src="images/music/White.png"/></a>
-              </div>
-              <div class= "project-image-wrapper">
-                <a href="datebase.html"> <img class="ipod-image" src="images/music/White.png"/></a>
-              </div>
-            </div>
-            <button class="carousel-btn next-btn" onclick="moveCarousel(1, 'songs')">&#10095;</button>
-          </div>
+          <div class="song-grid">
+            <a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
+		</div>
           <a class="top-button" href="#home"> <img class="link-image" href="#slide1" src="images/to-top.png"/></a>
         </div>
       </div>

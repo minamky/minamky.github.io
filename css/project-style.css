@@ -28,7 +28,6 @@ html {
 #logo-word {
   font-size: 20px;
   margin-left: 45px;
-  color: #1C2471;
   padding-top: 50px;
 }
 
@@ -48,7 +47,7 @@ nav ul a {
   display: inline-block;
   padding: 0 40px;
   font-size: 15px;
-  color: #1C2471;
+  color: #c69aae;
   cursor: pointer;
   position: relative;
   z-index: 3;
@@ -59,7 +58,6 @@ nav ul a {
 
 nav ul a::after {
   content: "";
-  background: #1C2471;
   width: 100%;
   height: 40px;
   border-radius: 2px;
@@ -85,8 +83,44 @@ nav .icon {
   display: none;
 }
 
-@media screen and (max-width: 790px) {
+.dropdown {
+  display: inline-block;
+  position: relative;
+  background: transparent;
+}
+
+.dropbtn {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #c69aae;
+  border-radius: 6px;
+  z-index: 20;
+  text-align: center;
+  background: transparent;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 815px) {
   nav a:not(:first-child) {display: none;}
+  nav .dropdown {display: none;}
   nav a.icon {
     float: right;
     display: block;
@@ -100,7 +134,7 @@ nav .icon {
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   nav.responsive {
     position: absolute;
   }
@@ -109,17 +143,87 @@ nav .icon {
     right: 17px;
     top: -20px;
   }
-  nav.responsive a:not(first-child) {
+  nav.responsive a:not(:first-child) {
     float: none;
     display: block;
     text-align: right;
     margin-top: 20px;
   }
 
+  nav.responsive .dropdown {
+    display: block;
+  }
+
+  nav.responsive .dropdown-content {
+    position: static;
+    transform: none;
+    border: none;
+    display: block;
+  }
+
   nav.responsive ul {
     margin-top: 30px;
     text-align: right;
   }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-btn {
+  background: transparent;
+  border: 2px solid #1C2471;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin: 0 20px;
+  padding: 0;
+  position: relative;
+  top: 0px;
+  vertical-align: middle;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.1);
+}
+
+.dark-mode-btn .sun-icon,
+.dark-mode-btn .moon-icon {
+  position: absolute;
+  transition: opacity 0.3s ease;
+  background: transparent;
+}
+
+.dark-mode-btn .sun-icon path,
+.dark-mode-btn .sun-icon circle,
+.dark-mode-btn .moon-icon path {
+  background: transparent;
+}
+
+.dark-mode-btn .sun-icon {
+  opacity: 0;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon {
+  opacity: 1;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon {
+  opacity: 0;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon path,
+body.dark-mode .dark-mode-btn .sun-icon circle {
+  stroke: #E8E4D0;
+  fill: #E8E4D0;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon path {
+  stroke: #E8E4D0;
+  fill: #E8E4D0;
 }
 
 .container {
@@ -466,4 +570,99 @@ body:not(.dark-mode) button:hover,
 body:not(.dark-mode) form input[type="submit"]:hover {
   background-color: transparent !important;
   border-color: #c69aae !important;
+}
+
+/* Match home page dark mode: dark gray backgrounds + light pink text */
+body.dark-mode,
+body.dark-mode .container,
+body.dark-mode .slides,
+body.dark-mode .navigation-bar,
+body.dark-mode .contain,
+body.dark-mode nav,
+body.dark-mode nav ul,
+body.dark-mode .contact-content,
+body.dark-mode .links-and-contact,
+body.dark-mode #contact {
+  background-color: #4f4a56 !important;
+  color: #f8eaf0 !important;
+}
+
+body.dark-mode #logo-word,
+body.dark-mode nav ul a,
+body.dark-mode .part > a,
+body.dark-mode label h4,
+body.dark-mode form input,
+body.dark-mode textarea,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode li {
+  color: #f8eaf0 !important;
+}
+
+body.dark-mode nav ul a::after {
+  background: #f8eaf0 !important;
+}
+
+body.dark-mode nav ul a:hover {
+  color: #4f4a56 !important;
+}
+
+body.dark-mode .dropdown-content {
+  border-color: #f8eaf0 !important;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .project-link-btn:hover,
+body.dark-mode form input[type="submit"]:hover {
+  background-color: #4f4a56 !important;
+  border-color: #f8eaf0 !important;
+  color: #f8eaf0 !important;
+}
+
+body.dark-mode button,
+body.dark-mode .project-link-btn,
+body.dark-mode form input[type="submit"] {
+  background-color: #f8eaf0 !important;
+  border-color: #f8eaf0 !important;
+  color: #4f4a56 !important;
+}
+
+body.dark-mode .links-and-contact,
+body.dark-mode form input,
+body.dark-mode textarea {
+  border-color: #f8eaf0 !important;
+}
+
+body.dark-mode #contact .link-image {
+  filter: brightness(0) invert(1);
+}
+
+body.dark-mode .dark-mode-btn {
+  border-color: #f8eaf0;
+  background: transparent;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon circle {
+  stroke: #4f4a56 !important;
+  fill: #4f4a56 !important;
+  stroke-width: 2 !important;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon path {
+  stroke: #4f4a56 !important;
+  fill: none !important;
+  stroke-width: 2 !important;
+}
+
+body.dark-mode .dark-mode-btn:hover .sun-icon circle {
+  stroke: #f8eaf0 !important;
+  fill: #4f4a56 !important;
+}
+
+body.dark-mode .dark-mode-btn:hover .sun-icon path {
+  stroke: #f8eaf0 !important;
+  fill: none !important;
 }

@@ -195,20 +195,20 @@ document.addEventListener('DOMContentLoaded', function() {
 	const savedTheme = localStorage.getItem('themeMode') || 'normal';
 	if (savedTheme === 'dark') {
 		document.body.classList.add('dark-mode');
-	} else if (savedTheme === 'fun') {
-		document.body.classList.add('fun-mode');
+	} else {
+		document.body.classList.remove('dark-mode');
 	}
 	
-	// Cycle through themes: normal → dark → fun → normal
+	// Toggle and persist theme across pages
 	if (darkModeToggle) {
 		darkModeToggle.addEventListener('click', function() {
 			document.body.classList.toggle('dark-mode');
 			
 			// Save preference to localStorage
 			if (document.body.classList.contains('dark-mode')) {
-				localStorage.setItem('darkMode', 'enabled');
+				localStorage.setItem('themeMode', 'dark');
 			} else {
-				localStorage.setItem('darkMode', 'disabled');
+				localStorage.setItem('themeMode', 'normal');
 			}
 		});
 	}
