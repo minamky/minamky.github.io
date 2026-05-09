@@ -307,7 +307,12 @@ home
 #my-name {
 	font-size: 50px;
 	font-weight: bolder;
+	line-height: 1;
 	margin-bottom: 30px;
+}
+
+#my-name .name-line {
+	display: block;
 }
 
 #my-title {
@@ -900,7 +905,6 @@ body.dark-mode .song-grid-empty {
 	user-select: none;
 	-webkit-user-select: none;
 	pointer-events: none;
-	margin-bottom: 40px;
 }
 
 .set-image {

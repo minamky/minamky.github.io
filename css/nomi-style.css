@@ -139,6 +139,65 @@ body.dark-mode .dropdown-content a {
 	display: block;
 }
 
+/* Dark Mode Toggle Button */
+.dark-mode-btn {
+	background: transparent;
+	border: 2px solid #1C2471;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	margin: 0 20px;
+	padding: 0;
+	position: relative;
+	top: 0px;
+	vertical-align: middle;
+}
+
+.dark-mode-btn:hover {
+	transform: scale(1.1);
+}
+
+.dark-mode-btn .sun-icon,
+.dark-mode-btn .moon-icon {
+	position: absolute;
+	transition: opacity 0.3s ease;
+	background: transparent;
+}
+
+.dark-mode-btn .sun-icon path,
+.dark-mode-btn .sun-icon circle,
+.dark-mode-btn .moon-icon path {
+	background: transparent;
+}
+
+.dark-mode-btn .sun-icon {
+	opacity: 0;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon {
+	opacity: 1;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon {
+	opacity: 0;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon path,
+body.dark-mode .dark-mode-btn .sun-icon circle {
+	stroke: #E8E4D0;
+	fill: #E8E4D0;
+}
+
+body.dark-mode .dark-mode-btn .moon-icon path {
+	stroke: #E8E4D0;
+	fill: #E8E4D0;
+}
+
 
 nav .icon {
   display: none;
@@ -617,6 +676,83 @@ body:not(.dark-mode) .navigation-bar .dropdown-content a:not(:last-child) {
 
 body:not(.dark-mode) .navigation-bar .dropdown-content a::after {
 	display: none !important;
+}
+
+/* Match home-page dark mode behavior */
+body.dark-mode,
+body.dark-mode .container,
+body.dark-mode .slides,
+body.dark-mode .navigation-bar,
+body.dark-mode .contain,
+body.dark-mode nav,
+body.dark-mode .description,
+body.dark-mode .contact-content,
+body.dark-mode .links-and-contact,
+body.dark-mode .contact,
+body.dark-mode form,
+body.dark-mode .part,
+body.dark-mode .grid,
+body.dark-mode .demo-container {
+	background-color: #4f4a56 !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode #logo-word,
+body.dark-mode nav ul a,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode label,
+body.dark-mode a {
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode nav ul a::after {
+	background: #f8eaf0 !important;
+}
+
+body.dark-mode nav ul a:hover {
+	color: #4f4a56 !important;
+}
+
+body.dark-mode .dark-mode-btn {
+	background-color: #f8eaf0 !important;
+	border-color: #f8eaf0 !important;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon circle {
+	stroke: #4f4a56 !important;
+	fill: #4f4a56 !important;
+	stroke-width: 2 !important;
+}
+
+body.dark-mode .dark-mode-btn .sun-icon path {
+	stroke: #4f4a56 !important;
+	fill: none !important;
+	stroke-width: 2 !important;
+}
+
+body.dark-mode .dark-mode-btn:hover .sun-icon circle {
+	stroke: #f8eaf0 !important;
+	fill: #4f4a56 !important;
+}
+
+body.dark-mode .dark-mode-btn:hover .sun-icon path {
+	stroke: #f8eaf0 !important;
+	fill: none !important;
+}
+
+body:not(.dark-mode) .dark-mode-btn:hover .moon-icon path {
+	stroke: #c69aae !important;
+	fill: #c69aae !important;
+}
+
+body:not(.dark-mode) .dark-mode-btn {
+	background-color: transparent !important;
+	border-color: #5f5966 !important;
 }
 
 

@@ -6,23 +6,25 @@ let emailElement = document.querySelector('#email');
 let messageElement = document.querySelector("#message");
 
 let submitButton = document.querySelector('#submit-button');
-submitButton.addEventListener('click', function(e) {
-	e.preventDefault();
+if (submitButton && nameElement && emailElement && messageElement) {
+	submitButton.addEventListener('click', function(e) {
+		e.preventDefault();
 
-	let nameValue = nameElement.value;
-	let emailValue = emailElement.value;
-	let messageValue = messageElement.value;
+		let nameValue = nameElement.value;
+		let emailValue = emailElement.value;
+		let messageValue = messageElement.value;
 
-	if(emailValue.includes('@')){
-		console.log('Name: ', nameValue);
-		console.log('Email: ', emailValue);
-		console.log('Message: ', messageValue)
-		alert('thank you for your message!');
-		document.forms['contact-form'].reset()
-	} else {
-		alert(emailValue + " is an invalid email address, please try again!")
-	}
-});
+		if(emailValue.includes('@')){
+			console.log('Name: ', nameValue);
+			console.log('Email: ', emailValue);
+			console.log('Message: ', messageValue)
+			alert('thank you for your message!');
+			document.forms['contact-form'].reset()
+		} else {
+			alert(emailValue + " is an invalid email address, please try again!")
+		}
+	});
+}
 
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -348,14 +350,64 @@ function initHeroTyping() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-	initHeroTyping();
-	initSpotifyNowPlaying();
-	initSpotifyTopSongs();
+	// Theme mode functionality
+	function applyTheme(mode) {
+		if (mode === 'dark') {
+			document.body.classList.add('dark-mode');
+		} else {
+			document.body.classList.remove('dark-mode');
+		}
+	}
+	
+	// Check for saved theme preference
+	const savedTheme = localStorage.getItem('themeMode') || 'normal';
+	applyTheme(savedTheme);
+	
+	// Delegate click handling so SVG/path clicks always toggle
+	document.addEventListener('click', function(event) {
+		const darkModeToggle = event.target.closest('#dark-mode-toggle');
+		if (!darkModeToggle) return;
+
+		try {
+			document.body.classList.toggle('dark-mode');
+
+			// Save preference to localStorage
+			if (document.body.classList.contains('dark-mode')) {
+				localStorage.setItem('themeMode', 'dark');
+			} else {
+				localStorage.setItem('themeMode', 'normal');
+			}
+		} catch (error) {
+			console.error('Theme toggle failed:', error);
+		}
+	});
+
+	try {
+		initHeroTyping();
+	} catch (error) {
+		console.error('initHeroTyping failed:', error);
+	}
+
+	try {
+		initSpotifyNowPlaying();
+	} catch (error) {
+		console.error('initSpotifyNowPlaying failed:', error);
+	}
+
+	try {
+		initSpotifyTopSongs();
+	} catch (error) {
+		console.error('initSpotifyTopSongs failed:', error);
+	}
 
 	// Initialize each carousel independently
-	updateActiveItem('projects');
-	updateActiveItem('sets');
-	updateActiveItem('songs');
+	try {
+		updateActiveItem('projects');
+		updateActiveItem('sets');
+		updateActiveItem('songs');
+	} catch (error) {
+		console.error('updateActiveItem failed:', error);
+	}
 
 	const projectsCarousel = document.querySelector('#projects .projects-carousel');
 	const setsCarousel = document.querySelector('#sets .projects-carousel');
@@ -379,30 +431,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 	
-	// Theme mode functionality (normal → dark → fun)
-	const darkModeToggle = document.getElementById('dark-mode-toggle');
-	
-	// Check for saved theme preference
-	const savedTheme = localStorage.getItem('themeMode') || 'normal';
-	if (savedTheme === 'dark') {
-		document.body.classList.add('dark-mode');
-	} else {
-		document.body.classList.remove('dark-mode');
+	try {
+		initIpodToggle();
+	} catch (error) {
+		console.error('initIpodToggle failed:', error);
 	}
-	
-	// Toggle and persist theme across pages
-	if (darkModeToggle) {
-		darkModeToggle.addEventListener('click', function() {
-			document.body.classList.toggle('dark-mode');
-			
-			// Save preference to localStorage
-			if (document.body.classList.contains('dark-mode')) {
-				localStorage.setItem('themeMode', 'dark');
-			} else {
-				localStorage.setItem('themeMode', 'normal');
-			}
-		});
-	}
-
-	initIpodToggle();
 });
