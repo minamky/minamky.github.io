@@ -10,8 +10,9 @@
  *   1. https://developer.spotify.com/dashboard → Create app
  *   2. Redirect URI: add any valid URI (e.g. http://127.0.0.1:3000/callback)
  *   3. OAuth scopes: user-read-currently-playing user-read-playback-state
- *   4. Complete Authorization Code flow once to obtain a refresh token
- *      (search "Spotify refresh token generator" or use a small local script).
+ *   4. One-time refresh token: run locally
+ *      node scripts/get-spotify-refresh-token.mjs
+ *      (see comments at top of that file; add Redirect URI in Spotify dashboard).
  */
 
 function sendJson(res, statusCode, body) {
