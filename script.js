@@ -177,6 +177,71 @@ function initSpotifyNowPlaying() {
 	setInterval(fetchNowPlaying, pollMs);
 }
 
+function initSpotifyTopSongs() {
+	const root = document.getElementById('spotify-top-songs');
+	if (!root) return;
+
+	const endpoint = root.dataset.spotifyTopEndpoint || '/api/spotify-top-tracks';
+	const limit = Number(root.dataset.limit) || 9;
+	const timeRange = root.dataset.timeRange || 'medium_term';
+
+	function escapeHtml(value) {
+		return String(value)
+			.replaceAll('&', '&amp;')
+			.replaceAll('<', '&lt;')
+			.replaceAll('>', '&gt;')
+			.replaceAll('"', '&quot;')
+			.replaceAll("'", '&#39;');
+	}
+
+	function renderTracks(tracks) {
+		if (!tracks.length) {
+			root.innerHTML = '<p class="song-grid-empty">No top songs available right now.</p>';
+			return;
+		}
+
+		const cardsHtml = tracks
+			.filter((track) => track.imageUrl)
+			.map((track) => {
+				const title = escapeHtml(track.title || 'Spotify track');
+				const artist = escapeHtml(track.artist || '');
+				const href = escapeHtml(track.url || '#');
+				const img = escapeHtml(track.imageUrl);
+				const ariaLabel = artist ? `${title} by ${artist}` : title;
+				return `
+					<a class="song-grid-item" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${ariaLabel}">
+						<img class="song-cover" src="${img}" alt="${ariaLabel}" loading="lazy" decoding="async"/>
+					</a>
+				`;
+			})
+			.join('');
+
+		root.innerHTML = cardsHtml || '<p class="song-grid-empty">No top songs available right now.</p>';
+	}
+
+	async function fetchTopSongs() {
+		try {
+			const qs = new URLSearchParams({
+				limit: String(limit),
+				time_range: timeRange,
+			});
+			const res = await fetch(`${endpoint}?${qs.toString()}`, { credentials: 'omit' });
+			const data = await res.json().catch(() => ({}));
+
+			if (!res.ok || !Array.isArray(data.tracks)) {
+				root.innerHTML = '<p class="song-grid-empty">Unable to load top songs.</p>';
+				return;
+			}
+
+			renderTracks(data.tracks);
+		} catch {
+			root.innerHTML = '<p class="song-grid-empty">Unable to load top songs.</p>';
+		}
+	}
+
+	fetchTopSongs();
+}
+
 function initHeroTyping() {
 	const nameElement = document.getElementById('my-name');
 	const titleElement = document.getElementById('my-title');
@@ -256,6 +321,7 @@ function initHeroTyping() {
 document.addEventListener('DOMContentLoaded', function() {
 	initHeroTyping();
 	initSpotifyNowPlaying();
+	initSpotifyTopSongs();
 
 	// Initialize each carousel independently
 	updateActiveItem('projects');

@@ -45,7 +45,7 @@
 				<div class="home-hero-row">
 					<a href="#songs"><img class="ipod" src="images/music/White.png" alt="Go to songs"/></a>
 					<div class="intro">
-						<h1 id="my-name">What's Mina's Listening To?</h1>
+						<h1 id="my-name">What is Mina Listening To?</h1>
 						<div class="intro-buttons">
 							<button type="button" onClick="document.getElementById('sets').scrollIntoView()">Sets</button>
 							<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Songs</button>
@@ -117,15 +117,13 @@
       <div class = slides id="songs">
         <div class = "project-content">
           <h1 class="title" href="projects.html">Songs</h1>
-          <div class="song-grid">
-            <a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
-		</div>
+          <div
+            id="spotify-top-songs"
+            class="song-grid"
+            data-spotify-top-endpoint="https://minaky.vercel.app/api/spotify-top-tracks"
+            data-limit="9"
+            data-time-range="medium_term"
+          ></div>
         </div>
       </div>
 

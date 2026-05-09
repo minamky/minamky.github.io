@@ -22,9 +22,11 @@ const REDIRECT_URI =
 	process.env.SPOTIFY_REDIRECT_URI || 'http://127.0.0.1:8888/callback';
 const PORT = Number(process.env.SPOTIFY_LOCAL_PORT || '8888');
 
-const scopes = ['user-read-currently-playing', 'user-read-playback-state'].join(
-	' '
-);
+const scopes = [
+	'user-read-currently-playing',
+	'user-read-playback-state',
+	'user-top-read',
+].join(' ');
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
 	console.error(

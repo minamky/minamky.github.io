@@ -656,6 +656,17 @@ projects
 	display: block;
 }
 
+.song-grid-empty {
+	grid-column: 1 / -1;
+	text-align: center;
+	color: #5f5966;
+	background: transparent !important;
+}
+
+body.dark-mode .song-grid-empty {
+	color: #f8eaf0;
+}
+
 @media (max-width:800px) {
 	.song-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
