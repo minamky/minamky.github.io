@@ -808,15 +808,15 @@ body.dark-mode .song-grid-empty {
 #sets .prev-btn,
 #sets .next-btn {
 	position: absolute;
-	top: -30px;
+	top: 32px;
 }
 
 #sets .prev-btn {
-	left: -200px;
+	left: -210px;
 }
 
 #sets .next-btn {
-	right: -200px;
+	right: -210px;
 }
 
 .project-image-wrapper {
@@ -868,7 +868,9 @@ body.dark-mode .song-grid-empty {
 }
 
 .project-image-wrapper.prev .set-title,
-.project-image-wrapper.next .set-title {
+.project-image-wrapper.next .set-title,
+.project-image-wrapper.prev .set-favorite-timestamp,
+.project-image-wrapper.next .set-favorite-timestamp {
 	display: none;
 }
 
@@ -911,9 +913,10 @@ body.dark-mode .song-grid-empty {
 }
 
 .set-title {
-	font-size: 17px;
+	font-size: 19px;
 	font-weight: bold;
 	text-align: center;
+	margin-bottom: 80px;
 	background: transparent !important;
 	transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -922,6 +925,15 @@ body.dark-mode .song-grid-empty {
 #sets .project-image-wrapper.active .set-video-link:focus-visible + .set-title {
 	transform: translateY(-1px);
 	opacity: 0.98;
+}
+
+.set-favorite-timestamp {
+	margin-top: 6px;
+	font-size: 14px;
+	font-style: italic;
+	text-align: center;
+	background: transparent !important;
+	opacity: 0.9;
 }
 
 .project-image.second-thought-image {
