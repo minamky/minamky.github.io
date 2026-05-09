@@ -169,16 +169,24 @@ function initSpotifyNowPlaying() {
 
 			if (!res.ok) {
 				if (data.error === 'missing_env') {
-					showError('Spotify preview needs server setup');
+					showError('Spotify API missing env vars on the server');
+				} else if (res.status === 404) {
+					showError(
+						'Spotify API URL not found (404). In music.html set data-spotify-endpoint to your project URL from Vercel → Domains, ending in /api/spotify'
+					);
+				} else if (data.error === 'token_refresh_failed') {
+					showError('Spotify token failed — check CLIENT_ID, SECRET, and REFRESH_TOKEN in Vercel');
+				} else if (data.error === 'spotify_player_error') {
+					showError('Spotify did not return playback (try playing a song and redeploy)');
 				} else {
-					showError('Could not reach Spotify');
+					showError(`Spotify API error (${res.status})`);
 				}
 				return;
 			}
 
 			showPlaying(data);
 		} catch {
-			showError('Could not reach Spotify');
+			showError('Network blocked or wrong Spotify API URL');
 		}
 	}
 

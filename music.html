@@ -49,8 +49,8 @@
 						<button type="button" onClick="document.getElementById('sets').scrollIntoView()">Sets</button>
 						<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Songs</button>
 					</div>
-					<!-- Spotify runs on Vercel (GitHub Pages has no /api). Match this URL to your Vercel project → Domains (often project-name.vercel.app). -->
-					<div id="spotify-now-playing" class="spotify-now-playing" data-spotify-endpoint="https://minamky-github-io.vercel.app/api/spotify" data-poll-ms="30000" aria-live="polite">
+					<!-- Spotify API runs on Vercel ([same repo]); GitHub Pages uses this absolute URL for /api/spotify. -->
+					<div id="spotify-now-playing" class="spotify-now-playing" data-spotify-endpoint="https://minaky.vercel.app/api/spotify" data-poll-ms="30000" aria-live="polite">
 						<div class="spotify-now-playing__header">
 							<i class="fa fa-spotify spotify-now-playing__brand" aria-hidden="true"></i>
 							<span class="spotify-now-playing__label" data-spotify-status>Loading…</span>
