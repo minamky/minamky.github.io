@@ -85,6 +85,60 @@ nav ul a:hover::after{
 	opacity: 1;
 }
 
+.dropdown {
+	display: inline-block;
+	position: relative;
+	background: transparent;
+}
+
+.dropbtn {
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	min-width: 160px;
+	margin-top: 11px;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #f8eaf0;
+	border: 1px solid #c69aae;
+	border-radius: 6px;
+	z-index: 20;
+}
+
+.dropdown-content a {
+	display: block;
+	padding: 12px 16px;
+	text-align: center;
+	text-decoration: none;
+	background-color: #f8eaf0;
+}
+
+.dropdown-content a:not(:last-child) {
+	border-bottom: 1px solid #ffffff;
+}
+
+body:not(.dark-mode) .dropdown-content,
+body:not(.dark-mode) .dropdown-content a {
+	background-color: #f8eaf0 !important;
+}
+
+body:not(.dark-mode) .dropdown-content a:not(:last-child) {
+	border-bottom: 1px solid #ffffff !important;
+}
+
+body.dark-mode .dropdown-content,
+body.dark-mode .dropdown-content a {
+	background-color: #6b6674 !important;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
 
 nav .icon {
   display: none;
@@ -92,6 +146,7 @@ nav .icon {
 
 @media screen and (max-width: 790px) {
 	nav a:not(:first-child) {display: none;}
+	nav .dropdown {display: none;}
 	nav a.icon {
 	  float: right;
 	  display: block;
@@ -118,6 +173,17 @@ nav .icon {
     display: block;
     text-align: right;
     margin-top: 20px;
+  }
+
+  nav.responsive .dropdown {
+	display: block;
+  }
+
+  nav.responsive .dropdown-content {
+	position: static;
+	transform: none;
+	border: none;
+	display: block;
   }
 
   nav.responsive ul {
@@ -394,6 +460,10 @@ links
 	transition: all ease in-out .2s;
 }
 
+body:not(.dark-mode) img[src*="instagram.png"] {
+	filter: brightness(1.12) saturate(0.75);
+}
+
 .link-image:hover {
 	filter: brightness(.80);
 }
@@ -533,6 +603,20 @@ body:not(.dark-mode) form input[type="submit"]:hover {
 	background-color: transparent !important;
 	border-color: #e7c4d2 !important;
 	color: #5f5966 !important;
+}
+
+/* Keep nav dropdown styling consistent in light mode */
+body:not(.dark-mode) .navigation-bar .dropdown-content,
+body:not(.dark-mode) .navigation-bar .dropdown-content a {
+	background-color: #f8eaf0 !important;
+}
+
+body:not(.dark-mode) .navigation-bar .dropdown-content a:not(:last-child) {
+	border-bottom: 1px solid #ffffff !important;
+}
+
+body:not(.dark-mode) .navigation-bar .dropdown-content a::after {
+	display: none !important;
 }
 
 
