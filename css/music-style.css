@@ -1307,6 +1307,11 @@ body.dark-mode #projects .carousel-btn:hover {
 	color: #f8eaf0 !important;
 }
 
+body.dark-mode #sets .carousel-btn,
+body.dark-mode #sets .carousel-btn:hover {
+	color: #f8eaf0 !important;
+}
+
 body.dark-mode #home .intro-buttons button {
 	background-color: #f8eaf0 !important;
 	border-color: #f8eaf0 !important;
