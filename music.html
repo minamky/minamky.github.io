@@ -41,29 +41,30 @@
 			</div>
 		</div>
 
-			<div class = slides id="home">
-				<a href="#songs"><img class="ipod" src="images/music/White.png" alt="Go to songs"/></a>
-			<div class="intro">
-				<h1 id="my-name">What's Mina's Listening To?</h1>
-					<div class="intro-buttons">
-						<button type="button" onClick="document.getElementById('sets').scrollIntoView()">Sets</button>
-						<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Songs</button>
-					</div>
-					<!-- Spotify API runs on Vercel ([same repo]); GitHub Pages uses this absolute URL for /api/spotify. -->
-					<div id="spotify-now-playing" class="spotify-now-playing" data-spotify-endpoint="https://minaky.vercel.app/api/spotify" data-poll-ms="30000" aria-live="polite">
-						<div class="spotify-now-playing__header">
-							<i class="fa fa-spotify spotify-now-playing__brand" aria-hidden="true"></i>
-							<span class="spotify-now-playing__label" data-spotify-status>Loading…</span>
+			<div class="slides" id="home">
+				<div class="home-hero-row">
+					<a href="#songs"><img class="ipod" src="images/music/White.png" alt="Go to songs"/></a>
+					<div class="intro">
+						<h1 id="my-name">What's Mina's Listening To?</h1>
+						<div class="intro-buttons">
+							<button type="button" onClick="document.getElementById('sets').scrollIntoView()">Sets</button>
+							<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Songs</button>
 						</div>
-						<a class="spotify-now-playing__body" data-spotify-link hidden>
-							<img class="spotify-now-playing__art" data-spotify-art alt="" width="88" height="88" decoding="async" hidden />
-							<div class="spotify-now-playing__meta">
-								<span class="spotify-now-playing__title" data-spotify-title></span>
-								<span class="spotify-now-playing__artist" data-spotify-artist></span>
-							</div>
-						</a>
-						<p class="spotify-now-playing__idle" data-spotify-idle hidden>Nothing playing on Spotify right now.</p>
 					</div>
+				</div>
+				<!-- Spotify API runs on Vercel ([same repo]); GitHub Pages uses this absolute URL for /api/spotify. -->
+				<div id="spotify-now-playing" class="spotify-now-playing spotify-now-playing--banner" hidden data-spotify-endpoint="https://minaky.vercel.app/api/spotify" data-poll-ms="30000" aria-live="polite" aria-hidden="true">
+					<div class="spotify-now-playing__header">
+						<i class="fa fa-spotify spotify-now-playing__brand" aria-hidden="true"></i>
+						<span class="spotify-now-playing__label" data-spotify-status>Now playing</span>
+					</div>
+					<a class="spotify-now-playing__body" data-spotify-link hidden>
+						<img class="spotify-now-playing__art" data-spotify-art alt="" width="56" height="56" decoding="async" hidden />
+						<div class="spotify-now-playing__meta">
+							<span class="spotify-now-playing__title" data-spotify-title></span>
+							<span class="spotify-now-playing__artist" data-spotify-artist></span>
+						</div>
+					</a>
 				</div>
 			</div>
 
@@ -108,7 +109,6 @@
             </div>
             <button class="carousel-btn next-btn" onclick="moveCarousel(1, 'sets')">&#10095;</button>
           </div>
-          <a class="top-button" href="#home"> <img class="link-image" href="#slide1" src="images/to-top.png"/></a>
         </div>
       </div>
 
@@ -126,7 +126,6 @@
 			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
 			<a class="song-grid-item" href="pulse.html"><img class="song-cover" src="images/music/songs/song1.jpeg" alt="Song cover"/></a>
 		</div>
-          <a class="top-button" href="#home"> <img class="link-image" href="#slide1" src="images/to-top.png"/></a>
         </div>
       </div>
 

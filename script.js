@@ -108,24 +108,25 @@ function initSpotifyNowPlaying() {
 	const artEl = root.querySelector('[data-spotify-art]');
 	const titleEl = root.querySelector('[data-spotify-title]');
 	const artistEl = root.querySelector('[data-spotify-artist]');
-	const idleEl = root.querySelector('[data-spotify-idle]');
 
-	function showPlaying(data) {
+	function hideBanner() {
+		root.hidden = true;
+		root.setAttribute('aria-hidden', 'true');
+		root.classList.remove('spotify-now-playing--error', 'spotify-now-playing--playing');
+		statusEl.textContent = 'Now playing';
+		linkEl.hidden = true;
+		linkEl.removeAttribute('href');
+		artEl.hidden = true;
+		artEl.removeAttribute('src');
+		titleEl.textContent = '';
+		artistEl.textContent = '';
+	}
+
+	function showPlayingTrack(data) {
+		root.hidden = false;
+		root.setAttribute('aria-hidden', 'false');
 		root.classList.remove('spotify-now-playing--error');
-		root.classList.toggle('spotify-now-playing--playing', Boolean(data.isPlaying));
-		idleEl.hidden = true;
-
-		if (!data.isPlaying) {
-			statusEl.textContent = 'Spotify';
-			linkEl.hidden = true;
-			linkEl.removeAttribute('href');
-			artEl.hidden = true;
-			artEl.removeAttribute('src');
-			titleEl.textContent = '';
-			artistEl.textContent = '';
-			idleEl.hidden = false;
-			return;
-		}
+		root.classList.add('spotify-now-playing--playing');
 
 		statusEl.textContent = 'Now playing';
 		titleEl.textContent = data.title || '';
@@ -151,42 +152,24 @@ function initSpotifyNowPlaying() {
 		}
 	}
 
-	function showError(message) {
-		root.classList.add('spotify-now-playing--error');
-		root.classList.remove('spotify-now-playing--playing');
-		statusEl.textContent = message;
-		linkEl.hidden = true;
-		idleEl.hidden = true;
-		artEl.hidden = true;
-		titleEl.textContent = '';
-		artistEl.textContent = '';
-	}
-
 	async function fetchNowPlaying() {
 		try {
 			const res = await fetch(endpoint, { credentials: 'omit' });
 			const data = await res.json().catch(() => ({}));
 
 			if (!res.ok) {
-				if (data.error === 'missing_env') {
-					showError('Spotify API missing env vars on the server');
-				} else if (res.status === 404) {
-					showError(
-						'Spotify API URL not found (404). In music.html set data-spotify-endpoint to your project URL from Vercel → Domains, ending in /api/spotify'
-					);
-				} else if (data.error === 'token_refresh_failed') {
-					showError('Spotify token failed — check CLIENT_ID, SECRET, and REFRESH_TOKEN in Vercel');
-				} else if (data.error === 'spotify_player_error') {
-					showError('Spotify did not return playback (try playing a song and redeploy)');
-				} else {
-					showError(`Spotify API error (${res.status})`);
-				}
+				hideBanner();
 				return;
 			}
 
-			showPlaying(data);
+			if (!data.isPlaying) {
+				hideBanner();
+				return;
+			}
+
+			showPlayingTrack(data);
 		} catch {
-			showError('Network blocked or wrong Spotify API URL');
+			hideBanner();
 		}
 	}
 
