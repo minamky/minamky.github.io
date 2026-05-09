@@ -264,6 +264,115 @@ home
 	justify-content: center;
 }
 
+.spotify-now-playing {
+	margin-top: 28px;
+	max-width: 380px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 14px 16px;
+	border-radius: 12px;
+	border: 2px solid #c69aae;
+	text-align: left;
+}
+
+#home .intro .spotify-now-playing {
+	background: rgba(231, 196, 210, 0.35) !important;
+}
+
+.spotify-now-playing__header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 8px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.spotify-now-playing__brand {
+	color: #169c46;
+	font-size: 18px;
+	flex-shrink: 0;
+}
+
+.spotify-now-playing__label {
+	min-width: 0;
+}
+
+.spotify-now-playing__body {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none;
+	color: inherit !important;
+	transition: opacity 0.2s ease;
+}
+
+.spotify-now-playing__body:hover {
+	opacity: 0.88;
+}
+
+.spotify-now-playing__art {
+	width: 56px;
+	height: 56px;
+	border-radius: 6px;
+	object-fit: cover;
+	flex-shrink: 0;
+	box-shadow: 0 2px 8px rgba(34, 60, 80, 0.18);
+}
+
+.spotify-now-playing__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.spotify-now-playing__title {
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 1.25;
+	word-break: break-word;
+}
+
+.spotify-now-playing__artist {
+	font-size: 13px;
+	opacity: 0.88;
+	word-break: break-word;
+}
+
+.spotify-now-playing__idle {
+	margin: 0;
+	font-size: 14px;
+	opacity: 0.92;
+}
+
+.spotify-now-playing--playing .spotify-now-playing__idle {
+	display: none;
+}
+
+.spotify-now-playing--error {
+	border-color: #9d93a3 !important;
+	background: rgba(157, 147, 163, 0.15) !important;
+}
+
+.spotify-now-playing--error .spotify-now-playing__brand {
+	opacity: 0.55;
+}
+
+body.dark-mode #home .intro .spotify-now-playing {
+	background: rgba(248, 234, 240, 0.1) !important;
+	border-color: #f8eaf0 !important;
+}
+
+body.dark-mode .spotify-now-playing__brand {
+	color: #1ed760 !important;
+}
+
+body.dark-mode .spotify-now-playing--error {
+	border-color: rgba(248, 234, 240, 0.4) !important;
+	background: rgba(0, 0, 0, 0.12) !important;
+}
+
 body button {
 	width: 150px;
 	background-color: #363C8C;

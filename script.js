@@ -96,6 +96,96 @@ function handlePreviewClick(event, sectionId) {
 	}
 }
 
+function initSpotifyNowPlaying() {
+	const root = document.getElementById('spotify-now-playing');
+	if (!root) return;
+
+	const endpoint = root.dataset.spotifyEndpoint || '/api/spotify';
+	const pollMs = Math.max(15000, Number(root.dataset.pollMs) || 30000);
+
+	const statusEl = root.querySelector('[data-spotify-status]');
+	const linkEl = root.querySelector('[data-spotify-link]');
+	const artEl = root.querySelector('[data-spotify-art]');
+	const titleEl = root.querySelector('[data-spotify-title]');
+	const artistEl = root.querySelector('[data-spotify-artist]');
+	const idleEl = root.querySelector('[data-spotify-idle]');
+
+	function showPlaying(data) {
+		root.classList.remove('spotify-now-playing--error');
+		root.classList.toggle('spotify-now-playing--playing', Boolean(data.isPlaying));
+		idleEl.hidden = true;
+
+		if (!data.isPlaying) {
+			statusEl.textContent = 'Spotify';
+			linkEl.hidden = true;
+			linkEl.removeAttribute('href');
+			artEl.hidden = true;
+			artEl.removeAttribute('src');
+			titleEl.textContent = '';
+			artistEl.textContent = '';
+			idleEl.hidden = false;
+			return;
+		}
+
+		statusEl.textContent = 'Now playing';
+		titleEl.textContent = data.title || '';
+		artistEl.textContent = data.artist || '';
+
+		if (data.albumImageUrl) {
+			artEl.src = data.albumImageUrl;
+			artEl.alt = data.title ? `Album art for ${data.title}` : '';
+			artEl.hidden = false;
+		} else {
+			artEl.hidden = true;
+			artEl.removeAttribute('src');
+		}
+
+		if (data.songUrl) {
+			linkEl.href = data.songUrl;
+			linkEl.hidden = false;
+			linkEl.setAttribute('rel', 'noopener noreferrer');
+			linkEl.setAttribute('target', '_blank');
+		} else {
+			linkEl.hidden = true;
+			linkEl.removeAttribute('href');
+		}
+	}
+
+	function showError(message) {
+		root.classList.add('spotify-now-playing--error');
+		root.classList.remove('spotify-now-playing--playing');
+		statusEl.textContent = message;
+		linkEl.hidden = true;
+		idleEl.hidden = true;
+		artEl.hidden = true;
+		titleEl.textContent = '';
+		artistEl.textContent = '';
+	}
+
+	async function fetchNowPlaying() {
+		try {
+			const res = await fetch(endpoint, { credentials: 'omit' });
+			const data = await res.json().catch(() => ({}));
+
+			if (!res.ok) {
+				if (data.error === 'missing_env') {
+					showError('Spotify preview needs server setup');
+				} else {
+					showError('Could not reach Spotify');
+				}
+				return;
+			}
+
+			showPlaying(data);
+		} catch {
+			showError('Could not reach Spotify');
+		}
+	}
+
+	fetchNowPlaying();
+	setInterval(fetchNowPlaying, pollMs);
+}
+
 function initHeroTyping() {
 	const nameElement = document.getElementById('my-name');
 	const titleElement = document.getElementById('my-title');
@@ -174,6 +264,7 @@ function initHeroTyping() {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
 	initHeroTyping();
+	initSpotifyNowPlaying();
 
 	// Initialize each carousel independently
 	updateActiveItem('projects');
