@@ -96,6 +96,31 @@ function handlePreviewClick(event, sectionId) {
 	}
 }
 
+function initIpodToggle() {
+	const toggle = document.getElementById('ipod-toggle');
+	const image = document.getElementById('ipod-toggle-image');
+	if (!toggle || !image) return;
+
+	const GREY_SRC = 'images/music/Grey.png';
+	const WHITE_SRC = 'images/music/White.png';
+
+	const isDarkMode = document.body.classList.contains('dark-mode');
+	image.src = isDarkMode ? WHITE_SRC : GREY_SRC;
+
+	const swapImage = () => {
+		const usingWhite = image.src.includes('/White.png');
+		image.src = usingWhite ? GREY_SRC : WHITE_SRC;
+	};
+
+	toggle.addEventListener('click', swapImage);
+	toggle.addEventListener('keydown', function(event) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			swapImage();
+		}
+	});
+}
+
 function initSpotifyNowPlaying() {
 	const root = document.getElementById('spotify-now-playing');
 	if (!root) return;
@@ -211,6 +236,10 @@ function initSpotifyTopSongs() {
 				return `
 					<a class="song-grid-item" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${ariaLabel}">
 						<img class="song-cover" src="${img}" alt="${ariaLabel}" loading="lazy" decoding="async"/>
+						<span class="song-overlay" aria-hidden="true">
+							<span class="song-overlay-title">${title}</span>
+							<span class="song-overlay-artist">${artist}</span>
+						</span>
 					</a>
 				`;
 			})
@@ -374,4 +403,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 	}
+
+	initIpodToggle();
 });

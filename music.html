@@ -43,12 +43,14 @@
 
 			<div class="slides" id="home">
 				<div class="home-hero-row">
-					<a href="#songs"><img class="ipod" src="images/music/White.png" alt="Go to songs"/></a>
+					<div id="ipod-toggle" class="ipod-toggle" role="button" tabindex="0" aria-label="Switch iPod color">
+						<img id="ipod-toggle-image" class="ipod" src="images/music/Grey.png" alt="Toggle iPod color"/>
+					</div>
 					<div class="intro">
 						<h1 id="my-name">What is Mina Listening To?</h1>
 						<div class="intro-buttons">
+							<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Most Played</button>
 							<button type="button" onClick="document.getElementById('sets').scrollIntoView()">Sets</button>
-							<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Songs</button>
 						</div>
 					</div>
 				</div>
@@ -69,6 +71,22 @@
 			</div>
 
 			<hr>
+
+      <div class = slides id="songs">
+        <div class = "project-content">
+          <h1 class="title" href="projects.html">Most Played</h1>
+          <p class="songs-subtitle">Fetched from Spotify as my recent top songs ... but my sister and I share an account.</p>
+          <div
+            id="spotify-top-songs"
+            class="song-grid"
+            data-spotify-top-endpoint="https://minaky.vercel.app/api/spotify-top-tracks"
+            data-limit="12"
+            data-time-range="medium_term"
+          ></div>
+        </div>
+      </div>
+
+      <hr>
 
       <div class = slides id="sets">
         <div class = "project-content">
@@ -109,21 +127,6 @@
             </div>
             <button class="carousel-btn next-btn" onclick="moveCarousel(1, 'sets')">&#10095;</button>
           </div>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class = slides id="songs">
-        <div class = "project-content">
-          <h1 class="title" href="projects.html">Songs</h1>
-          <div
-            id="spotify-top-songs"
-            class="song-grid"
-            data-spotify-top-endpoint="https://minaky.vercel.app/api/spotify-top-tracks"
-            data-limit="9"
-            data-time-range="medium_term"
-          ></div>
         </div>
       </div>
 
