@@ -391,7 +391,7 @@ home
 
 .spotify-now-playing__brand {
 	color: #5f5966;
-	font-size: 34px;
+	font-size: 50px;
 	line-height: 1;
 	flex-shrink: 0;
 }
@@ -808,7 +808,7 @@ body.dark-mode .song-grid-empty {
 #sets .prev-btn,
 #sets .next-btn {
 	position: absolute;
-	top: 32px;
+	top: 40px;
 }
 
 #sets .prev-btn {
@@ -916,7 +916,8 @@ body.dark-mode .song-grid-empty {
 	font-size: 19px;
 	font-weight: bold;
 	text-align: center;
-	margin-bottom: 80px;
+	color: #5f5966;
+	margin-bottom: 60px;
 	background: transparent !important;
 	transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -929,6 +930,7 @@ body.dark-mode .song-grid-empty {
 
 .set-favorite-timestamp {
 	margin-top: 6px;
+	color: #5f5966;
 	font-size: 14px;
 	font-style: italic;
 	text-align: center;
