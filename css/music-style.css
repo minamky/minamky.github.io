@@ -1791,3 +1791,196 @@ body.dark-mode #sets .project-content {
 	border: none !important;
 	box-shadow: none !important;
 }
+
+/*
+
+Where's Mina going next? — concert ticket cards
+
+*/
+
+#Raves {
+	scroll-margin-top: 2rem;
+}
+
+#Raves .project-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.raves-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 22px;
+	width: min(1100px, 92%);
+	margin: 10px auto 0;
+}
+
+.rave-card {
+	flex: 0 1 320px;
+	max-width: 340px;
+	min-height: 118px;
+	display: flex;
+	align-items: stretch;
+	border: 2px solid #c69aae;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 4px 14px rgba(95, 89, 102, 0.10);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rave-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 24px rgba(198, 154, 174, 0.30);
+}
+
+.rave-card__stub {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 16px 18px;
+	min-width: 96px;
+	border-right: 2px dashed #c69aae;
+	flex-shrink: 0;
+}
+
+.rave-card__month {
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	line-height: 1;
+}
+
+.rave-card__day {
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 1;
+	margin-top: 6px;
+}
+
+.rave-card__body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 14px 18px;
+	flex: 1 1 auto;
+	text-align: left;
+	min-width: 0;
+}
+
+.rave-card__name {
+	font-size: 17px;
+	font-weight: bold;
+	line-height: 1.25;
+	margin-bottom: 8px;
+	word-break: break-word;
+}
+
+.rave-card__location {
+	font-size: 14px;
+	font-style: italic;
+	opacity: 0.85;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.rave-card__location .fa {
+	font-size: 14px;
+}
+
+/* Light mode — section background to match #songs and #sets */
+body:not(.dark-mode) #Raves,
+body:not(.dark-mode) #Raves .project-content,
+body:not(.dark-mode) #Raves .raves-grid {
+	background-color: #f4f1f4 !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #Raves .title,
+body:not(.dark-mode) #Raves .songs-subtitle {
+	background-color: transparent !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card {
+	background-color: #fbfbf1 !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card__stub {
+	background-color: #e7c4d2 !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card__body,
+body:not(.dark-mode) #Raves .rave-card__month,
+body:not(.dark-mode) #Raves .rave-card__day,
+body:not(.dark-mode) #Raves .rave-card__name,
+body:not(.dark-mode) #Raves .rave-card__location,
+body:not(.dark-mode) #Raves .rave-card__location .fa {
+	background-color: transparent !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card__name,
+body:not(.dark-mode) #Raves .rave-card__location,
+body:not(.dark-mode) #Raves .rave-card__month,
+body:not(.dark-mode) #Raves .rave-card__day {
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card__location .fa {
+	color: #c69aae !important;
+}
+
+/* Dark mode */
+body.dark-mode #Raves,
+body.dark-mode #Raves .project-content {
+	background-color: #4f4a56 !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode #Raves .title,
+body.dark-mode #Raves .songs-subtitle {
+	background-color: transparent !important;
+}
+
+body.dark-mode #Raves .rave-card {
+	background-color: #5f5966 !important;
+	border-color: #f8eaf0 !important;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode #Raves .rave-card:hover {
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode #Raves .rave-card__stub {
+	background-color: #c69aae !important;
+	border-right-color: #f8eaf0 !important;
+}
+
+body.dark-mode #Raves .rave-card__name,
+body.dark-mode #Raves .rave-card__location {
+	color: #f8eaf0 !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode #Raves .rave-card__month,
+body.dark-mode #Raves .rave-card__day {
+	color: #4f4a56 !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode #Raves .rave-card__location .fa {
+	color: #f8eaf0 !important;
+	background-color: transparent !important;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+	.rave-card {
+		flex: 0 1 100%;
+		max-width: 420px;
+	}
+}
