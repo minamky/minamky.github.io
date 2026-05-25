@@ -1829,6 +1829,17 @@ Where's Mina going next? — concert ticket cards
 	overflow: hidden;
 	box-shadow: 0 4px 14px rgba(95, 89, 102, 0.10);
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+a.rave-card:link,
+a.rave-card:visited,
+a.rave-card:hover,
+a.rave-card:active {
+	text-decoration: none;
+	color: inherit;
 }
 
 .rave-card:hover {
