@@ -819,6 +819,7 @@ Projects cover page
 }
 
 body:not(.dark-mode) .cover-topic {
+  background-color: transparent !important;
   border-color: #c69aae !important;
   color: #5f5966 !important;
 }
@@ -826,16 +827,19 @@ body:not(.dark-mode) .cover-topic {
 body:not(.dark-mode) .cover-topic:hover {
   background-color: #f8eaf0 !important;
   border-color: #c69aae !important;
+  color: #5f5966 !important;
 }
 
 body.dark-mode .cover-topic {
+  background-color: transparent !important;
   border-color: #f8eaf0 !important;
   color: #f8eaf0 !important;
 }
 
 body.dark-mode .cover-topic:hover {
-  background-color: rgba(248, 234, 240, 0.12) !important;
+  background-color: rgba(248, 234, 240, 0.18) !important;
   border-color: #f8eaf0 !important;
+  color: #f8eaf0 !important;
 }
 
 @media (max-width: 600px) {
