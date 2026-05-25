@@ -60,7 +60,7 @@
 						<div class="intro-buttons">
 							<button type="button" onClick="document.getElementById('songs').scrollIntoView()">Most Played</button>
 							<button type="button" onClick="document.getElementById('sets').scrollIntoView()">Favorite Sets</button>
-							<button type="button" onClick="document.getElementById('Raves').scrollIntoView()">Where to Next</button>
+							<button type="button" onClick="document.getElementById('Raves').scrollIntoView()">Upcoming & Past Events</button>
 						</div>
 					</div>
 				</div>
@@ -163,11 +163,15 @@
 
 	  <div class = slides id="Raves">
         <div class = "project-content">
-          <h1 class="title">Where's Mina going next?</h1>
-		  <p class="songs-subtitle">Next raves and concerts for 2026...</p>
-          <div class="raves-grid">
+          <h1 class="title" id="raves-title" data-upcoming-title="Upcoming Events" data-past-title="Past Events">Upcoming Events</h1>
+		  <p class="songs-subtitle" id="raves-subtitle" data-upcoming-subtitle="Hover over a card to reveal my planned lineup..." data-past-subtitle="Hover over a card to reveal my highlights...">Hover to reveal my planned lineup...</p>
+          <div class="raves-toggle" role="group" aria-label="Toggle past or upcoming raves">
+            <button type="button" class="raves-toggle__btn is-active" data-view="upcoming" aria-pressed="true">Upcoming</button>
+            <button type="button" class="raves-toggle__btn" data-view="past" aria-pressed="false">Past</button>
+          </div>
+          <div class="raves-grid" data-raves-view="upcoming">
 
-            <a class="rave-card" href="https://billgrahamcivic.com/events/alesso-260605" target="_blank" rel="noopener noreferrer">
+            <a class="rave-card" href="https://billgrahamcivic.com/events/alesso-260605" target="_blank" rel="noopener noreferrer" data-date="2026-06-06">
 				<div class="rave-card__stub">
 				  <span class="rave-card__month">JUN</span>
 				  <span class="rave-card__day">6</span>
@@ -178,7 +182,7 @@
 				</div>
 			  </a>
 
-			<a class="rave-card" href="https://rufusdusol.com/" target="_blank" rel="noopener noreferrer">
+			<a class="rave-card" href="https://rufusdusol.com/" target="_blank" rel="noopener noreferrer" data-date="2026-06-28">
               <div class="rave-card__stub">
                 <span class="rave-card__month">JUN</span>
                 <span class="rave-card__day">28</span>
@@ -189,18 +193,35 @@
               </div>
             </a>
 
-            <a class="rave-card" href="https://www.fvdedinthepark.com/" target="_blank" rel="noopener noreferrer">
-              <div class="rave-card__stub">
-                <span class="rave-card__month">JUL</span>
-                <span class="rave-card__day">3&ndash;4</span>
-              </div>
-              <div class="rave-card__body">
-                <h3 class="rave-card__name">Faded in the Park</h3>
-                <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i> Vancouver</p>
+            <a class="rave-card rave-card--flip" href="https://www.fvdedinthepark.com/" target="_blank" rel="noopener noreferrer" data-date="2026-07-04">
+              <div class="rave-card__inner">
+                <div class="rave-card__face rave-card__face--front">
+                  <div class="rave-card__stub">
+                    <span class="rave-card__month">JUL</span>
+                    <span class="rave-card__day">3&ndash;4</span>
+                  </div>
+                  <div class="rave-card__body">
+                    <h3 class="rave-card__name">Faded in the Park <i class="fa fa-star rave-card__star" aria-label="Most excited" title="Most excited"></i></h3>
+                    <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i> Vancouver</p>
+                  </div>
+                </div>
+                <div class="rave-card__face rave-card__face--back">
+                  <p class="rave-card__lineup-label">My Lineup</p>
+                  <ul class="rave-card__lineup">
+                    <li>Dom Dolla</li>
+                    <li>Knock 2</li>
+					<li>Crankdat</li>
+                    <li>Levity B2B Wooli</li>
+                    <li>Mau P</li>
+					<li>Bunt</li>
+					<li>GRiZ</li>
+					<li>Alleycvt</li>
+                  </ul>
+                </div>
               </div>
             </a>
 
-            <a class="rave-card" href="https://dice.fm/event/2w7lgp-sammy-virji-north-america-tour-2026-part-1-friday-31st-jul-brooklyn-army-terminal-pier-4-new-york-city-tickets?lng=en-US" target="_blank" rel="noopener noreferrer">
+            <a class="rave-card" href="https://dice.fm/event/2w7lgp-sammy-virji-north-america-tour-2026-part-1-friday-31st-jul-brooklyn-army-terminal-pier-4-new-york-city-tickets?lng=en-US" target="_blank" rel="noopener noreferrer" data-date="2026-08-01">
               <div class="rave-card__stub">
                 <span class="rave-card__month">AUG</span>
                 <span class="rave-card__day">1</span>
@@ -211,38 +232,177 @@
               </div>
             </a>
 
-            <a class="rave-card" href="https://www.zitp.com/" target="_blank" rel="noopener noreferrer">
-              <div class="rave-card__stub">
-                <span class="rave-card__month">AUG</span>
-                <span class="rave-card__day">14</span>
-              </div>
-              <div class="rave-card__body">
-                <h3 class="rave-card__name">Zedd in the Park</h3>
-                <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Randall's Island in New York City</p>
+            <a class="rave-card rave-card--flip" href="https://www.zitp.com/" target="_blank" rel="noopener noreferrer" data-date="2026-08-14">
+              <div class="rave-card__inner">
+                <div class="rave-card__face rave-card__face--front">
+                  <div class="rave-card__stub">
+                    <span class="rave-card__month">AUG</span>
+                    <span class="rave-card__day">14</span>
+                  </div>
+                  <div class="rave-card__body">
+                    <h3 class="rave-card__name">Zedd in the Park <i class="fa fa-star rave-card__star" aria-label="Most excited" title="Most excited"></i></h3>
+                    <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Randall's Island in New York City</p>
+                  </div>
+                </div>
+                <div class="rave-card__face rave-card__face--back">
+                  <p class="rave-card__lineup-label">My Lineup</p>
+                  <ul class="rave-card__lineup">
+                    <li>Zedd B2B Knock2</li>
+                    <li>DJ Snake</li>
+                    <li>Louis the Child</li>
+                  </ul>
+                </div>
               </div>
             </a>
 
-            <a class="rave-card" href="https://www.expertsonlyfest.com/" target="_blank" rel="noopener noreferrer">
-              <div class="rave-card__stub">
-                <span class="rave-card__month">SEP</span>
-                <span class="rave-card__day">19&ndash;20</span>
-              </div>
-              <div class="rave-card__body">
-                <h3 class="rave-card__name">Experts Only</h3>
-                <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Randall's Island in New York City</p>
+            <a class="rave-card rave-card--flip" href="https://www.expertsonlyfest.com/" target="_blank" rel="noopener noreferrer" data-date="2026-09-20">
+              <div class="rave-card__inner">
+                <div class="rave-card__face rave-card__face--front">
+                  <div class="rave-card__stub">
+                    <span class="rave-card__month">SEP</span>
+                    <span class="rave-card__day">19&ndash;20</span>
+                  </div>
+                  <div class="rave-card__body">
+                    <h3 class="rave-card__name">Experts Only <i class="fa fa-star rave-card__star" aria-label="Most excited" title="Most excited"></i></h3>
+                    <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Randall's Island in New York City</p>
+                  </div>
+                </div>
+                <div class="rave-card__face rave-card__face--back">
+                  <p class="rave-card__lineup-label">My Lineup</p>
+                  <ul class="rave-card__lineup">
+                    <li>John Summit</li>
+                    <li>Subjohnics</li>
+                    <li>GRiZ</li>
+                    <li>Prospa</li>
+                    <li>Devault</li>
+                  </ul>
+                </div>
               </div>
             </a>
 
-            <a class="rave-card" href="https://www.johnsummitmusic.com/ctrl-escape-arena-tour" target="_blank" rel="noopener noreferrer">
+            <a class="rave-card" href="https://www.johnsummitmusic.com/ctrl-escape-arena-tour" target="_blank" rel="noopener noreferrer" data-date="2026-12-04">
               <div class="rave-card__stub">
                 <span class="rave-card__month">DEC</span>
                 <span class="rave-card__day">4</span>
               </div>
               <div class="rave-card__body">
-                <h3 class="rave-card__name">John Summit</h3>
+                <h3 class="rave-card__name">John Summit CTRL ESCAPE Area Tour</h3>
                 <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Oakland</p>
               </div>
             </a>
+
+            <a class="rave-card" href="https://lasvegas.electricdaisycarnival.com/" target="_blank" rel="noopener noreferrer" data-date="2027-05-23">
+              <div class="rave-card__stub">
+                <span class="rave-card__month">MAY</span>
+                <span class="rave-card__day">21&ndash;23</span>
+              </div>
+              <div class="rave-card__body">
+                <h3 class="rave-card__name">EDC Las Vegas 2027</h3>
+                <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Las Vegas</p>
+              </div>
+            </a>
+
+          </div>
+
+          <div class="raves-grid" data-raves-view="past" hidden>
+
+            <article class="rave-card rave-card--past rave-card--flip">
+              <div class="rave-card__inner">
+                <div class="rave-card__face rave-card__face--front">
+                  <div class="rave-card__stub">
+                    <span class="rave-card__month">MAY</span>
+                    <span class="rave-card__day">2026</span>
+                  </div>
+                  <div class="rave-card__body">
+                    <h3 class="rave-card__name">EDC Las Vegas <i class="fa fa-star rave-card__star" aria-label="Favorite" title="Favorite"></i></h3>
+                    <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Las Vegas</p>
+                  </div>
+                </div>
+                <div class="rave-card__face rave-card__face--back">
+                  <p class="rave-card__lineup-label">Highlights</p>
+                  <ul class="rave-card__lineup">
+                    <li>John Summit</li>
+                    <li>Subtronics</li>
+                    <li>GRiZ B2B Wooli</li>
+                    <li>Zedd</li>
+					<li>Martin Garriz</li>
+                    <li>Levity</li>
+                    <li>The Chainsmokers</li>
+					<li>Sammy Virji</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+			<article class="rave-card rave-card--past">
+				<div class="rave-card__stub">
+				  <span class="rave-card__month">MAY</span>
+				  <span class="rave-card__day">2026</span>
+				</div>
+				<div class="rave-card__body">
+				  <h3 class="rave-card__name">Knock2</h3>
+				  <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Las Vegas</p>
+				</div>
+			  </article>
+
+			<article class="rave-card rave-card--past">
+				<div class="rave-card__stub">
+				  <span class="rave-card__month">MAY</span>
+				  <span class="rave-card__day">2026</span>
+				</div>
+				<div class="rave-card__body">
+				  <h3 class="rave-card__name">Levity</h3>
+				  <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>San Francisco</p>
+				</div>
+			  </article>
+
+            <article class="rave-card rave-card--past rave-card--flip">
+              <div class="rave-card__inner">
+                <div class="rave-card__face rave-card__face--front">
+                  <div class="rave-card__stub">
+                    <span class="rave-card__month">MAR</span>
+                    <span class="rave-card__day">2026</span>
+                  </div>
+                  <div class="rave-card__body">
+                    <h3 class="rave-card__name">ULTRA Miami <i class="fa fa-star rave-card__star" aria-label="Favorite" title="Favorite"></i></h3>
+                    <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>Miami</p>
+                  </div>
+                </div>
+                <div class="rave-card__face rave-card__face--back">
+                  <p class="rave-card__lineup-label">Highlights</p>
+                  <ul class="rave-card__lineup">
+                    <li>Levity</li>
+                    <li>Isoxo</li>
+                    <li>John Summit</li>
+                    <li>Ray Volpe</li>
+                    <li>Martin Garriz B2B Alesso</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="rave-card rave-card--past rave-card--flip">
+              <div class="rave-card__inner">
+                <div class="rave-card__face rave-card__face--front">
+                  <div class="rave-card__stub">
+                    <span class="rave-card__month">JUN</span>
+                    <span class="rave-card__day">2025</span>
+                  </div>
+                  <div class="rave-card__body">
+                    <h3 class="rave-card__name">Beyond Wonderland at the Gorge</h3>
+                    <p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i>The Gorge Amphitheatre</p>
+                  </div>
+                </div>
+                <div class="rave-card__face rave-card__face--back">
+                  <p class="rave-card__lineup-label">Highlights</p>
+                  <ul class="rave-card__lineup">
+                    <li>Loud Luxury</li>
+                    <li>Illenium</li>
+                    <li>Slander</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
 
           </div>
         </div>

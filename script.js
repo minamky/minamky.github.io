@@ -98,6 +98,80 @@ function handlePreviewClick(event, sectionId) {
 	}
 }
 
+function initRavesAutoSort() {
+	const ravesSection = document.getElementById('Raves');
+	if (!ravesSection) return;
+
+	const upcomingGrid = ravesSection.querySelector('[data-raves-view="upcoming"]');
+	const pastGrid = ravesSection.querySelector('[data-raves-view="past"]');
+	if (!upcomingGrid || !pastGrid) return;
+
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+
+	const datedCards = Array.from(ravesSection.querySelectorAll('[data-date]'));
+
+	const upcoming = [];
+	const past = [];
+
+	datedCards.forEach((card) => {
+		const eventDate = new Date(`${card.dataset.date}T00:00:00`);
+		if (Number.isNaN(eventDate.getTime())) return;
+
+		if (eventDate < today) {
+			card.classList.add('rave-card--past');
+			const dayEl = card.querySelector('.rave-card__day');
+			if (dayEl) dayEl.textContent = String(eventDate.getFullYear());
+			past.push({ card, eventDate });
+		} else {
+			card.classList.remove('rave-card--past');
+			upcoming.push({ card, eventDate });
+		}
+	});
+
+	// Soonest first for upcoming, most recent first for past
+	upcoming.sort((a, b) => a.eventDate - b.eventDate);
+	past.sort((a, b) => b.eventDate - a.eventDate);
+
+	// appendChild also moves elements between parents
+	upcoming.forEach(({ card }) => upcomingGrid.appendChild(card));
+	past.forEach(({ card }) => pastGrid.appendChild(card));
+}
+
+function initRavesToggle() {
+	const toggleButtons = document.querySelectorAll('#Raves .raves-toggle__btn');
+	if (!toggleButtons.length) return;
+
+	const grids = document.querySelectorAll('#Raves [data-raves-view]');
+	const title = document.getElementById('raves-title');
+	const subtitle = document.getElementById('raves-subtitle');
+
+	function setView(view) {
+		toggleButtons.forEach((btn) => {
+			const isActive = btn.dataset.view === view;
+			btn.classList.toggle('is-active', isActive);
+			btn.setAttribute('aria-pressed', String(isActive));
+		});
+
+		grids.forEach((grid) => {
+			grid.hidden = grid.dataset.ravesView !== view;
+		});
+
+		if (title) {
+			const next = view === 'past' ? title.dataset.pastTitle : title.dataset.upcomingTitle;
+			if (next) title.textContent = next;
+		}
+		if (subtitle) {
+			const next = view === 'past' ? subtitle.dataset.pastSubtitle : subtitle.dataset.upcomingSubtitle;
+			if (next) subtitle.textContent = next;
+		}
+	}
+
+	toggleButtons.forEach((btn) => {
+		btn.addEventListener('click', () => setView(btn.dataset.view));
+	});
+}
+
 function initIpodToggle() {
 	const toggle = document.getElementById('ipod-toggle');
 	const image = document.getElementById('ipod-toggle-image');
@@ -435,5 +509,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		initIpodToggle();
 	} catch (error) {
 		console.error('initIpodToggle failed:', error);
+	}
+
+	try {
+		initRavesAutoSort();
+	} catch (error) {
+		console.error('initRavesAutoSort failed:', error);
+	}
+
+	try {
+		initRavesToggle();
+	} catch (error) {
+		console.error('initRavesToggle failed:', error);
 	}
 });

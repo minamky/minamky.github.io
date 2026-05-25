@@ -1800,6 +1800,7 @@ Where's Mina going next? — concert ticket cards
 
 #Raves {
 	scroll-margin-top: 2rem;
+	position: relative;
 }
 
 #Raves .project-content {
@@ -1807,6 +1808,7 @@ Where's Mina going next? — concert ticket cards
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	position: relative;
 }
 
 .raves-grid {
@@ -1816,6 +1818,10 @@ Where's Mina going next? — concert ticket cards
 	gap: 22px;
 	width: min(1100px, 92%);
 	margin: 10px auto 0;
+}
+
+.raves-grid[hidden] {
+	display: none !important;
 }
 
 .rave-card {
@@ -1903,6 +1909,21 @@ a.rave-card:active {
 	font-size: 14px;
 }
 
+.rave-card__star {
+	color: #c69aae;
+	font-size: 14px;
+	margin-left: 4px;
+	vertical-align: 1px;
+	animation: rave-star-pulse 2.4s ease-in-out infinite;
+	transform-origin: center;
+	display: inline-block;
+}
+
+@keyframes rave-star-pulse {
+	0%, 100% { transform: scale(1); opacity: 0.9; }
+	50% { transform: scale(1.18); opacity: 1; }
+}
+
 /* Light mode — section background to match #songs and #sets */
 body:not(.dark-mode) #Raves,
 body:not(.dark-mode) #Raves .project-content,
@@ -1929,8 +1950,13 @@ body:not(.dark-mode) #Raves .rave-card__month,
 body:not(.dark-mode) #Raves .rave-card__day,
 body:not(.dark-mode) #Raves .rave-card__name,
 body:not(.dark-mode) #Raves .rave-card__location,
-body:not(.dark-mode) #Raves .rave-card__location .fa {
+body:not(.dark-mode) #Raves .rave-card__location .fa,
+body:not(.dark-mode) #Raves .rave-card__star {
 	background-color: transparent !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card__star {
+	color: #c69aae !important;
 }
 
 body:not(.dark-mode) #Raves .rave-card__name,
@@ -1988,10 +2014,220 @@ body.dark-mode #Raves .rave-card__location .fa {
 	background-color: transparent !important;
 }
 
+body.dark-mode #Raves .rave-card__star {
+	color: #f8eaf0 !important;
+	background-color: transparent !important;
+}
+
 /* Responsive */
 @media (max-width: 760px) {
 	.rave-card {
 		flex: 0 1 100%;
 		max-width: 420px;
 	}
+}
+
+/*
+
+Flip-card variant — hover to reveal lineup on the back
+
+*/
+
+.rave-card--flip {
+	position: relative;
+	perspective: 1200px;
+	min-height: 118px;
+}
+
+.rave-card--flip,
+.rave-card--flip:hover {
+	transform: none;
+	border: none;
+	background: transparent;
+	box-shadow: none;
+	overflow: visible;
+}
+
+body:not(.dark-mode) #Raves .rave-card.rave-card--flip,
+body.dark-mode #Raves .rave-card.rave-card--flip {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.rave-card__inner {
+	position: absolute;
+	inset: 0;
+	transform-style: preserve-3d;
+	transition: transform 0.75s cubic-bezier(0.4, 0.15, 0.2, 1);
+}
+
+.rave-card--flip:hover .rave-card__inner,
+.rave-card--flip:focus-visible .rave-card__inner {
+	transform: rotateY(180deg);
+}
+
+.rave-card__face {
+	position: absolute;
+	inset: 0;
+	border: 2px solid #c69aae;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 4px 14px rgba(95, 89, 102, 0.10);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transition: box-shadow 0.25s ease;
+}
+
+.rave-card--flip:hover .rave-card__face {
+	box-shadow: 0 10px 24px rgba(198, 154, 174, 0.30);
+}
+
+.rave-card__face--front {
+	display: flex;
+	align-items: stretch;
+}
+
+.rave-card__face--back {
+	transform: rotateY(180deg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 14px 18px;
+	text-align: center;
+	gap: 6px;
+}
+
+.rave-card__lineup-label {
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	opacity: 0.75;
+	margin: 0;
+	line-height: 1;
+}
+
+.rave-card__lineup {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 18px;
+	row-gap: 2px;
+	justify-items: center;
+}
+
+.rave-card__lineup li {
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1.3;
+	white-space: nowrap;
+}
+
+/* Light-mode face colors */
+body:not(.dark-mode) #Raves .rave-card__face--front {
+	background-color: #fbfbf1 !important;
+}
+
+body:not(.dark-mode) #Raves .rave-card__face--back,
+body:not(.dark-mode) #Raves .rave-card__face--back * {
+	background-color: #fbfbf1 !important;
+	color: #5f5966 !important;
+}
+
+/* Dark-mode face colors */
+body.dark-mode #Raves .rave-card__face--front {
+	background-color: #5f5966 !important;
+	border-color: #f8eaf0 !important;
+}
+
+body.dark-mode #Raves .rave-card__face--back,
+body.dark-mode #Raves .rave-card__face--back * {
+	background-color: #c69aae !important;
+	color: #4f4a56 !important;
+	border-color: #f8eaf0 !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.rave-card__inner {
+		transition: none;
+	}
+}
+
+/*
+
+Raves toggle — switch between Upcoming and Past
+
+*/
+
+.raves-toggle {
+	position: absolute;
+	top: 0;
+	right: 4%;
+	z-index: 2;
+	display: inline-flex;
+	gap: 6px;
+	padding: 5px;
+	border: 2px solid #c69aae;
+	border-radius: 999px;
+	background: transparent;
+}
+
+@media (max-width: 700px) {
+	.raves-toggle {
+		position: static;
+		margin: 0 auto 18px;
+		align-self: center;
+	}
+}
+
+#Raves .raves-toggle__btn {
+	width: auto !important;
+	background-color: transparent !important;
+	border: none !important;
+	border-radius: 999px !important;
+	color: #5f5966 !important;
+	font-size: 13px !important;
+	font-weight: bold !important;
+	letter-spacing: 1px !important;
+	padding: 7px 22px !important;
+	cursor: pointer;
+	transition: background-color 0.25s ease, color 0.25s ease !important;
+}
+
+#Raves .raves-toggle__btn:hover:not(.is-active) {
+	background-color: rgba(231, 196, 210, 0.35) !important;
+}
+
+#Raves .raves-toggle__btn.is-active {
+	background-color: #e7c4d2 !important;
+	color: #5f5966 !important;
+}
+
+/* Past variant — make the year fit comfortably */
+.rave-card--past .rave-card__day {
+	font-size: 22px;
+}
+
+/* Dark mode toggle */
+body.dark-mode #Raves .raves-toggle {
+	border-color: #f8eaf0 !important;
+}
+
+body.dark-mode #Raves .raves-toggle__btn {
+	background-color: transparent !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode #Raves .raves-toggle__btn:hover:not(.is-active) {
+	background-color: rgba(248, 234, 240, 0.18) !important;
+}
+
+body.dark-mode #Raves .raves-toggle__btn.is-active {
+	background-color: #c69aae !important;
+	color: #4f4a56 !important;
 }
