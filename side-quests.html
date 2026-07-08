@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Random Side Quests</title>
+		<link rel="stylesheet" href="css/music-style.css">
+		<meta name="viewport" content="width=display-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto+Mono&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/png" href="images/cute-favicon.png" />
+	</head>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body>
+		<div class="container">
+			<div class="navigation-bar">
+				<h4 id="logo-word">Mina Ky</h4>
+				<div class="contain">
+					<nav class="topnav" id="myTopnav">
+						<ul>
+							<a href="index.html" class="active">Home</a>
+							<a href="index.html#aboutme">Coursework</a>
+							<div class="dropdown">
+								<a href="projects.html" class="dropbtn">Projects</a>
+								<div class="dropdown-content">
+									<a href="pulse.html">Pulse</a>
+									<a href="datebase.html">DateBase</a>
+									<a href="nomi.html">Nomi</a>
+									<a href="taskdump.html">TaskDump</a>
+									<a href="https://second-thought-lilac.vercel.app/" target="_blank" rel="noopener noreferrer">Second Thought</a>
+								</div>
+							</div>
+							<div class="dropdown">
+								<a href="music.html" class="dropbtn">Fun</a>
+								<div class="dropdown-content">
+									<a href="music.html">Music</a>
+									<a href="side-quests.html">Side Quests</a>
+								</div>
+							</div>
+							<button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+								<svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="12" cy="12" r="4" stroke="#5F5966" stroke-width="2" fill="#5F5966"/>
+									<path d="M12 2V4M12 20V22M22 12H20M4 12H2M19.07 4.93L17.66 6.34M6.34 17.66L4.93 19.07M19.07 19.07L17.66 17.66M6.34 6.34L4.93 4.93" stroke="#5F5966" stroke-width="2" stroke-linecap="round"/>
+								</svg>
+								<svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#5F5966" stroke-width="2" fill="#5F5966"/>
+								</svg>
+							</button>
+							<a href="javascript:void(0);" class="icon" ontouch="myFunction()" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="slides" id="side-quests-cover">
+				<div class="side-quests-cover">
+					<h1 class="side-quests-title">Random Side Quests</h1>
+					<p class="side-quests-tagline">Things I did just because I like to practice free will.</p>
+					<p class="side-quests-log-label">Quest log</p>
+					<div class="side-quests-grid">
+						<button type="button" class="quest-card" onclick="document.getElementById('quest-embroidery').scrollIntoView()">
+							<p class="quest-card__status">Side quest</p>
+							<h3 class="quest-card__name"><i class="fa fa-scissors quest-card__icon" aria-hidden="true"></i> Embroidery</h3>
+							<p class="quest-card__desc">Mocked designs to customize my graduation stole and club merch.</p>
+						</button>
+						<button type="button" class="quest-card quest-card--wip" onclick="document.getElementById('quest-ice-cream').scrollIntoView()">
+							<p class="quest-card__status">Under construction</p>
+							<h3 class="quest-card__name"><i class="fa fa-spoon quest-card__icon" aria-hidden="true"></i> Ice Cream Making</h3>
+							<p class="quest-card__desc">On the list &mdash; no batches made yet.</p>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides quest-section-slide" id="quest-embroidery">
+				<div class="project-content quest-section">
+					<h2 class="quest-section__title">Embroidery</h2>
+					<div class="quest-projects">
+						<div class="quest-project-switch" role="tablist" aria-label="Embroidery projects">
+							<button type="button" class="quest-project-btn is-active" data-quest-project="grad-stole" role="tab" aria-selected="true">Graduation Stole</button>
+							<button type="button" class="quest-project-btn" data-quest-project="tbp-merch" role="tab" aria-selected="false">Tau Beta Pi Merch</button>
+						</div>
+
+						<div class="quest-project-panel is-active" data-quest-project-panel="grad-stole" role="tabpanel">
+							<div class="quest-gallery-wrap quest-gallery-wrap--duo" data-quest-gallery-page-size="2" data-quest-gallery-labels="Process,Results">
+								<p class="quest-gallery-page-label" aria-live="polite">Process</p>
+								<div class="quest-gallery">
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/Screenshot%202026-07-07%20at%2010.20.17%E2%80%AFPM.png" alt="Phi Beta Kappa key embroidery design in digitizing software" loading="lazy" />
+										</div>
+										<figcaption>Digitizing the Phi Beta Kappa key design before stitching.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame quest-photo__frame--video">
+											<video src="images/embrodiery/IMG_5900.MOV" controls playsinline preload="metadata" aria-label="Embroidery process video"></video>
+										</div>
+										<figcaption>Embroidery in progress.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/IMG_7943.JPG" alt="Custom embroidered graduation stole from behind" loading="lazy" />
+										</div>
+										<figcaption>The finished stole &mdash; Mina Ky, Phi Beta Kappa, and CS 106 Section Leader.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/2.%20second.jpg" alt="Graduation stole with M.S. embroidery details" loading="lazy" />
+										</div>
+										<figcaption>The M.S. side &mdash; Class of 2026, Florence, Tau Beta Pi, and Terman Scholar.</figcaption>
+									</figure>
+								</div>
+								<nav class="quest-gallery-pagination" aria-label="Graduation stole gallery toggle">
+									<button type="button" class="quest-gallery-toggle" data-quest-gallery-toggle>View Results</button>
+								</nav>
+							</div>
+						</div>
+
+						<div class="quest-project-panel" data-quest-project-panel="tbp-merch" role="tabpanel" hidden>
+							<div class="quest-gallery-wrap quest-gallery-wrap--trio" data-quest-gallery-page-size="3" data-quest-gallery-labels="Process,Results">
+								<p class="quest-gallery-page-label" aria-live="polite">Process</p>
+								<div class="quest-gallery">
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/tau-beta-pi/TBP%20MERCH%20DESIGN.png" alt="Tau Beta Pi officer hoodie mockup" loading="lazy" />
+										</div>
+										<figcaption>Mocking up the design with ChatGPT from my inspiration pictures.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/tau-beta-pi/Screenshot%202026-07-07%20at%2010.34.07%E2%80%AFPM.png" alt="Tau Beta Pi back design in embroidery software" loading="lazy" />
+										</div>
+										<figcaption>Digitizing the back design &mdash; Engineering Quad line art.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/tau-beta-pi/IMG_5995.jpg" alt="Tau Beta Pi front embroidery in progress on a navy hoodie" loading="lazy" />
+										</div>
+										<figcaption>Stitching the front lettering on the officer hoodies.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/tau-beta-pi/IMG_5999.jpg" alt="Tau Beta Pi back embroidery with Engineering Quad line art" loading="lazy" />
+										</div>
+										<figcaption>Back embroidery &mdash; Engineering Quad line art and Stanford University lettering.</figcaption>
+									</figure>
+									<figure class="quest-photo">
+										<div class="quest-photo__frame">
+											<img src="images/embrodiery/tau-beta-pi/IMG_5997.jpg" alt="Finished Tau Beta Pi officer hoodies folded in a box" loading="lazy" />
+										</div>
+										<figcaption>Finished officer hoodies, folded and ready.</figcaption>
+									</figure>
+								</div>
+								<nav class="quest-gallery-pagination" aria-label="Tau Beta Pi merch gallery toggle">
+									<button type="button" class="quest-gallery-toggle" data-quest-gallery-toggle>View Results</button>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides quest-section-slide" id="quest-ice-cream">
+				<div class="project-content quest-section">
+					<h2 class="quest-section__title">Ice Cream Making</h2>
+					<div class="quest-under-construction">
+						<p class="quest-under-construction__label">Under construction</p>
+						<p class="quest-under-construction__text">I haven&rsquo;t made any ice cream yet &mdash; this quest is still on the backlog.</p>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides" id="contact">
+				<div class="contact-content">
+					<h3 class="title">Contact Me</h3>
+					<div class="links-and-contact">
+						<div class="contact">
+							<form id="contact-form" action="#">
+								<label for="name">
+									<h4>Name</h4>
+									<input type="text" id="name"/>
+								</label>
+								<label for="email">
+									<h4>Email</h4>
+									<input type="email" id="email" />
+								</label>
+								<label for="message">
+									<h4>Message</h4>
+									<textarea id="message"></textarea>
+								</label>
+								<div class="submit-button-wrapper">
+									<input id="submit-button" type="submit" value="Send Message">
+								</div>
+							</form>
+						</div>
+
+						<div class="links">
+							<div class="part">
+								<h4>Email:</h4>
+								<a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+							</div>
+							<div class="part">
+								<h4>Based in:</h4>
+								<p>The Greater Seattle Area</p>
+							</div>
+							<ul class="links-list">
+								<li>
+									<a href="https://www.linkedin.com/in/minaky/"><img class="link-image light-mode-icon" src="images/linkedin.png" alt="LinkedIn"/><img class="link-image dark-mode-icon" src="images/linkedinwhite.png" alt="LinkedIn"/></a>
+								</li>
+								<li>
+									<a href="https://github.com/minamky"><img class="link-image light-mode-icon" src="images/github.png" alt="GitHub"/><img class="link-image dark-mode-icon" src="images/github-white.png" alt="GitHub"/></a>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/mina.ky/"><img class="link-image light-mode-icon" src="images/instagram.png" alt="Instagram"/><img class="link-image dark-mode-icon" src="images/instagram-white.png" alt="Instagram"/></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

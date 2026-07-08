@@ -102,8 +102,8 @@ function initRavesAutoSort() {
 	const ravesSection = document.getElementById('Raves');
 	if (!ravesSection) return;
 
-	const upcomingGrid = ravesSection.querySelector('[data-raves-view="upcoming"]');
-	const pastGrid = ravesSection.querySelector('[data-raves-view="past"]');
+	const upcomingGrid = ravesSection.querySelector('[data-raves-view="upcoming"] .raves-grid');
+	const pastGrid = ravesSection.querySelector('[data-raves-view="past"] .raves-grid');
 	if (!upcomingGrid || !pastGrid) return;
 
 	const today = new Date();
@@ -138,11 +138,171 @@ function initRavesAutoSort() {
 	past.forEach(({ card }) => pastGrid.appendChild(card));
 }
 
+const RAVES_PAGE_SIZE = 9;
+
+function refreshRavesPagination() {
+	document.querySelectorAll('#Raves .raves-view').forEach((view) => {
+		if (typeof view._ravesPaginationUpdate === 'function') {
+			view._ravesPaginationUpdate();
+		}
+	});
+}
+
+function initRavesPagination() {
+	const views = document.querySelectorAll('#Raves .raves-view');
+	if (!views.length) return;
+
+	views.forEach((view) => {
+		const grid = view.querySelector('.raves-grid');
+		const prevBtn = view.querySelector('[data-raves-page="prev"]');
+		const nextBtn = view.querySelector('[data-raves-page="next"]');
+		const status = view.querySelector('.raves-pagination__status');
+		const pagination = view.querySelector('.raves-pagination');
+		let currentPage = 0;
+
+		function getCards() {
+			return Array.from(grid.children).filter((child) => child.classList.contains('rave-card'));
+		}
+
+		function update() {
+			const cards = getCards();
+			const totalPages = Math.max(1, Math.ceil(cards.length / RAVES_PAGE_SIZE));
+
+			if (currentPage >= totalPages) currentPage = totalPages - 1;
+			if (currentPage < 0) currentPage = 0;
+
+			cards.forEach((card, index) => {
+				const page = Math.floor(index / RAVES_PAGE_SIZE);
+				card.hidden = page !== currentPage;
+			});
+
+			if (prevBtn) prevBtn.disabled = currentPage === 0;
+			if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
+			if (status) status.textContent = `${currentPage + 1} / ${totalPages}`;
+			if (pagination) pagination.hidden = totalPages <= 1;
+		}
+
+		function reset() {
+			currentPage = 0;
+			update();
+		}
+
+		prevBtn?.addEventListener('click', () => {
+			currentPage -= 1;
+			update();
+		});
+
+		nextBtn?.addEventListener('click', () => {
+			currentPage += 1;
+			update();
+		});
+
+		view._ravesPaginationUpdate = update;
+		view._ravesPaginationReset = reset;
+		reset();
+	});
+}
+
+function initQuestGalleryPagination() {
+	document.querySelectorAll('.quest-gallery-wrap').forEach((wrap) => {
+		const grid = wrap.querySelector('.quest-gallery');
+		const toggleBtn = wrap.querySelector('[data-quest-gallery-toggle]');
+		const pageLabel = wrap.querySelector('.quest-gallery-page-label');
+		const pagination = wrap.querySelector('.quest-gallery-pagination');
+		const pageSize = Number(wrap.dataset.questGalleryPageSize) || 3;
+		const pageLabels = wrap.dataset.questGalleryLabels
+			? wrap.dataset.questGalleryLabels.split(',').map((label) => label.trim())
+			: [];
+		let currentPage = 0;
+
+		function getItems() {
+			return Array.from(grid.children).filter((child) => child.classList.contains('quest-photo'));
+		}
+
+		function update() {
+			const items = getItems();
+			const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+
+			if (currentPage >= totalPages) currentPage = totalPages - 1;
+			if (currentPage < 0) currentPage = 0;
+
+			items.forEach((item, index) => {
+				const page = Math.floor(index / pageSize);
+				item.hidden = page !== currentPage;
+			});
+
+			const visibleItems = items.filter((item) => !item.hidden);
+			items.forEach((item) => {
+				item.classList.toggle('quest-photo--solo', visibleItems.length === 1 && !item.hidden);
+			});
+
+			grid.classList.toggle('quest-gallery--pair', wrap.classList.contains('quest-gallery-wrap--trio') && visibleItems.length === 2);
+
+			if (pageLabel && pageLabels[currentPage]) pageLabel.textContent = pageLabels[currentPage];
+			if (toggleBtn && totalPages > 1) {
+				const nextPage = (currentPage + 1) % totalPages;
+				toggleBtn.textContent = `View ${pageLabels[nextPage] || 'More'}`;
+				toggleBtn.setAttribute('aria-label', `View ${pageLabels[nextPage] || 'more photos'}`);
+			}
+			if (pagination) pagination.hidden = totalPages <= 1;
+		}
+
+		toggleBtn?.addEventListener('click', () => {
+			const totalPages = Math.max(1, Math.ceil(getItems().length / pageSize));
+			currentPage = (currentPage + 1) % totalPages;
+			update();
+		});
+
+		wrap._questGalleryReset = () => {
+			currentPage = 0;
+			update();
+		};
+
+		update();
+	});
+}
+
+function initQuestProjectSwitch() {
+	const switcher = document.querySelector('.quest-project-switch');
+	if (!switcher) return;
+
+	const buttons = switcher.querySelectorAll('[data-quest-project]');
+	const panels = document.querySelectorAll('[data-quest-project-panel]');
+
+	buttons.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const projectId = btn.dataset.questProject;
+
+			buttons.forEach((button) => {
+				const isActive = button === btn;
+				button.classList.toggle('is-active', isActive);
+				button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+			});
+
+			panels.forEach((panel) => {
+				const isActive = panel.dataset.questProjectPanel === projectId;
+				panel.classList.toggle('is-active', isActive);
+				panel.hidden = !isActive;
+
+				if (!isActive) {
+					panel.querySelectorAll('video').forEach((video) => video.pause());
+				}
+
+				if (isActive) {
+					panel.querySelectorAll('.quest-gallery-wrap').forEach((wrap) => {
+						wrap._questGalleryReset?.();
+					});
+				}
+			});
+		});
+	});
+}
+
 function initRavesToggle() {
 	const toggleButtons = document.querySelectorAll('#Raves .raves-toggle__btn');
 	if (!toggleButtons.length) return;
 
-	const grids = document.querySelectorAll('#Raves [data-raves-view]');
+	const views = document.querySelectorAll('#Raves .raves-view');
 	const title = document.getElementById('raves-title');
 	const subtitle = document.getElementById('raves-subtitle');
 
@@ -153,9 +313,12 @@ function initRavesToggle() {
 			btn.setAttribute('aria-pressed', String(isActive));
 		});
 
-		grids.forEach((grid) => {
-			grid.hidden = grid.dataset.ravesView !== view;
+		views.forEach((ravesView) => {
+			ravesView.hidden = ravesView.dataset.ravesView !== view;
 		});
+
+		const activeView = document.querySelector(`#Raves .raves-view[data-raves-view="${view}"]`);
+		activeView?._ravesPaginationReset?.();
 
 		if (title) {
 			const next = view === 'past' ? title.dataset.pastTitle : title.dataset.upcomingTitle;
@@ -512,9 +675,27 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	try {
+		initQuestGalleryPagination();
+	} catch (error) {
+		console.error('initQuestGalleryPagination failed:', error);
+	}
+
+	try {
+		initQuestProjectSwitch();
+	} catch (error) {
+		console.error('initQuestProjectSwitch failed:', error);
+	}
+
+	try {
 		initRavesAutoSort();
 	} catch (error) {
 		console.error('initRavesAutoSort failed:', error);
+	}
+
+	try {
+		initRavesPagination();
+	} catch (error) {
+		console.error('initRavesPagination failed:', error);
 	}
 
 	try {

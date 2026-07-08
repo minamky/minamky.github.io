@@ -1750,6 +1750,7 @@ body:not(.dark-mode) .navigation-bar .dropdown-content a:not(:last-child) {
 /* Music page section backgrounds */
 body:not(.dark-mode) #songs,
 body:not(.dark-mode) #sets,
+body:not(.dark-mode) #Raves,
 body:not(.dark-mode) #songs .project-content,
 body:not(.dark-mode) #sets .project-content {
 	background-color: #f4f1f4 !important;
@@ -1812,22 +1813,109 @@ Where's Mina going next? — concert ticket cards
 }
 
 .raves-grid {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 22px;
-	width: min(1100px, 92%);
-	margin: 10px auto 0;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	width: min(960px, 92%);
+	margin: 8px auto 0;
+	background-color: transparent;
 }
 
 .raves-grid[hidden] {
 	display: none !important;
 }
 
+.raves-view {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.raves-view[hidden] {
+	display: none !important;
+}
+
+.rave-card[hidden] {
+	display: none !important;
+}
+
+.raves-pagination {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	margin-top: 14px;
+}
+
+.raves-pagination[hidden] {
+	display: none !important;
+}
+
+.raves-pagination__btn {
+	width: auto !important;
+	background-color: transparent !important;
+	border: 1.5px solid #c69aae !important;
+	border-radius: 999px !important;
+	color: #5f5966 !important;
+	font-size: 13px !important;
+	font-weight: bold !important;
+	letter-spacing: 0.5px !important;
+	padding: 8px 18px !important;
+	cursor: pointer;
+	transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+}
+
+.raves-pagination__btn:hover:not(:disabled) {
+	background-color: #f8eaf0 !important;
+	border-color: #c69aae !important;
+}
+
+.raves-pagination__btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.raves-pagination__status {
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	min-width: 52px;
+	text-align: center;
+	background-color: transparent !important;
+}
+
+body.dark-mode .raves-pagination__btn {
+	border-color: #f8eaf0 !important;
+	color: #f8eaf0 !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .raves-pagination__btn:hover:not(:disabled) {
+	background-color: rgba(248, 234, 240, 0.12) !important;
+	border-color: #f8eaf0 !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode .raves-pagination__status {
+	color: #f8eaf0;
+}
+
+@media (max-width: 900px) {
+	.raves-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.raves-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
 .rave-card {
-	flex: 0 1 320px;
-	max-width: 340px;
-	min-height: 118px;
+	width: 100%;
+	max-width: none;
+	min-height: 108px;
 	display: flex;
 	align-items: stretch;
 	border: 2px solid #c69aae;
@@ -1925,11 +2013,17 @@ a.rave-card:active {
 }
 
 /* Light mode — section background to match #songs and #sets */
-body:not(.dark-mode) #Raves,
-body:not(.dark-mode) #Raves .project-content,
-body:not(.dark-mode) #Raves .raves-grid {
+body:not(.dark-mode) #Raves {
 	background-color: #f4f1f4 !important;
 	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #Raves .project-content,
+body:not(.dark-mode) #Raves .raves-view,
+body:not(.dark-mode) #Raves .raves-grid,
+body:not(.dark-mode) #Raves .raves-pagination,
+body:not(.dark-mode) #Raves .raves-pagination__status {
+	background-color: transparent !important;
 }
 
 body:not(.dark-mode) #Raves .title,
@@ -1972,9 +2066,19 @@ body:not(.dark-mode) #Raves .rave-card__location .fa {
 
 /* Dark mode */
 body.dark-mode #Raves,
-body.dark-mode #Raves .project-content {
+body.dark-mode #Raves .project-content,
+body.dark-mode #Raves .raves-view {
 	background-color: #4f4a56 !important;
 	color: #f8eaf0 !important;
+}
+
+body.dark-mode #Raves .raves-pagination,
+body.dark-mode #Raves .raves-pagination__status {
+	background-color: transparent !important;
+}
+
+body.dark-mode #Raves .raves-grid {
+	background-color: transparent !important;
 }
 
 body.dark-mode #Raves .title,
@@ -2230,4 +2334,559 @@ body.dark-mode #Raves .raves-toggle__btn:hover:not(.is-active) {
 body.dark-mode #Raves .raves-toggle__btn.is-active {
 	background-color: #c69aae !important;
 	color: #4f4a56 !important;
+}
+
+/*
+
+Random Side Quests page
+
+*/
+
+#side-quests-cover,
+.quest-section-slide {
+	scroll-margin-top: 2rem;
+}
+
+.side-quests-cover {
+	max-width: 720px;
+	text-align: center;
+	padding: 0 24px;
+}
+
+.side-quests-log-label {
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	opacity: 0.65;
+	margin-bottom: 16px;
+	background-color: transparent !important;
+}
+
+#side-quests-cover .side-quests-grid {
+	margin-top: 0;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+	width: min(520px, 92%);
+}
+
+#side-quests-cover .side-quests-title {
+	font-size: 48px;
+	margin-bottom: 14px;
+}
+
+#side-quests-cover .side-quests-tagline {
+	font-size: 15px;
+	margin-bottom: 18px;
+}
+
+#side-quests-cover .side-quests-log-label {
+	margin-bottom: 12px;
+}
+
+#side-quests-cover .quest-card {
+	padding: 14px 16px;
+	border-radius: 12px;
+	border-width: 1.5px;
+	box-shadow: 0 3px 10px rgba(95, 89, 102, 0.08);
+}
+
+#side-quests-cover .quest-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(198, 154, 174, 0.22);
+}
+
+#side-quests-cover .quest-card__status {
+	font-size: 10px;
+	letter-spacing: 1.5px;
+	margin-bottom: 8px;
+}
+
+#side-quests-cover .quest-card__name {
+	font-size: 17px;
+	margin-bottom: 6px;
+}
+
+#side-quests-cover .quest-card__desc {
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+#side-quests-cover .quest-card__icon {
+	font-size: 12px;
+	margin-right: 6px;
+}
+
+.side-quests-title {
+	font-size: 55px;
+	font-weight: bolder;
+	line-height: 1.05;
+	margin-bottom: 20px;
+}
+
+.side-quests-tagline {
+	font-size: 17px;
+	line-height: 1.55;
+	margin-bottom: 28px;
+}
+
+.side-quests-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 20px;
+	width: min(900px, 92%);
+	margin: 16px auto 0;
+}
+
+.quest-card {
+	border: 2px solid #c69aae;
+	border-radius: 16px;
+	padding: 22px 24px;
+	background-color: #fbfbf1;
+	box-shadow: 0 4px 14px rgba(95, 89, 102, 0.10);
+	text-align: left;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
+	width: 100%;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quest-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 24px rgba(198, 154, 174, 0.30);
+}
+
+.quest-card__icon {
+	margin-right: 8px;
+	color: #c69aae;
+	background-color: transparent !important;
+}
+
+.quest-section-slide {
+	scroll-margin-top: 2rem;
+}
+
+.quest-section {
+	width: 100%;
+	align-items: center;
+}
+
+.quest-section__title {
+	font-size: 42px;
+	font-weight: bolder;
+	margin-bottom: 4px;
+	text-align: center;
+}
+
+.quest-projects {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+}
+
+.quest-project-switch {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+.quest-project-btn {
+	width: auto !important;
+	background-color: transparent !important;
+	border: 1.5px solid #c69aae !important;
+	border-radius: 999px !important;
+	color: #5f5966 !important;
+	font-size: 13px !important;
+	font-weight: bold !important;
+	letter-spacing: 0.3px;
+	padding: 8px 18px !important;
+	cursor: pointer;
+	transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+}
+
+.quest-project-btn:hover,
+.quest-project-btn.is-active {
+	background-color: #f8eaf0 !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}
+
+body.dark-mode .quest-project-btn,
+body.dark-mode button.quest-project-btn {
+	background-color: transparent !important;
+	border-color: #f8eaf0 !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode .quest-project-btn:hover,
+body.dark-mode .quest-project-btn.is-active,
+body.dark-mode button.quest-project-btn:hover,
+body.dark-mode button.quest-project-btn.is-active {
+	background-color: rgba(248, 234, 240, 0.12) !important;
+	border-color: #f8eaf0 !important;
+	color: #f8eaf0 !important;
+}
+
+.quest-project-panel {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.quest-project-panel[hidden] {
+	display: none !important;
+}
+
+.quest-gallery-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.quest-gallery-page-label {
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	opacity: 0.65;
+	margin-bottom: 12px;
+	background-color: transparent !important;
+}
+
+.quest-gallery-wrap--duo .quest-gallery {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	width: min(860px, 96%);
+	gap: 20px;
+}
+
+.quest-gallery-wrap--trio .quest-gallery {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	width: min(960px, 96%);
+	gap: 18px;
+}
+
+.quest-gallery-wrap--trio .quest-gallery.quest-gallery--pair {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	width: min(860px, 96%);
+}
+
+.quest-gallery-wrap--duo .quest-photo--solo,
+.quest-gallery-wrap--trio .quest-photo--solo {
+	grid-column: 1 / -1;
+	max-width: min(520px, 88%);
+	justify-self: center;
+}
+
+.quest-gallery-pagination {
+	margin-top: 22px;
+}
+
+.quest-gallery-toggle {
+	width: auto !important;
+	min-width: 200px;
+	background-color: #c69aae !important;
+	border: none !important;
+	border-radius: 12px !important;
+	color: #fbfbf1 !important;
+	font-size: 16px !important;
+	font-weight: bold !important;
+	letter-spacing: 0.8px;
+	padding: 14px 36px !important;
+	cursor: pointer;
+	box-shadow: 0 4px 14px rgba(198, 154, 174, 0.35);
+	transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease !important;
+}
+
+.quest-gallery-toggle:hover {
+	background-color: #b889a3 !important;
+	border: none !important;
+	color: #fbfbf1 !important;
+	transform: translateY(-1px);
+	box-shadow: 0 6px 18px rgba(198, 154, 174, 0.45);
+}
+
+body.dark-mode .quest-gallery-toggle,
+body.dark-mode button.quest-gallery-toggle {
+	background-color: #f8eaf0 !important;
+	border: none !important;
+	color: #4f4a56 !important;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .quest-gallery-toggle:hover,
+body.dark-mode button.quest-gallery-toggle:hover {
+	background-color: #e7c4d2 !important;
+	border: none !important;
+	color: #4f4a56 !important;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.quest-gallery {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	width: min(960px, 92%);
+	margin: 12px auto 0;
+}
+
+.quest-photo[hidden] {
+	display: none !important;
+}
+
+.quest-photo {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.quest-photo__frame {
+	max-height: 52vh;
+	border-radius: 14px;
+	overflow: hidden;
+	border: 2px solid #c69aae;
+	background: linear-gradient(145deg, #f8eaf0, #e7c4d2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.quest-photo__frame img,
+.quest-photo__frame video {
+	width: 100%;
+	height: auto;
+	max-height: 52vh;
+	object-fit: contain;
+	display: block;
+	background-color: transparent !important;
+}
+
+.quest-photo__frame--video {
+	background: #2a2630;
+}
+
+.quest-photo__frame video {
+	object-fit: contain;
+	background-color: #2a2630 !important;
+}
+
+.quest-photo figcaption {
+	font-size: 14px;
+	line-height: 1.45;
+	text-align: center;
+	padding: 0 4px;
+	background-color: transparent !important;
+}
+
+.quest-card__status {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #c69aae;
+	margin-bottom: 12px;
+}
+
+.quest-card__name {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.quest-card__desc {
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.quest-card--empty,
+.quest-card--wip {
+	border-style: dashed;
+	opacity: 0.85;
+}
+
+.quest-under-construction {
+	max-width: min(520px, 92%);
+	margin: 24px auto 0;
+	padding: 28px 32px;
+	border: 2px dashed #c69aae;
+	border-radius: 16px;
+	text-align: center;
+	background-color: transparent !important;
+}
+
+.quest-under-construction__label {
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #c69aae;
+	margin-bottom: 12px;
+	background-color: transparent !important;
+}
+
+.quest-under-construction__text {
+	font-size: 16px;
+	line-height: 1.55;
+	margin: 0;
+	background-color: transparent !important;
+}
+
+body.dark-mode .quest-under-construction {
+	border-color: #f8eaf0;
+}
+
+body.dark-mode .quest-under-construction__label {
+	color: #f8eaf0;
+}
+
+body.dark-mode .quest-card--wip .quest-card__status {
+	color: #f8eaf0;
+}
+
+body:not(.dark-mode) #side-quests-cover,
+body:not(.dark-mode) .quest-section-slide {
+	background-color: #f4f1f4 !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) #side-quests-cover .side-quests-cover,
+body:not(.dark-mode) #side-quests-cover .side-quests-title,
+body:not(.dark-mode) #side-quests-cover .side-quests-tagline,
+body:not(.dark-mode) #side-quests-cover .side-quests-log-label,
+body:not(.dark-mode) .quest-section-slide .project-content,
+body:not(.dark-mode) .quest-section-slide .quest-section,
+body:not(.dark-mode) .quest-section-slide .quest-projects,
+body:not(.dark-mode) .quest-section-slide .quest-project-switch,
+body:not(.dark-mode) .quest-section-slide .quest-project-panel,
+body:not(.dark-mode) .quest-section-slide .quest-gallery-wrap,
+body:not(.dark-mode) .quest-section-slide .quest-gallery,
+body:not(.dark-mode) .quest-section-slide .quest-gallery-pagination,
+body:not(.dark-mode) .quest-section-slide .quest-photo,
+body:not(.dark-mode) .quest-gallery-page-label,
+body:not(.dark-mode) .quest-section .quest-section__title,
+body:not(.dark-mode) .quest-section .songs-subtitle,
+body:not(.dark-mode) .quest-photo figcaption,
+body:not(.dark-mode) .quest-under-construction,
+body:not(.dark-mode) .quest-under-construction__label,
+body:not(.dark-mode) .quest-under-construction__text {
+	background-color: transparent !important;
+}
+
+body:not(.dark-mode) .quest-project-btn,
+body:not(.dark-mode) button.quest-project-btn {
+	background-color: transparent !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) .quest-project-btn:hover,
+body:not(.dark-mode) .quest-project-btn.is-active,
+body:not(.dark-mode) button.quest-project-btn:hover,
+body:not(.dark-mode) button.quest-project-btn.is-active {
+	background-color: #f8eaf0 !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) button.quest-gallery-toggle {
+	background-color: #c69aae !important;
+	border: none !important;
+	color: #fbfbf1 !important;
+}
+
+body:not(.dark-mode) button.quest-gallery-toggle:hover {
+	background-color: #b889a3 !important;
+	border: none !important;
+	color: #fbfbf1 !important;
+}
+
+body:not(.dark-mode) .quest-card {
+	background-color: #fbfbf1 !important;
+	border-color: #c69aae !important;
+	color: #5f5966 !important;
+}
+
+body:not(.dark-mode) button.quest-card:hover {
+	background-color: #fbfbf1 !important;
+	border-color: #c69aae !important;
+}
+
+body:not(.dark-mode) .quest-card__name,
+body:not(.dark-mode) .quest-card__desc {
+	background-color: transparent !important;
+	color: #5f5966 !important;
+}
+
+body.dark-mode #side-quests-cover,
+body.dark-mode .quest-section-slide {
+	background-color: #4f4a56 !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode #side-quests-cover .side-quests-cover,
+body.dark-mode #side-quests-cover .side-quests-log-label,
+body.dark-mode .quest-section-slide .project-content,
+body.dark-mode .quest-section-slide .quest-section,
+body.dark-mode .quest-section-slide .quest-projects,
+body.dark-mode .quest-section-slide .quest-project-switch,
+body.dark-mode .quest-section-slide .quest-project-panel,
+body.dark-mode .quest-section-slide .quest-gallery-wrap,
+body.dark-mode .quest-section-slide .quest-gallery,
+body.dark-mode .quest-section-slide .quest-gallery-pagination,
+body.dark-mode .quest-section-slide .quest-photo,
+body.dark-mode .quest-gallery-page-label,
+body.dark-mode .quest-section .quest-section__title,
+body.dark-mode .quest-section .songs-subtitle,
+body.dark-mode .quest-under-construction,
+body.dark-mode .quest-under-construction__label,
+body.dark-mode .quest-under-construction__text {
+	background-color: transparent !important;
+}
+
+body.dark-mode .quest-card {
+	background-color: #5f5966 !important;
+	border-color: #f8eaf0 !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode button.quest-card:hover {
+	background-color: #5f5966 !important;
+	border-color: #f8eaf0 !important;
+}
+
+body.dark-mode .quest-card__status {
+	color: #f8eaf0 !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .quest-card__name,
+body.dark-mode .quest-card__desc,
+body.dark-mode .quest-photo figcaption {
+	color: #f8eaf0 !important;
+	background-color: transparent !important;
+}
+
+body.dark-mode .quest-card__icon {
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode .quest-photo__frame {
+	border-color: #f8eaf0 !important;
+	background: linear-gradient(145deg, #5f5966, #4f4a56);
+}
+
+@media (max-width: 600px) {
+	.side-quests-title {
+		font-size: 42px;
+	}
+
+	#side-quests-cover .side-quests-grid {
+		grid-template-columns: 1fr;
+		width: min(320px, 92%);
+	}
 }
