@@ -263,38 +263,79 @@ function initQuestGalleryPagination() {
 }
 
 function initQuestProjectSwitch() {
-	const switcher = document.querySelector('.quest-project-switch');
-	if (!switcher) return;
+	const groups = document.querySelectorAll('.quest-projects');
+	if (!groups.length) return;
 
-	const buttons = switcher.querySelectorAll('[data-quest-project]');
-	const panels = document.querySelectorAll('[data-quest-project-panel]');
+	groups.forEach((group) => {
+		const switcher = group.querySelector('.quest-project-switch');
+		if (!switcher) return;
 
-	buttons.forEach((btn) => {
-		btn.addEventListener('click', () => {
-			const projectId = btn.dataset.questProject;
+		const buttons = switcher.querySelectorAll('[data-quest-project]');
+		const panels = group.querySelectorAll('[data-quest-project-panel]');
 
-			buttons.forEach((button) => {
-				const isActive = button === btn;
-				button.classList.toggle('is-active', isActive);
-				button.setAttribute('aria-selected', isActive ? 'true' : 'false');
-			});
+		buttons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const projectId = btn.dataset.questProject;
 
-			panels.forEach((panel) => {
-				const isActive = panel.dataset.questProjectPanel === projectId;
-				panel.classList.toggle('is-active', isActive);
-				panel.hidden = !isActive;
+				buttons.forEach((button) => {
+					const isActive = button === btn;
+					button.classList.toggle('is-active', isActive);
+					button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+				});
 
-				if (!isActive) {
-					panel.querySelectorAll('video').forEach((video) => video.pause());
-				}
+				panels.forEach((panel) => {
+					const isActive = panel.dataset.questProjectPanel === projectId;
+					panel.classList.toggle('is-active', isActive);
+					panel.hidden = !isActive;
 
-				if (isActive) {
-					panel.querySelectorAll('.quest-gallery-wrap').forEach((wrap) => {
-						wrap._questGalleryReset?.();
-					});
-				}
+					if (!isActive) {
+						panel.querySelectorAll('video').forEach((video) => video.pause());
+					}
+
+					if (isActive) {
+						panel.querySelectorAll('.quest-gallery-wrap').forEach((wrap) => {
+							wrap._questGalleryReset?.();
+						});
+						panel.querySelectorAll('[data-quest-carousel]').forEach((carousel) => {
+							carousel._questCarouselReset?.();
+						});
+					}
+				});
 			});
 		});
+	});
+}
+
+function initQuestMediaCarousels() {
+	document.querySelectorAll('[data-quest-carousel]').forEach((carousel) => {
+		const slides = Array.from(carousel.querySelectorAll('[data-quest-carousel-slide]'));
+		const previousBtn = carousel.querySelector('[data-quest-carousel-prev]');
+		const nextBtn = carousel.querySelector('[data-quest-carousel-next]');
+		const status = carousel.querySelector('[data-quest-carousel-status]');
+		let currentSlide = 0;
+
+		function showSlide(index) {
+			if (!slides.length) return;
+
+			currentSlide = (index + slides.length) % slides.length;
+			slides.forEach((slide, slideIndex) => {
+				const isActive = slideIndex === currentSlide;
+				slide.hidden = !isActive;
+				slide.classList.toggle('is-active', isActive);
+
+				if (!isActive) {
+					slide.querySelectorAll('video').forEach((video) => video.pause());
+				}
+			});
+
+			if (status) status.textContent = `${currentSlide + 1} / ${slides.length}`;
+		}
+
+		previousBtn?.addEventListener('click', () => showSlide(currentSlide - 1));
+		nextBtn?.addEventListener('click', () => showSlide(currentSlide + 1));
+
+		carousel._questCarouselReset = () => showSlide(0);
+		showSlide(0);
 	});
 }
 
@@ -684,6 +725,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		initQuestProjectSwitch();
 	} catch (error) {
 		console.error('initQuestProjectSwitch failed:', error);
+	}
+
+	try {
+		initQuestMediaCarousels();
+	} catch (error) {
+		console.error('initQuestMediaCarousels failed:', error);
 	}
 
 	try {

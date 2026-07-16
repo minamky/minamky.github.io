@@ -2479,6 +2479,94 @@ Random Side Quests page
 	text-align: center;
 }
 
+.quest-section__intro {
+	max-width: 640px;
+	margin: 6px auto 0;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.55;
+	color: #5f5966;
+	background-color: transparent !important;
+}
+
+.quest-recipe {
+	margin: 20px auto 4px;
+	padding: 18px 26px;
+	border: 2px solid #c69aae;
+	border-radius: 16px;
+	background-color: transparent !important;
+	text-align: center;
+	max-width: min(460px, 92%);
+}
+
+.quest-recipe__label {
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #c69aae;
+	margin-bottom: 12px;
+	background-color: transparent !important;
+}
+
+.quest-recipe__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	background-color: transparent !important;
+}
+
+.quest-recipe__list li {
+	font-size: 15px;
+	line-height: 1.4;
+	color: #5f5966;
+	background-color: transparent !important;
+}
+
+.quest-project-note {
+	margin: 0 auto 16px;
+	max-width: 520px;
+	text-align: center;
+	font-size: 15px;
+	font-style: italic;
+	line-height: 1.5;
+	opacity: 0.9;
+	color: #5f5966;
+	background-color: transparent !important;
+}
+
+#quest-ice-cream .quest-section__intro {
+	margin-top: 4px;
+}
+
+#quest-ice-cream .quest-recipe {
+	margin: 12px auto 10px;
+	padding: 12px 22px;
+	max-width: min(560px, 92%);
+}
+
+#quest-ice-cream .quest-recipe__label {
+	margin-bottom: 8px;
+}
+
+#quest-ice-cream .quest-recipe__list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: 28px;
+	row-gap: 4px;
+}
+
+#quest-ice-cream .quest-projects {
+	gap: 10px;
+}
+
+#quest-ice-cream .quest-project-note {
+	margin-bottom: 8px;
+}
+
 .quest-projects {
 	width: 100%;
 	display: flex;
@@ -2534,11 +2622,95 @@ body.dark-mode button.quest-project-btn.is-active {
 .quest-project-panel {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 }
 
 .quest-project-panel[hidden] {
 	display: none !important;
+}
+
+.quest-media-carousel {
+	width: min(500px, 90vw);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: transparent !important;
+}
+
+.quest-media-carousel__viewport {
+	width: 100%;
+	background-color: transparent !important;
+}
+
+.quest-media-carousel .quest-photo {
+	width: 100%;
+	background-color: transparent !important;
+}
+
+.quest-media-carousel .quest-photo__frame {
+	height: min(35vh, 340px);
+	max-height: none;
+}
+
+.quest-media-carousel .quest-photo__frame img,
+.quest-media-carousel .quest-photo__frame video {
+	width: 100%;
+	height: 100%;
+	max-height: none;
+	object-fit: contain;
+}
+
+.quest-media-carousel__controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+	margin-top: 12px;
+	background-color: transparent !important;
+}
+
+.quest-media-carousel__btn,
+body:not(.dark-mode) button.quest-media-carousel__btn {
+	width: 42px !important;
+	height: 42px;
+	padding: 0 !important;
+	border: 1.5px solid #c69aae !important;
+	border-radius: 50% !important;
+	background-color: transparent !important;
+	color: #5f5966 !important;
+	font-size: 18px !important;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.quest-media-carousel__btn:hover,
+body:not(.dark-mode) button.quest-media-carousel__btn:hover {
+	background-color: #f8eaf0 !important;
+	color: #5f5966 !important;
+}
+
+.quest-media-carousel__status {
+	min-width: 42px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	background-color: transparent !important;
+}
+
+body.dark-mode .quest-media-carousel__btn,
+body.dark-mode button.quest-media-carousel__btn {
+	border-color: #f8eaf0 !important;
+	background-color: transparent !important;
+	color: #f8eaf0 !important;
+}
+
+body.dark-mode .quest-media-carousel__btn:hover,
+body.dark-mode button.quest-media-carousel__btn:hover {
+	background-color: rgba(248, 234, 240, 0.12) !important;
+	color: #f8eaf0 !important;
 }
 
 .quest-gallery-wrap {
@@ -2842,10 +3014,20 @@ body.dark-mode .quest-section-slide .quest-photo,
 body.dark-mode .quest-gallery-page-label,
 body.dark-mode .quest-section .quest-section__title,
 body.dark-mode .quest-section .songs-subtitle,
+body.dark-mode .quest-section__intro,
+body.dark-mode .quest-recipe,
+body.dark-mode .quest-recipe__label,
+body.dark-mode .quest-recipe__list,
+body.dark-mode .quest-recipe__list li,
+body.dark-mode .quest-project-note,
 body.dark-mode .quest-under-construction,
 body.dark-mode .quest-under-construction__label,
 body.dark-mode .quest-under-construction__text {
 	background-color: transparent !important;
+}
+
+body.dark-mode .quest-recipe {
+	border-color: #f8eaf0 !important;
 }
 
 body.dark-mode .quest-card {
@@ -2888,5 +3070,13 @@ body.dark-mode .quest-photo__frame {
 	#side-quests-cover .side-quests-grid {
 		grid-template-columns: 1fr;
 		width: min(320px, 92%);
+	}
+
+	#quest-ice-cream .quest-recipe__list {
+		grid-template-columns: 1fr;
+	}
+
+	.quest-media-carousel .quest-photo__frame {
+		height: min(32vh, 300px);
 	}
 }
