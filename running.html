@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Mina's Running</title>
+		<link rel="stylesheet" href="css/music-style.css">
+		<meta name="viewport" content="width=display-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto+Mono&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/png" href="images/cute-favicon.png" />
+	</head>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<body>
+		<div class="container">
+			<div class="navigation-bar">
+				<h4 id="logo-word">Mina Ky</h4>
+				<div class="contain">
+					<nav class="topnav" id="myTopnav">
+						<ul>
+							<a href="index.html" class="active">Home</a>
+							<a href="index.html#aboutme">Coursework</a>
+							<div class="dropdown">
+								<a href="projects.html" class="dropbtn">Projects</a>
+								<div class="dropdown-content">
+									<a href="pulse.html">Pulse</a>
+									<a href="datebase.html">DateBase</a>
+									<a href="nomi.html">Nomi</a>
+									<a href="taskdump.html">TaskDump</a>
+									<a href="https://second-thought-lilac.vercel.app/" target="_blank" rel="noopener noreferrer">Second Thought</a>
+								</div>
+							</div>
+							<div class="dropdown">
+								<a href="music.html" class="dropbtn">Fun</a>
+								<div class="dropdown-content">
+									<a href="music.html">Music</a>
+									<a href="side-quests.html">Side Quests</a>
+									<a href="running.html">Running</a>
+								</div>
+							</div>
+							<button id="dark-mode-toggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+								<svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<circle cx="12" cy="12" r="4" stroke="#5F5966" stroke-width="2" fill="#5F5966"/>
+									<path d="M12 2V4M12 20V22M22 12H20M4 12H2M19.07 4.93L17.66 6.34M6.34 17.66L4.93 19.07M19.07 19.07L17.66 17.66M6.34 6.34L4.93 4.93" stroke="#5F5966" stroke-width="2" stroke-linecap="round"/>
+								</svg>
+								<svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#5F5966" stroke-width="2" fill="#5F5966"/>
+								</svg>
+							</button>
+							<a href="javascript:void(0);" class="icon" ontouch="myFunction()" onClick="myFunction()"><i class="fa fa-bars"></i></a>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="slides" id="home">
+				<div class="home-hero-row">
+					<div class="intro">
+						<h1 id="my-name"><span class="name-line">Running</span><span class="name-line">Dashboard</span></h1>
+						<p class="songs-subtitle">Template page for Strava stats. API integration coming soon.</p>
+						<div class="intro-buttons">
+							<button type="button" onClick="document.getElementById('overview').scrollIntoView()">Overview</button>
+							<button type="button" onClick="document.getElementById('recent-runs').scrollIntoView()">Recent Runs</button>
+							<button type="button" onClick="document.getElementById('goals').scrollIntoView()">Goals</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides" id="overview">
+				<div class="project-content">
+					<h1 class="title">At a Glance</h1>
+					<p class="songs-subtitle">Placeholder cards for aggregate Strava metrics.</p>
+					<div class="song-grid">
+						<div class="song-grid-item">
+							<div class="song-overlay" style="opacity:1;position:static;">
+								<span class="song-overlay-title">Weekly Distance</span>
+								<span class="song-overlay-artist">-- mi</span>
+							</div>
+						</div>
+						<div class="song-grid-item">
+							<div class="song-overlay" style="opacity:1;position:static;">
+								<span class="song-overlay-title">Weekly Time</span>
+								<span class="song-overlay-artist">-- hr</span>
+							</div>
+						</div>
+						<div class="song-grid-item">
+							<div class="song-overlay" style="opacity:1;position:static;">
+								<span class="song-overlay-title">Avg Pace</span>
+								<span class="song-overlay-artist">-- /mi</span>
+							</div>
+						</div>
+						<div class="song-grid-item">
+							<div class="song-overlay" style="opacity:1;position:static;">
+								<span class="song-overlay-title">Elevation Gain</span>
+								<span class="song-overlay-artist">-- ft</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides" id="recent-runs">
+				<div class="project-content">
+					<h1 class="title">Recent Runs</h1>
+					<p class="songs-subtitle">These cards will be auto-filled from Strava once connected.</p>
+					<div class="raves-grid">
+						<article class="rave-card rave-card--past">
+							<div class="rave-card__stub">
+								<span class="rave-card__month">MON</span>
+								<span class="rave-card__day">--</span>
+							</div>
+							<div class="rave-card__body">
+								<h3 class="rave-card__name">Morning Easy Run</h3>
+								<p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i> Route placeholder</p>
+							</div>
+						</article>
+						<article class="rave-card rave-card--past">
+							<div class="rave-card__stub">
+								<span class="rave-card__month">WED</span>
+								<span class="rave-card__day">--</span>
+							</div>
+							<div class="rave-card__body">
+								<h3 class="rave-card__name">Tempo Session</h3>
+								<p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i> Route placeholder</p>
+							</div>
+						</article>
+						<article class="rave-card rave-card--past">
+							<div class="rave-card__stub">
+								<span class="rave-card__month">SAT</span>
+								<span class="rave-card__day">--</span>
+							</div>
+							<div class="rave-card__body">
+								<h3 class="rave-card__name">Long Run</h3>
+								<p class="rave-card__location"><i class="fa fa-map-marker" aria-hidden="true"></i> Route placeholder</p>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides" id="goals">
+				<div class="project-content">
+					<h1 class="title">Goals</h1>
+					<p class="songs-subtitle">Space for weekly goals, race prep, and personal best tracking.</p>
+					<div class="raves-grid">
+						<article class="rave-card rave-card--past">
+							<div class="rave-card__body">
+								<h3 class="rave-card__name">Goal 1: Weekly Mileage</h3>
+								<p class="rave-card__location">Target: -- miles per week</p>
+							</div>
+						</article>
+						<article class="rave-card rave-card--past">
+							<div class="rave-card__body">
+								<h3 class="rave-card__name">Goal 2: Long Run</h3>
+								<p class="rave-card__location">Target: -- miles long run</p>
+							</div>
+						</article>
+						<article class="rave-card rave-card--past">
+							<div class="rave-card__body">
+								<h3 class="rave-card__name">Goal 3: Race Pace</h3>
+								<p class="rave-card__location">Target: -- /mi pace</p>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="slides" id="contact">
+				<div class="contact-content">
+					<h3 class="title">Contact Me</h3>
+					<div class="links-and-contact">
+						<div class="contact">
+							<form id="contact-form" actions="#">
+								<label for="name">
+									<h4>Name</h4>
+									<input type="text" id="name"/>
+								</label>
+								<label for="email">
+									<h4>Email</h4>
+									<input type="email" id="email" />
+								</label>
+								<label for="message">
+									<h4>Message</h4>
+									<textarea id="message"></textarea>
+								</label>
+								<div class="submit-button-wrapper">
+									<input id="submit-button" type="submit" value="Send Message">
+								</div>
+							</form>
+						</div>
+
+						<div class="links">
+							<div class="part">
+								<h4>Email:</h4>
+								<a href="mailto:minaky@stanford.edu">minaky@stanford.edu</a>
+							</div>
+							<div class="part">
+								<h4>Based in:</h4>
+								<p>The Greater Seattle Area</p>
+							</div>
+							<ul class="links-list">
+								<li>
+									<a href="https://www.linkedin.com/in/minaky/"><img class="link-image light-mode-icon" src="images/linkedin.jpg" alt="LinkedIn"/><img class="link-image dark-mode-icon" src="images/linkedinwhite.png" alt="LinkedIn"/></a>
+								</li>
+								<li>
+									<a href="https://github.com/minamky"><img class="link-image light-mode-icon" src="images/github.png" alt="GitHub"/><img class="link-image dark-mode-icon" src="images/github-white.png" alt="GitHub"/></a>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/mina.ky/"><img class="link-image light-mode-icon" src="images/instagram.png" alt="Instagram"/><img class="link-image dark-mode-icon" src="images/instagram-white.png" alt="Instagram"/></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
